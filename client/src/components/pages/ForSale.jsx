@@ -15,9 +15,9 @@ export default function ForSale() {
   return (
     <div className="Properties">
       <h2>For Sale</h2>
-      {/* {properties.map(c => (
+      {properties.map(c => (
         <li key={c._id}>{c.name}</li>
-      ))} */}
+      ))}
     </div>
   )
 }
