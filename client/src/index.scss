@@ -8,7 +8,7 @@ $primary: #32c3ff;
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
-// @import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 //
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap
@@ -35,7 +35,7 @@ body {
 }
 
 .info.info-danger {
-  background-color: #e73f3f;
+  background-color: #1d736c;
 }
 
 // --------------------
@@ -98,4 +98,16 @@ body {
     font-size: 1.2em;
     color: $primary;
   }
+}
+.background-image {
+  width: 100%;
+}
+
+.background-image:hover {
+  transform: scale(1.5);
+  transition: transform 2.9s ease;
+}
+
+.navbar {
+  z-index: 11111;
 }
