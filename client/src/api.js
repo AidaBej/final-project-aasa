@@ -74,7 +74,6 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
-
   getProperties() {
     return service
       .get('/forsale')

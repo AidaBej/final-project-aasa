@@ -54,7 +54,6 @@ require('./passport')(app)
 
 app.use('/api', require('./routes/index'))
 app.use('/api', require('./routes/auth'))
-app.use('/api/countries', require('./routes/countries'))
 app.use('/api/forsale', require('./routes/forsale'))
 app.use('/api/forrent', require('./routes/forrent'))
 app.use('/api/contactus', require('./routes/contactus'))
