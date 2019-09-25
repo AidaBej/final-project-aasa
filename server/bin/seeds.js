@@ -15,9 +15,9 @@ require('../configs/database')
 const properties = [
   {
     title: 'Old workshop with a bohemian spirit',
-    type: 'Apartment',
+    type: 'Triplex',
     kind: 'For Sale',
-    location: 'Paris 2',
+    location: 'Paris 1',
     budget: 1298000,
     size: 101,
     rooms: 3,
@@ -38,7 +38,7 @@ const properties = [
   },
   {
     title: 'Mini loft in Montorgueil',
-    type: 'Apartment',
+    type: 'Loft',
     kind: 'For Sale',
     location: 'Paris 2',
     budget: 400000,

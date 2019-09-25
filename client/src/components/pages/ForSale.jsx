@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 
+
 export default function ForSale() {
   const [properties, setProperties] = useState([])
   useEffect(() => {
@@ -13,10 +14,10 @@ export default function ForSale() {
   }, [])
 
   return (
-    <div className="Properties">
-      <h2>For Sale</h2>
-      {properties.map(c => (
-        <li key={c._id}>{c.name}</li>
+    <div className="Properties-list">
+      <h2>Properties for sale</h2>
+      {properties.map(property => (
+        <li key={property._id}>{property.title}</li>
       ))}
     </div>
   )

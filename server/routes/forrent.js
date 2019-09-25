@@ -1,7 +1,8 @@
 const express = require('express')
 const Property = require('../models/Property')
-
 const router = express.Router()
+
+// GET Properties for rent
 
 // Route to get all countries
 router.get('/', (req, res, next) => {
