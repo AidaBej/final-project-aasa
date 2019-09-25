@@ -16,19 +16,20 @@ export default function Home() {
     // />
 
     <div className="home">
-      <div className="square-hp"> </div>
-
-      <div className="bloc-hp">
-        What are you looking for?
-        <div className="buttons">
-          <a href="/forsale">
-            <button className="button-view">Buy</button>
-          </a>
-          <a href="/forrent">
-            <button className="button-view">Rent</button>
-          </a>
+      <div className="square-hp">
+        <div className="bloc-hp">
+          What are you looking for?
+          <div className="buttons">
+            <a href="/forsale">
+              <button className="button-view">Buy</button>
+            </a>
+            <a href="/forrent">
+              <button className="button-view">Rent</button>
+            </a>
+          </div>
         </div>
       </div>
+      <div className="background-image-test"></div>
     </div>
   )
 }
