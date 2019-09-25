@@ -14,7 +14,7 @@ const bcryptSalt = 10
 
 require('../configs/database')
 
-let users = [
+let properties = [
   {
     username: 'alice',
     password: bcrypt.hashSync('alice', bcrypt.genSaltSync(bcryptSalt)),
