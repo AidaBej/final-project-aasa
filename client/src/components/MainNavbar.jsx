@@ -10,11 +10,16 @@ function MainNavbar(props) {
   }
   return (
     <nav className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1 className="App-title">MERN Boilerplate</h1>
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <h1 className="App-title">IRONLUX</h1>
       <NavLink to="/" exact>
         Home
       </NavLink>
+      <NavLink to="/forsale">For sale</NavLink>
+      <NavLink to="/forrent">For rent</NavLink>
+      <NavLink to="/contactus">Contact us</NavLink>
+      <NavLink to="/favorite">Favorites</NavLink>
+
       <NavLink to="/countries">Countries</NavLink>
       <NavLink to="/add-country">Add country</NavLink>
       {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
