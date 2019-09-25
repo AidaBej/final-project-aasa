@@ -10,7 +10,7 @@ function MainNavbar(props) {
   }
   const [shown, setShown] = useState(false)
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-info mb-4">
+    <nav className="navbar navbar-expand-sm navbar-dark  mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
       <Link className="navbar-brand" to="/">

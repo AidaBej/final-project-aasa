@@ -19,69 +19,7 @@ $primary: #32c3ff;
 
 // --------------------
 // Style reusable for all components
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.info {
-  margin: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  display: inline-block;
-  background-color: #5776e9;
-  color: white;
-}
-
-.info.info-danger {
-  background-color: #1d736c;
-}
-
-// --------------------
-// Style for App component
-.App {
-  text-align: center;
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
-
-  .App-header {
-    background-color: $primary;
-    padding: 20px;
-    color: white;
-
-    a {
-      color: white;
-      padding: 0 5px;
-      text-decoration: unset;
-    }
-
-    a.active {
-      font-weight: bold;
-    }
-  }
-
-  .App-title {
-    font-size: 1.5em;
-  }
-
-  .App-intro {
-    font-size: large;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
-}
+//
 
 // --------------------
 // Style for Home component
@@ -91,14 +29,6 @@ body {
   }
 }
 
-// --------------------
-// Style for Secret component
-.Secret {
-  .result {
-    font-size: 1.2em;
-    color: $primary;
-  }
-}
 .background-image {
   position: fixed;
   top: 0;
@@ -107,58 +37,95 @@ body {
   min-height: 100%;
 }
 
-.background-image:hover {
+.home:hover {
   transform: scale(1.5);
   transition: transform 2.9s ease;
 }
 
 .navbar {
   z-index: 11111;
+  background-color: #145374;
 }
 
-// #section1 {
-//   background-color: #0ff;
-// }
-// .section-content {
-//   /*border:1px solid #F00;*/
-//   width: 80%;
-//   margin: 0 auto;
-//   text-align: center;
-// }
-// h1 {
-//   margin: 0;
-//   color: #333;
-// }
-// h1 i.fa {
-//   font-size: 3em;
-//   color: #fff;
-//   transition: all 0.3s ease-in-out;
-// }
-// i.fa:hover {
-//   color: #f00;
-//   cursor: pointer;
-//   transform: scale(1.2) rotate(10deg);
-// }
-// #section2 {
-//   background-color: #0f0;
-// }
-// #section3 {
-//   background-color: #0ff;
-// }
-// .slide {
-//   background-size: cover;
-//   background-position: center;
-// }
-// #slide1 {
-//   background-image: url(http://sites.psu.edu/siowfa15/wp-content/uploads/sites/29639/2015/10/cat.jpg);
-// }
-// #section4 {
-//   background-color: #999;
-// }
-// #fp-nav ul li a span {
-//   background-color: #f00;
-// }
+.button-view {
+  z-index: 11111;
+}
 
-// .fp-slidesNav ul li a span {
-//   background-color: #fff;
-// }
+.home {
+  height: calc(100vh - (84px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url('/background-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.square-hp {
+  background-color: lightgray;
+  opacity: 0.8;
+  min-width: 370px;
+  max-width: 270px;
+  min-height: 130px;
+  max-height: 270px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.bloc-hp {
+  padding: 60px;
+  color: white;
+  font-size: 23px;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  z-index: 999;
+  text-align: center;
+}
+
+.button-view {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #5588a3;
+  opacity: 1;
+  color: white;
+  font-size: 18px;
+  font-weight: bolder;
+  z-index: 9999;
+  width: 100px;
+  border-radius: 15px;
+}
+
+.button-view:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
