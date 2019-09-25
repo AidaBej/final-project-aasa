@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 
-export default function Countries() {
-  const [countries, setCountries] = useState([])
+export default function Favorites() {
+  const [favorites, setFavorites] = useState([])
   useEffect(() => {
     api
-      .getCountries()
-      .then(countries => {
-        setCountries(countries)
+      .getFavorites()
+      .then(favorites => {
+        setFavorites(favorites)
       })
       .catch(err => console.log(err))
   }, [])
 
   return (
-    <div className="Countries">
+    <div className="Favorites">
       <h2>Favorites</h2>
-      {countries.map(c => (
+      {/* {properties.map(c => (
         <li key={c._id}>{c.name}</li>
-      ))}
+      ))} */}
     </div>
   )
 }

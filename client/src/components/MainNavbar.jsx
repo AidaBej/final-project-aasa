@@ -11,17 +11,16 @@ function MainNavbar(props) {
   return (
     <nav className="App-header">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <h1 className="App-title">IRONLUX</h1>
       <NavLink to="/" exact>
-        Home
+        <h1 className="App-title">IRONLUX</h1>
       </NavLink>
       <NavLink to="/forsale">For sale</NavLink>
       <NavLink to="/forrent">For rent</NavLink>
       <NavLink to="/contactus">Contact us</NavLink>
-      <NavLink to="/favorite">Favorites</NavLink>
+      <NavLink to="/favorites">Favorites </NavLink>
 
-      <NavLink to="/countries">Countries</NavLink>
-      <NavLink to="/add-country">Add country</NavLink>
+      {/* <NavLink to="/countries">Countries</NavLink> */}
+      <NavLink to="/add-country">Add property</NavLink>
       {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
       {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
       {api.isLoggedIn() && (
@@ -29,7 +28,7 @@ function MainNavbar(props) {
           Logout
         </Link>
       )}
-      <NavLink to="/secret">Secret</NavLink>
+      {/* <NavLink to="/secret">Secret</NavLink> */}
     </nav>
   )
 }

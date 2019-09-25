@@ -75,6 +75,34 @@ export default {
       .catch(errHandler)
   },
 
+  getProperties() {
+    return service
+      .get('/forsale')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  getForRent() {
+    return service
+      .get('/forrent')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  getFavorites() {
+    return service
+      .get('/favorite')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  getContactUs() {
+    return service
+      .get('/contactus')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   addCountry(body) {
     return service
       .post('/countries', body)
