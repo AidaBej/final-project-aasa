@@ -62,9 +62,11 @@ const propertySchema = new mongoose.Schema({
     type: String,
     enum: ['Balcony', 'Swimming Pool', 'Terrace', 'Caretaker'],
   },
-  picture: {
-    type: String,
-  },
+  pictures: [
+    {
+      type: String,
+    },
+  ],
   localisation: {
     type: { type: String, enum: ['Point'], default: 'Point' },
     coordinates: [Number],
