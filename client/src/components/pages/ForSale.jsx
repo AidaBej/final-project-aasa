@@ -70,6 +70,7 @@ export default function ForSale() {
           <option value="">--To rent--</option>
           <option value="Apartment">Apartment</option>
           <option value="Loft">Loft</option>
+          <option value="Duplex">Duplex</option>
           <option value="Triplex">Triplex</option>
           <option value="Penthouse">Penthouse</option>
           <option value="Houseboat">Houseboat</option>
