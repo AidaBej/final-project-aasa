@@ -2,7 +2,7 @@
 
 // --------------------
 // Definition of variables
-$primary: #32c3ff;
+$primary: #1c698a;
 
 // ----------------------------------------
 // To install Boostrap:
@@ -29,13 +29,13 @@ $primary: #32c3ff;
   }
 }
 
-.background-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
+// .background-image {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   min-width: 100%;
+//   min-height: 100%;
+// }
 
 .background-image-test {
   position: fixed;
@@ -153,4 +153,130 @@ $primary: #32c3ff;
 
 .ContactUs {
   margin: 20px;
+}
+
+/* page contact */
+
+.background-image-contact {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/paris-rooftop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -2;
+}
+
+.contact {
+  height: calc(100vh - (84px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.square-contact {
+  // background-color: lightgray;
+  // opacity: 0.8;
+  min-width: 300px;
+  max-width: 970px;
+  min-height: 330px;
+  max-height: 470px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.bloc-contact {
+  padding: 60px;
+  color: white;
+  font-size: 23px;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  // position: absolute;
+  // z-index: 999;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.opacity-low-contact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: #5588a3;
+  opacity: 0.9;
+  border-radius: 20px;
+}
+
+.form-group {
+  display: inline-flex;
+}
+
+label {
+  font-weight: lighter;
+  font-weight: 10px;
+  padding-right: 10px;
+  // padding-left: 30px;
+  align-items: flex-end;
+}
+
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-primary {
+  background-color: #212529;
+  color: white;
+  width: 200px;
+}
+
+.btn-primary:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.form-group-msg {
+  padding-bottom: 20px;
+}
+
+.contact-title {
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+
+.App-logo {
+  height: 30px;
 }

@@ -12,9 +12,9 @@ function MainNavbar(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark  mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
+      <img src="WealthySameDoe.webp" className="App-logo" alt="logo" />
       <Link className="navbar-brand" to="/">
-        IronLux{' '}
+        Parisian Cocoon{' '}
       </Link>
       <button
         className="navbar-toggler"
