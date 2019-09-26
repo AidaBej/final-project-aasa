@@ -6,7 +6,7 @@ export default function Properties() {
   const [properties, setProperties] = useState([])
   useEffect(() => {
     api
-      .getProperties()
+      .getForRent()
       .then(properties => {
         setProperties(properties)
       })

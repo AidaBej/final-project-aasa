@@ -38,7 +38,7 @@ export default function ContactUs(props) {
     <div className="ContactUs">
       <h2>Contact us</h2>
       <form onSubmit={handleClick} onChange={handleInputChange}>
-        <div class="form-group">
+        <div className="form-group">
           <label for="InputName">Name</label>
           <input
             name="name"
@@ -48,7 +48,7 @@ export default function ContactUs(props) {
             placeholder="Enter your name"
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="InputEmail">Email</label>
           <input
             name="email"
