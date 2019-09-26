@@ -18,6 +18,7 @@ export default function ContactUs(props) {
 
   function handleClick(e) {
     e.preventDefault()
+    console.log('clicked')
     let data = {
       name: state.name,
       email: state.email,
@@ -25,17 +26,18 @@ export default function ContactUs(props) {
       message: state.message,
     }
     api
-      .contactus(data)
+      .contactUs(data)
       .then(result => {
         console.log('SUCCESS!')
         props.history.push('/') // Redirect to the home page
       })
       .catch(err => setState({ message: err.toString() }))
   }
+
   return (
     <div className="ContactUs">
       <h2>Contact us</h2>
-      <form action="POST" onChange={handleInputChange}>
+      <form onSubmit={handleClick} onChange={handleInputChange}>
         <div class="form-group">
           <label for="InputName">Name</label>
           <input
@@ -81,11 +83,11 @@ export default function ContactUs(props) {
             placeholder="Enter your message"
           />
         </div>
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
       </form>
       <br></br>
-      <button type="submit" class="btn btn-primary">
-        Submit
-      </button>
     </div>
   )
 }

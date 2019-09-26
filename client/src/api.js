@@ -95,9 +95,9 @@ export default {
       .catch(errHandler)
   },
 
-  getContactUs() {
+  contactUs(data) {
     return service
-      .get('/contactus')
+      .post('/send-email', data)
       .then(res => res.data)
       .catch(errHandler)
   },
