@@ -82,8 +82,8 @@ $primary: #32c3ff;
 }
 
 .square-hp {
-  background-color: lightgray;
-  opacity: 0.8;
+  // background-color: lightgray;
+  // opacity: 0.8;
   min-width: 370px;
   max-width: 270px;
   min-height: 130px;
@@ -99,6 +99,18 @@ $primary: #32c3ff;
   align-content: center;
   position: relative;
   z-index: -1;
+  border-radius: 20px;
+}
+.opacity-low {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: #5588a3;
+  opacity: 0.6;
+  border-radius: 20px;
 }
 
 .bloc-hp {
@@ -115,6 +127,7 @@ $primary: #32c3ff;
   // position: absolute;
   // z-index: 999;
   text-align: center;
+  border-radius: 20px;
 }
 
 .button-view {
@@ -137,4 +150,8 @@ $primary: #32c3ff;
   -webkit-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
+}
+
+.ContactUs {
+  margin: 20px;
 }
