@@ -104,6 +104,7 @@ export default function ContactUs(props) {
               </div>
             </form>
             <br></br>
+
             <div className="background-image-contact"></div>
           </div>
         </div>
