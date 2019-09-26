@@ -3,12 +3,12 @@ import api from '../../api'
 import { useForm } from '../../hooks'
 
 export default function Login(props) {
-  const { formValues, getInputProps } = useForm({ lang: 'en' })
+  const { formValues, getInputProps } = useForm({ email: '', password: '' })
 
   function handleSubmit(e) {
     e.preventDefault()
     api
-      .login(formValues.username, formValues.password)
+      .login(formValues.email, formValues.password)
       .then(result => {
         console.log('SUCCESS!')
         props.history.push('/') // Redirect to the home page
@@ -22,7 +22,7 @@ export default function Login(props) {
     <div className="Login">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        Username: <input type="text" {...getInputProps('username')} /> <br />
+        Email: <input type="text" {...getInputProps('email')} /> <br />
         Password: <input type="password" {...getInputProps('password')} />{' '}
         <br />
         <button>Login</button>

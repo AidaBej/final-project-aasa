@@ -5,6 +5,12 @@ const userSchema = new Schema(
   {
     email: String,
     password: String,
+    favorite: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Properties',
+      },
+    ],
   },
   {
     timestamps: {
