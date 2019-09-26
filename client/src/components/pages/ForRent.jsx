@@ -94,56 +94,25 @@ export default function ForRent() {
       <br />
       <br />
       <br />
-      {getFilteredSales().map((rent, i) => (
+      {getFilteredSales().map((property, i) => (
         <div key={i} className="img-card">
-          <p>
-            <ul key={rent._id}>
-              <img
-                src={rent.pictures[0]}
-                alt={rent.title}
-                className="property-imgs"
-              />
+          <Link to={`/detail/${property._id}`}>
+            <ul key={property._id}>
+              < img src={property.pictures[0]} alt={property.title} className="property-imgs" />
               <li>
-                <Link to={rent.singleproperty} className="property">
-                  {rent.title}
+                <Link to={property.singleproperty} className="property">
+                  {property.title}
                 </Link>
               </li>
-              <li>
-                <strong>{rent.budget}€</strong>
-              </li>
-              <li>
-                <strong>
-                  {rent.type} {rent.kind}
-                </strong>
-              </li>
-              <li>
-                {rent.rooms} rooms || {rent.bedrooms} bedrooms || {rent.size} m²
-              </li>
-              <li>{rent.location}</li>
+              <li><strong>{property.budget}€</strong></li>
+              <li><strong>{property.type} {property.kind}</strong></li>
+              <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
+              <li>{property.location}</li>
             </ul>
-          </p>
+          </Link>
+
         </div>
       ))}
-
-      <div className="img-card">
-        {properties
-          .map((property) => (
-            <Link to={`/detail/${property._id}`}>
-              <ul key={property._id}>
-                < img src={property.pictures[0]} alt={property.title} className="property-imgs" />
-                <li>
-                  <Link to={property.singleproperty} className="property">
-                    {property.title}
-                  </Link>
-                </li>
-                <li><strong>{property.budget}€</strong></li>
-                <li><strong>{property.type} {property.kind}</strong></li>
-                <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
-                <li>{property.location}</li>
-              </ul>
-            </Link>
-          ))}
-      </div>
 
     </div>
   )

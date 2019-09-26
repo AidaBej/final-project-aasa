@@ -14,12 +14,6 @@ export default function Properties(props) {
       }
       )
       .catch(err => console.log(err))
-    // api
-    //   .getForRent()
-    //   .then(properties => {
-    //     setProperties(properties)
-    //   })
-    //   .catch(err => console.log(err))
   }, [])
 
   return (
