@@ -2,11 +2,9 @@ const express = require('express')
 const Property = require('../models/Property')
 const router = express.Router()
 
-// GET Properties for rent
-
-// Route to get all countries
+// GET Properties FOR RENT
 router.get('/', (req, res, next) => {
-  Property.find()
+  Property.find({ kind: 'For Rent' })
     .then(properties => {
       res.json(properties)
     })

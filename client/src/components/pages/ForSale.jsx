@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../api'
 
 export default function ForSale() {
   const [filter, setFilter] = useState({
     type: '',
     location: '',
-    // budget: '',
-    // size: '',
-    // rooms: '',
-    // bedrooms: '',
-    // others: '',
+    budget: '',
+    size: '',
+    rooms: '',
+    bedrooms: '',
+    others: '',
   })
 
   const [properties, setProperties] = useState([])
@@ -58,9 +59,15 @@ export default function ForSale() {
       <nav>
         <h2>Properties for sale</h2>
 
-        <h3>{JSON.stringify(filter)}</h3>
-        <select name="type" value={filter.type} onChange={handleChange}>
-          <option value="">--Please choose an option--</option>
+        {/* <h3>{JSON.stringify(filter)}</h3> */}
+        <select
+          name="type"
+          value={filter.type}
+          onChange={handleChange}
+          className="form-control"
+          style={{ width: '30%' }}
+        >
+          <option value="">--To rent--</option>
           <option value="Apartment">Apartment</option>
           <option value="Loft">Loft</option>
           <option value="Triplex">Triplex</option>
@@ -68,7 +75,13 @@ export default function ForSale() {
           <option value="Houseboat">Houseboat</option>
         </select>
 
-        <select name="location" value={filter.location} onChange={handleChange}>
+        <select
+          name="location"
+          value={filter.location}
+          onChange={handleChange}
+          className="form-control"
+          style={{ width: '30%' }}
+        >
           <option value="">--Where ?--</option>
           {getLocation().map((sale, i) => (
             <option key={i} value={sale}>
@@ -76,12 +89,37 @@ export default function ForSale() {
             </option>
           ))}
         </select>
-      </nav>
+      </nav>{' '}
+      <br />
+      <br />
+      <br />
       {getFilteredSales().map((sale, i) => (
         <div key={i}>
           <p>
-            {sale.type}
-            {sale.location}
+            <ul key={sale._id}>
+              <img
+                src={sale.pictures[0]}
+                alt={sale.title}
+                className="property-imgs"
+              />
+              <li>
+                <Link to={sale.singleproperty} className="property">
+                  {sale.title}
+                </Link>
+              </li>
+              <li>
+                <strong>{sale.budget}€</strong>
+              </li>
+              <li>
+                <strong>
+                  {sale.type} {sale.kind}
+                </strong>
+              </li>
+              <li>
+                {sale.rooms} rooms || {sale.bedrooms} bedrooms || {sale.size} m²
+              </li>
+              <li>{sale.location}</li>
+            </ul>
           </p>
         </div>
       ))}
