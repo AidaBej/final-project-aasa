@@ -19,18 +19,20 @@ export default function Properties() {
       <div className="img-card">
         {properties
           .map((property) => (
-            <ul key={property._id}>
-              < img src={property.pictures[0]} alt={property.title} className="property-imgs" />
-              <li>
-                <Link to={property.singleproperty} className="property">
-                  {property.title}
-                </Link>
-              </li>
-              <li><strong>{property.budget}€</strong></li>
-              <li><strong>{property.type} {property.kind}</strong></li>
-              <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
-              <li>{property.location}</li>
-            </ul>
+            <Link to={`/detail/${property._id}`}>
+              <ul key={property._id}>
+                < img src={property.pictures[0]} alt={property.title} className="property-imgs" />
+                <li>
+                  <Link to={property.singleproperty} className="property">
+                    {property.title}
+                  </Link>
+                </li>
+                <li><strong>{property.budget}€</strong></li>
+                <li><strong>{property.type} {property.kind}</strong></li>
+                <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
+                <li>{property.location}</li>
+              </ul>
+            </Link>
           ))}
       </div>
     </div>

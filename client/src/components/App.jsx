@@ -4,6 +4,7 @@ import MainNavbar from './MainNavbar'
 import Home from './pages/Home'
 import ForSale from './pages/ForSale'
 import ForRent from './pages/ForRent'
+import OneProperty from './pages/OneProperty'
 import ContactUs from './pages/ContactUs'
 import Favorites from './pages/Favorites'
 import Countries from './pages/Countries'
@@ -20,6 +21,8 @@ export default function App() {
         <Route path="/" exact component={Home} />
         <Route path="/forsale" component={ForSale} />
         <Route path="/forrent" component={ForRent} />
+        <Route path="/detail/:id" component={OneProperty} />
+
         <Route path="/favorites" component={Favorites} />
         <Route path="/contactus" component={ContactUs} />
 

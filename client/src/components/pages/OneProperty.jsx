@@ -2,20 +2,34 @@ import React, { useEffect, useState } from 'react'
 import api from '../../api'
 // import { Link } from "react-router-dom";
 
-export default function Properties() {
-  const [properties, setProperties] = useState([])
+export default function Properties(props) {
+  const [property, setProperty] = useState([])
   useEffect(() => {
+    let id = props.match.params.id
     api
-      .getForRent()
-      .then(properties => {
-        setProperties(properties)
-      })
+      .getDetail(id)
+      .then(res => {
+        console.log(res)
+        setProperty(res)
+      }
+      )
       .catch(err => console.log(err))
+    // api
+    //   .getForRent()
+    //   .then(properties => {
+    //     setProperties(properties)
+    //   })
+    //   .catch(err => console.log(err))
   }, [])
 
   return (
     <div className="Property">
       <h2>One property page</h2>
+      <div> {property.title} </div>
+
+      {/* {properties.map((property, i) => {
+        return <div> {property.title} </div>
+      })} */}
       {/* <div className="img-card">
         {properties
           .map((property) => (

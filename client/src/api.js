@@ -81,6 +81,13 @@ export default {
       .catch(errHandler)
   },
 
+  getDetail(id) {
+    return service
+      .get(`/detail/${id}`)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   getForRent() {
     return service
       .get('/forrent')
