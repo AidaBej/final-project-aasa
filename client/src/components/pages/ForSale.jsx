@@ -53,7 +53,7 @@ export default function ForSale() {
       return sale.type === filter.type && sale.location === filter.location
     })
   }
-  console.log(getLocation())
+  // console.log(getLocation())
   return (
     <div className="Properties-list">
       <nav>
@@ -67,7 +67,7 @@ export default function ForSale() {
           className="form-control"
           style={{ width: '30%' }}
         >
-          <option value="">--To rent--</option>
+          <option value="">--To Buy--</option>
           <option value="Apartment">Apartment</option>
           <option value="Loft">Loft</option>
           <option value="Duplex">Duplex</option>
