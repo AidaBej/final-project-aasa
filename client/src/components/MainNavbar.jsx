@@ -50,11 +50,13 @@ function MainNavbar(props) {
             </NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/favorites">
-              Favorites{' '}
-            </NavLink>
-          </li>
+          {api.isLoggedIn() && (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/favorites">
+                Favorites{' '}
+              </NavLink>
+            </li>
+          )}
 
           {!api.isLoggedIn() && (
             <li className="nav-item">
