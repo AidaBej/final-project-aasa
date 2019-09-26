@@ -6,6 +6,7 @@ const router = express.Router()
 router.get('/', (req, res, next) => {
   Property.find({ kind: 'For Rent' })
     .then(properties => {
+      console.log(properties)
       res.json(properties)
     })
     .catch(err => next(err))
