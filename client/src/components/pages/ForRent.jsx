@@ -24,6 +24,10 @@ export default function ForRent() {
       .sort()
   }
 
+  // function getImages() {
+  //   return properties.map(property => property.pictures)
+  // }
+
   useEffect(() => {
     api
       .getForRent()
@@ -56,7 +60,7 @@ export default function ForRent() {
   // console.log(getLocation())
 
   return (
-    <div className="Properties">
+    <div className="properties">
       <nav>
         <h2>Properties for rent</h2>
 
@@ -67,7 +71,7 @@ export default function ForRent() {
           className="form-control"
           style={{ width: '30%' }}
         >
-          <option value="">--To rent--</option>
+          <option value="">Types of properties to rent</option>
           <option value="Apartment">Apartment</option>
           <option value="Loft">Loft</option>
           <option value="Duplex">Duplex</option>
@@ -83,7 +87,7 @@ export default function ForRent() {
           className="form-control"
           style={{ width: '30%' }}
         >
-          <option value="">--Where ?--</option>
+          <option value="">Location</option>
           {getLocation().map((sale, i) => (
             <option key={i} value={sale}>
               {sale}
@@ -92,20 +96,33 @@ export default function ForRent() {
         </select>
       </nav>
       <br />
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       {getFilteredSales().map((property, i) => (
-        <div key={i} className="img-card">
+        <div key={i}>
           <Link to={`/detail/${property._id}`}>
-            <ul key={property._id}>
-              < img src={property.pictures[0]} alt={property.title} className="property-imgs" />
+            <ul key={property._id} className="property-card">
               <li>
-                <Link to={property.singleproperty} className="property">
-                  {property.title}
-                </Link>
+                <ul className="pictures-list">
+                  {
+                    property.pictures.map((pic, i) => (
+                      <li key={i}>
+                        <img src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+                      </li>
+                    ))
+                    // getImages().map((img, i) => (
+                    //   <li key={i}>
+                    //     <img src={img[i]} alt={property.title} className="property-imgs" />
+                    //   </li>
+                    // ))
+                  }
+                </ul>
               </li>
+              <li><strong>{property.title}</strong></li>
+              {/* <Link to={property.singleproperty} className="property-details">
+              </Link> */}
               <li><strong>{property.budget}€</strong></li>
-              <li><strong>{property.type} {property.kind}</strong></li>
+              <li>{property.type} {property.kind}</li>
               <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
               <li>{property.location}</li>
             </ul>
