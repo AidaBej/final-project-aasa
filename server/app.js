@@ -60,7 +60,6 @@ app.use('/api/detail', require('./routes/detail'))
 app.use('/api/contactus', require('./routes/contactus'))
 app.use('/api/favorites', require('./routes/favorites'))
 app.use('/api/aboutus', require('./routes/aboutus'))
-app.use('/api/test', require('./routes/test'))
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use('/api/*', (req, res, next) => {
