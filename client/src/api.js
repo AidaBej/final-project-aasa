@@ -94,6 +94,19 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
+  getAbout() {
+    return service
+      .get('/about')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  getTest() {
+    return service
+      .get('/test')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 
   getFavorites() {
     return service
