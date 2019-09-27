@@ -21,8 +21,25 @@ export default function Test() {
     <div className="container">
       <section className="background">
         <div className="content-wrapper">
-          <p className="content-title">Welcome to Parisian Cocoon</p>
-          <p className="content-subtitle">Scroll down</p>
+          {/* <p className="content-title">Welcome to Parisian Cocoon</p>
+          <p className="content-subtitle">Scroll down</p> */}
+          <div className="home">
+            <div className="square-hp">
+              <div className="opacity-low"></div>
+              <div className="bloc-hp">
+                What are you looking for?
+                <div className="buttons">
+                  <a href="/forsale">
+                    <button className="button-view">Buy</button>
+                  </a>
+                  <a href="/forrent">
+                    <button className="button-view">Rent</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* <div className="background-image-test"></div> */}
+          </div>
         </div>
       </section>
       <section className="background">

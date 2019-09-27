@@ -1,5 +1,6 @@
 // @import 'font-awesome'
 @import url('./forrent.scss');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
 // --------------------
 // Definition of variables
@@ -50,6 +51,10 @@ $primary: #1c698a;
 .navbar {
   z-index: 11111;
   background-color: #145374;
+}
+
+a.navbar-brand {
+  font-family: 'Dancing Script', cursive;
 }
 
 .button-view {

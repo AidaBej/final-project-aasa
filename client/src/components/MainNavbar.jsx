@@ -16,6 +16,13 @@ function MainNavbar(props) {
       <Link className="navbar-brand" to="/">
         Parisian Cocoon{' '}
       </Link>
+
+      {/* <li className="nav-item">
+        <NavLink className="nav-link" to="/">
+          Parisian Cocoon{' '}
+        </NavLink>
+      </li> */}
+
       <button
         className="navbar-toggler"
         type="button"
@@ -48,12 +55,6 @@ function MainNavbar(props) {
           <li className="nav-item">
             <NavLink className="nav-link" to="/aboutus">
               About us{' '}
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/test">
-              test{' '}
             </NavLink>
           </li>
 
