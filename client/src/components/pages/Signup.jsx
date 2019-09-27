@@ -3,8 +3,8 @@ import api from '../../api'
 
 export default function Signup(props) {
   const [state, setState] = useState({
-    username: '',
     name: '',
+    email: '',
     password: '',
     message: null,
   })
@@ -19,8 +19,8 @@ export default function Signup(props) {
   function handleClick(e) {
     e.preventDefault()
     let data = {
-      username: state.username,
       name: state.name,
+      email: state.email,
       password: state.password,
     }
     api
@@ -33,34 +33,62 @@ export default function Signup(props) {
   }
   return (
     <div className="Signup">
-      <h2>Signup</h2>
-      <form>
-        Username:{' '}
-        <input
-          type="text"
-          value={state.username}
-          name="username"
-          onChange={handleInputChange}
-        />{' '}
-        <br />
-        Name:{' '}
-        <input
-          type="text"
-          value={state.name}
-          name="name"
-          onChange={handleInputChange}
-        />{' '}
-        <br />
-        Password:{' '}
-        <input
-          type="password"
-          value={state.password}
-          name="password"
-          onChange={handleInputChange}
-        />{' '}
-        <br />
-        <button onClick={e => handleClick(e)}>Signup</button>
-      </form>
+      <div className="square-contact">
+        <div className="opacity-low-contact">
+          <div className="bloc-contact">
+            <div className="ContactUs">
+              <h2 className="contact-title">Signup</h2>
+              <form onSubmit={handleClick} onChange={handleInputChange}>
+                <div className="form-group">
+                  <label for="InputName">Name</label>
+                  <input
+                    type="name"
+                    name="name"
+                    value={state.name}
+                    className="form-control"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="InputEmail">Email</label>
+                  <input
+                    name="email"
+                    // style={{ width: '20%' }}
+                    value={state.email}
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="InputPassword">Password</label>
+                  <input
+                    name="password"
+                    // style={{ width: '20%' }}
+                    value={state.password}
+                    type="password"
+                    className="form-control"
+                    placeholder="*****"
+                  />
+                </div>
+                <div class="button-submit-contact">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    onClick={e => handleClick(e)}
+                  >
+                    Signup
+                  </button>
+                </div>
+              </form>
+              <br />
+
+              <div className="background-image-signup"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {state.message && <div className="info info-danger">{state.message}</div>}
     </div>
   )
