@@ -37,12 +37,12 @@ export default function ContactUs(props) {
   return (
     <div className="contact">
       <div className="square-contact">
-        <div class="opacity-low-contact"></div>
+        <div className="opacity-low-contact"></div>
         <div className="bloc-contact">
           <div className="ContactUs">
             <h2 className="contact-title">Contact us</h2>
             <form onSubmit={handleClick} onChange={handleInputChange}>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="InputName">Name</label>
                 <input
                   name="name"
@@ -52,7 +52,7 @@ export default function ContactUs(props) {
                   placeholder="Enter your name"
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="InputEmail">Email</label>
                 <input
                   name="email"
@@ -64,11 +64,11 @@ export default function ContactUs(props) {
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <label for="FormControlSelect1">Topic</label>
                 <select
                   name="topic"
-                  class="form-control"
+                  className="form-control"
                   // style={{ width: '20%' }}
                 >
                   <option value="">Select</option>
@@ -85,7 +85,7 @@ export default function ContactUs(props) {
                 </select>
               </div>
 
-              <div class="form-group-msg">
+              <div className="form-group-msg">
                 <label for="InputMessage">Message</label>
                 <textarea
                   name="message"
@@ -97,8 +97,8 @@ export default function ContactUs(props) {
                 />
               </div>
 
-              <div class="button-submit-contact">
-                <button type="submit" class="btn btn-primary">
+              <div className="button-submit-contact">
+                <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </div>

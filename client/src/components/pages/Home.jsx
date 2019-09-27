@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="home">
       <div className="square-hp">
-        <div class="opacity-low"></div>
+        <div className="opacity-low"></div>
         <div className="bloc-hp">
           What are you looking for?
           <div className="buttons">
