@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Link } from 'react-router-dom'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 export default function ForRent() {
   const [filter, setFilter] = useState({
@@ -103,20 +106,17 @@ export default function ForRent() {
           <Link to={`/detail/${property._id}`}>
             <ul key={property._id} className="property-card">
               <li>
-                <ul className="pictures-list">
+
+                <ul className="pictures-list slideshow-container">
                   {
                     property.pictures.map((pic, i) => (
                       <li key={i}>
                         <img src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
                       </li>
                     ))
-                    // getImages().map((img, i) => (
-                    //   <li key={i}>
-                    //     <img src={img[i]} alt={property.title} className="property-imgs" />
-                    //   </li>
-                    // ))
                   }
                 </ul>
+
               </li>
               <li><strong>{property.title}</strong></li>
               {/* <Link to={property.singleproperty} className="property-details">
