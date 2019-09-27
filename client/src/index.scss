@@ -1,6 +1,6 @@
 // @import 'font-awesome'
 @import url('./forrent.scss');
-@import url('./oneproperty.scss');
+@import url('./styles/parallax.scss');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
 // --------------------
@@ -52,6 +52,8 @@ $primary: #1c698a;
 .navbar {
   z-index: 11111;
   background-color: #145374;
+  width: 100%;
+  // position: fixed;
 }
 
 a.navbar-brand {
