@@ -78,7 +78,7 @@ export default function ForRent() {
   return (
     <div className="properties">
       {/* <nav> */}
-      <h2>Properties to rent</h2>
+      <h2 className="title">Properties to rent</h2>
 
       <div className="select-options">
         <select
@@ -120,27 +120,32 @@ export default function ForRent() {
           <div key={i}>
 
             <div className="property-card">
-              <div key={property._id}>
-                {/* <div key={property._id} className=""> */}
+              <div className="title-and-images" key={property._id}>
                 {/* <li> */}
-                <Link to={`/detail/${property._id}`}>
-                  <h3 className="card-title">{property.title} in {property.location}</h3>
-                </Link>
+                <div className="solo-title">
+                  <Link to={`/detail/${property._id}`}>
+                    <h3 className="card-title">{property.title} in {property.location}</h3>
+                  </Link>
+                </div>
                 <AwesomeSlider className="pictures-list slideshow-container">
                   {
                     property.pictures.map((pic, i) => (
-                      <div key={i} data-src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+                      <div key={i} data-src={pic} alt={property.title + ' photo ' + (i + 1)} className="img" />
                       // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
-
                     ))
                   }
                 </AwesomeSlider>
                 {/* </li> */}
+
               </div>
 
-              <div className="property-details">
-                <p>{property.budget}€ per month</p>
-                <p>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</p>
+              <div key={property._id} className="property-details">
+                <Link to={`/detail/${property._id}`}>
+                  <p>{property.type} {property.kind}</p>
+                  <p className="text-color"><strong>{property.budget}€ per month</strong></p>
+                  <p className="text-color"><strong>{property.size} m²</strong></p>
+                  <p className="text-color">{property.rooms} rooms || {property.bedrooms} bedrooms</p>
+                </Link>
               </div>
             </div>
           </div>
