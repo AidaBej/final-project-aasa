@@ -1,19 +1,31 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
-$primary: #1c698a;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
+.white {
+  color: white;
+}
 h2 {
   font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
-.background {
-  background-image: url('./images/one-property-background.jpg');
-  // height: 100vh;
+.background-detail {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569851004/ironhack-project-3/properties/colin-maynard-hSXt6ZYYPsk-unsplash_jrilbn.jpg');
+  background-size: cover;
+  height: 100vh;
   width: 100vw;
+}
+
+.title-block {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
 }
 
 .test-container {
