@@ -28,7 +28,7 @@ export default function Parallax() {
       delta = evt.wheelDelta
     }
 
-    if (ticking != true) {
+    if (ticking !== true) {
       if (delta <= -scrollSensitivitySetting) {
         //Down scroll
         ticking = true
