@@ -1,11 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Link } from 'react-router-dom'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+// import AwsSliderStyles from 'react-awesome-slider/src/styles';
 
 export default function ForRent() {
+
+  // const [slick, setSlick] = useState({
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1
+  // })
+
+  const slider = (
+    <AwesomeSlider>
+      <div data-src="/path/to/image-0.png" />
+      <div data-src="/path/to/image-1.png" />
+      <div data-src="/path/to/image-2.jpg" />
+    </AwesomeSlider>
+  );
+
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -26,10 +43,6 @@ export default function ForRent() {
       })
       .sort()
   }
-
-  // function getImages() {
-  //   return properties.map(property => property.pictures)
-  // }
 
   useEffect(() => {
     api
@@ -64,14 +77,15 @@ export default function ForRent() {
 
   return (
     <div className="properties">
-      <nav>
-        <h2>Properties for rent</h2>
+      {/* <nav> */}
+      <h2>Properties to rent</h2>
 
+      <div className="select-options">
         <select
           name="type"
           value={filter.type}
           onChange={handleChange}
-          className="form-control"
+          className="form-control property-type"
           style={{ width: '30%' }}
         >
           <option value="">Types of properties to rent</option>
@@ -87,7 +101,7 @@ export default function ForRent() {
           name="location"
           value={filter.location}
           onChange={handleChange}
-          className="form-control"
+          className="form-control property-location"
           style={{ width: '30%' }}
         >
           <option value="">Location</option>
@@ -97,40 +111,52 @@ export default function ForRent() {
             </option>
           ))}
         </select>
-      </nav>
+      </div>
+      {/* </nav> */}
       <br />
-      {/* <br />
-      <br /> */}
-      {getFilteredSales().map((property, i) => (
-        <div key={i}>
-          <Link to={`/detail/${property._id}`}>
-            <ul key={property._id} className="property-card">
-              <li>
 
-                <ul className="pictures-list slideshow-container">
+      {
+        getFilteredSales().map((property, i) => (
+          <div key={i}>
+
+            <div className="property-card">
+              <div key={property._id}>
+                {/* <div key={property._id} className=""> */}
+                {/* <li> */}
+                <Link to={`/detail/${property._id}`}>
+                  <h3 className="card-title">{property.title} in {property.location}</h3>
+                </Link>
+                <AwesomeSlider className="pictures-list slideshow-container">
                   {
                     property.pictures.map((pic, i) => (
-                      <li key={i}>
-                        <img src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
-                      </li>
+                      <div key={i} data-src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+                      // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+
                     ))
                   }
-                </ul>
+                </AwesomeSlider>
+                {/* </li> */}
+              </div>
 
-              </li>
-              <li><strong>{property.title}</strong></li>
-              {/* <Link to={property.singleproperty} className="property-details">
-              </Link> */}
-              <li><strong>{property.budget}€</strong></li>
-              <li>{property.type} {property.kind}</li>
-              <li>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</li>
-              <li>{property.location}</li>
-            </ul>
-          </Link>
+              <div className="property-details">
+                <p>{property.budget}€ per month</p>
+                <p>{property.rooms} rooms || {property.bedrooms} bedrooms || {property.size} m²</p>
+              </div>
+            </div>
+          </div>
+        ))}
 
-        </div>
-      ))}
-
-    </div>
+    </div >
   )
 }
+
+
+{/* <ul className="pictures-list slideshow-container">
+                      {
+                        property.pictures.map((pic, i) => (
+                          <li key={i}>
+                            <img src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+                          </li>
+                        ))
+                      }
+                    </ul> */}

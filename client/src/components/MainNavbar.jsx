@@ -13,6 +13,7 @@ function MainNavbar(props) {
     <nav className="navbar navbar-expand-sm navbar-dark position-fixed mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <img src="WealthySameDoe.webp" className="App-logo" alt="logo" />
+      {/* <img src="../images/eiffel.gif" className="App-logo" alt="logo" /> */}
       <Link className="navbar-brand" to="/">
         Parisian Cocoon{' '}
       </Link>
