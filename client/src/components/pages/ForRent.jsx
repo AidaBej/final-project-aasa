@@ -6,7 +6,6 @@ import 'react-awesome-slider/dist/styles.css'
 // import AwsSliderStyles from 'react-awesome-slider/src/styles';
 
 export default function ForRent() {
-
   // const slider = (
   //   <AwesomeSlider>
   //     <div data-src="/path/to/image-0.png" />
@@ -14,7 +13,6 @@ export default function ForRent() {
   //     <div data-src="/path/to/image-2.jpg" />
   //   </AwesomeSlider>
   // );
-
 
   const [filter, setFilter] = useState({
     type: '',
@@ -135,18 +133,26 @@ export default function ForRent() {
 
             <div key={property._id} className="property-details">
               <Link to={`/detail/${property._id}`}>
-                <p>{property.type} {property.kind}</p>
-                <p className="text-color"><strong>{property.budget}€ per month</strong></p>
-                <p className="text-color"><strong>{property.size} m<sup>2</sup></strong></p>
-                <p className="text-color">{property.rooms} rooms || {property.bedrooms} bedrooms</p>
+                <p>
+                  {property.type} {property.kind}
+                </p>
+                <p className="text-color">
+                  <strong>{property.budget}€ per month</strong>
+                </p>
+                <p className="text-color">
+                  <strong>
+                    {property.size} m<sup>2</sup>
+                  </strong>
+                </p>
+                <p className="text-color">
+                  {property.rooms} rooms || {property.bedrooms} bedrooms
+                </p>
               </Link>
             </div>
           </div>
         </div>
-        </div>
-  ))
-}
-    </div >
+      ))}
+    </div>
   )
 }
 
