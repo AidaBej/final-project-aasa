@@ -14,6 +14,8 @@ import Signup from './pages/Signup'
 import Test from './pages/Test'
 import AboutUs from './pages/AboutUs'
 import OneProperty from './pages/OneProperty'
+import Map from './pages/Map'
+
 export default function App() {
   return (
     <div className="App">
@@ -32,6 +34,7 @@ export default function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/secret" component={Secret} />
+        <Route path="/map" component={Map} />
 
         <Route render={() => <h2>404</h2>} />
       </Switch>
