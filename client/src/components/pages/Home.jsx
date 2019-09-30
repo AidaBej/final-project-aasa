@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ReactMapGL from 'react-map-gl'
+// import ReactMapGL from 'react-map-gl'
 
 import Parallax from './../Parallax'
 // import api from '../../api';
@@ -17,11 +17,11 @@ export default function Home() {
   return (
     <>
       <Parallax />
-      <ReactMapGL
+      {/* <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        // onViewportChange={viewport => this.setState({ viewport })}
-      />
+      // onViewportChange={viewport => this.setState({ viewport })}
+      /> */}
     </>
   )
 }
