@@ -11,6 +11,7 @@ const userSchema = new Schema(
         ref: 'Properties',
       },
     ],
+    isAdmin: { type: Boolean, default: false },
   },
   {
     timestamps: {

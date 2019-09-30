@@ -5,6 +5,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
 function MainNavbar(props) {
+  api.isAdmin()
+
   function handleLogoutClick(e) {
     api.logout()
   }
@@ -72,6 +74,13 @@ function MainNavbar(props) {
               </NavLink>
             </li>
           )}
+          {api.isAdmin() && (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/manage-property">
+                Edit
+              </NavLink>
+            </li>
+          )}
 
           {!api.isLoggedIn() && (
             <li className="nav-item">
@@ -91,6 +100,13 @@ function MainNavbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="/" onClick={handleLogoutClick}>
                 Logout
+              </Link>
+            </li>
+          )}
+          {api.isLoggedIn() && (
+            <li className="nav-item">
+              <Link className="nav-link" to="/favorites">
+                <i class="fav fas fa-heart red"></i>
               </Link>
             </li>
           )}
