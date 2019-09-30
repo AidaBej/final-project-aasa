@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Link } from 'react-router-dom'
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+import AwesomeSlider from 'react-awesome-slider'
+import 'react-awesome-slider/dist/styles.css'
 // import AwsSliderStyles from 'react-awesome-slider/src/styles';
 
 export default function ForRent() {
@@ -14,6 +14,7 @@ export default function ForRent() {
   //     <div data-src="/path/to/image-2.jpg" />
   //   </AwesomeSlider>
   // );
+
 
   const [filter, setFilter] = useState({
     type: '',
@@ -70,7 +71,7 @@ export default function ForRent() {
   return (
     <div className="properties">
       {/* <nav> */}
-      <h2 className="title">Properties to rent</h2>
+      <h2>Properties to rent</h2>
 
       <div className="select-options">
         <select
@@ -107,48 +108,50 @@ export default function ForRent() {
       {/* </nav> */}
       <br />
 
-      {
-        getFilteredSales().map((property, i) => (
-          <div key={i}>
+      {getFilteredSales().map((property, i) => (
+        <div key={i}>
+          <div className="property-card">
+            <div key={property._id}>
+              {/* <div key={property._id} className=""> */}
+              {/* <li> */}
+              <Link to={`/detail/${property._id}`}>
+                <h3 className="card-title">
+                  {property.title} in {property.location}
+                </h3>
+              </Link>
+              <AwesomeSlider className="pictures-list slideshow-container">
+                {property.pictures.map((pic, i) => (
+                  <div
+                    key={i}
+                    data-src={pic}
+                    alt={property.title + ' photo ' + (i + 1)}
+                    className="imgs"
+                  />
+                  // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+                ))}
+              </AwesomeSlider>
+              {/* </li> */}
+            </div>
 
-            <div className="property-card">
-              <div className="title-and-images" key={property._id}>
-                {/* <li> */}
-                <div className="solo-title">
-                  <Link to={`/detail/${property._id}`}>
-                    <h3 className="card-title">{property.title} in {property.location}</h3>
-                  </Link>
-                </div>
-                <AwesomeSlider className="pictures-list slideshow-container">
-                  {
-                    property.pictures.map((pic, i) => (
-                      <div key={i} data-src={pic} alt={property.title + ' photo ' + (i + 1)} className="img" />
-                      // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
-                    ))
-                  }
-                </AwesomeSlider>
-                {/* </li> */}
-
-              </div>
-
-              <div key={property._id} className="property-details">
-                <Link to={`/detail/${property._id}`}>
-                  <p>{property.type} {property.kind}</p>
-                  <p className="text-color"><strong>{property.budget}€ per month</strong></p>
-                  <p className="text-color"><strong>{property.size} m<sup>2</sup></strong></p>
-                  <p className="text-color">{property.rooms} rooms || {property.bedrooms} bedrooms</p>
-                </Link>
-              </div>
+            <div key={property._id} className="property-details">
+              <Link to={`/detail/${property._id}`}>
+                <p>{property.type} {property.kind}</p>
+                <p className="text-color"><strong>{property.budget}€ per month</strong></p>
+                <p className="text-color"><strong>{property.size} m<sup>2</sup></strong></p>
+                <p className="text-color">{property.rooms} rooms || {property.bedrooms} bedrooms</p>
+              </Link>
             </div>
           </div>
-        ))}
-
+        </div>
+        </div>
+  ))
+}
     </div >
   )
 }
 
-
-{/* <ul className="pictures-list slideshow-container">
+{
+  /* <ul className="pictures-list slideshow-container">
                       {
                         property.pictures.map((pic, i) => (
                           <li key={i}>
@@ -156,4 +159,5 @@ export default function ForRent() {
                           </li>
                         ))
                       }
-                    </ul> */}
+                    </ul> */
+}

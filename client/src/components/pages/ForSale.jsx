@@ -75,10 +75,6 @@ export default function ForSale() {
       return prop.budget <= filter.price_max
     else if (filter.price_min && filter.price_max)
       return filter.price_min <= prop.budget && filter.price_max >= prop.budget
-    // if (filter.price_max >= prop.budget)
-    //   return filter.budget === filter.price_max
-    // if (filter.price_min <= prop.budget && filter.price_max >= prop.budget)
-    //   return filter.budget
   }
 
   function filterBySize(prop) {
@@ -252,7 +248,6 @@ export default function ForSale() {
         </span>
         <span className="description"></span>
         <div className="container_min">
-          <label>Min</label>
           <input
             type="number"
             name="surface_min"
@@ -265,7 +260,6 @@ export default function ForSale() {
           <span className="unit">m²</span>
         </div>
         <div className="container_max">
-          <label>Max</label>
           <input
             type="number"
             name="surface_max"
@@ -285,6 +279,7 @@ export default function ForSale() {
         <span className="description"></span>
         <div className="containerList">
           <div className="itemList active">
+            {/* <b-form-group label> */}
             <input
               className="form-check-input"
               type="checkbox"
