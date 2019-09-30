@@ -7,21 +7,13 @@ import 'react-awesome-slider/dist/styles.css';
 
 export default function ForRent() {
 
-  // const [slick, setSlick] = useState({
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1
-  // })
-
-  const slider = (
-    <AwesomeSlider>
-      <div data-src="/path/to/image-0.png" />
-      <div data-src="/path/to/image-1.png" />
-      <div data-src="/path/to/image-2.jpg" />
-    </AwesomeSlider>
-  );
+  // const slider = (
+  //   <AwesomeSlider>
+  //     <div data-src="/path/to/image-0.png" />
+  //     <div data-src="/path/to/image-1.png" />
+  //     <div data-src="/path/to/image-2.jpg" />
+  //   </AwesomeSlider>
+  // );
 
   const [filter, setFilter] = useState({
     type: '',
@@ -143,7 +135,7 @@ export default function ForRent() {
                 <Link to={`/detail/${property._id}`}>
                   <p>{property.type} {property.kind}</p>
                   <p className="text-color"><strong>{property.budget}€ per month</strong></p>
-                  <p className="text-color"><strong>{property.size} m²</strong></p>
+                  <p className="text-color"><strong>{property.size} m<sup>2</sup></strong></p>
                   <p className="text-color">{property.rooms} rooms || {property.bedrooms} bedrooms</p>
                 </Link>
               </div>
