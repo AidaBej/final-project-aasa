@@ -60,7 +60,7 @@ const propertySchema = new mongoose.Schema({
   },
   others: {
     type: [String],
-    enum: ['Balcony', 'Swimming Pool', 'Terrace', 'Caretaker', 'Parking'],
+    enum: ['Balcothony', 'Swimming Pool', 'Terrace', 'Caretaker', 'Parking'],
   },
   pictures: [
     {
