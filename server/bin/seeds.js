@@ -25,6 +25,7 @@ const properties = [
       type: 'Point',
       coordinates: [48.782645, 1.690729],
     },
+    others: 'Terrace',
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406185/ironhack-project-3/properties/old-whorkshop-bohemian-1_xda3yc.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/old-whorkshop-bohemian-2_xun8hh.jpg',
@@ -102,6 +103,7 @@ const properties = [
       type: 'Point',
       coordinates: [48.8581277, 2.3563382],
     },
+    others: 'Balcony',
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569425418/ironhack-project-3/properties/duplex-under-roof-mansion-2_vgfuos.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569425418/ironhack-project-3/properties/duplex-under-roof-mansion-1_l6bc53.jpg',
@@ -123,6 +125,7 @@ const properties = [
       type: 'Point',
       coordinates: [48.8274436, 2.3344189],
     },
+
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-1_blwrzv.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-4_zdxn4o.jpg',

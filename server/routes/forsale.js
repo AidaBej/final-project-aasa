@@ -1,3 +1,5 @@
+require('dotenv').config()
+require('../configs/database')
 const express = require('express')
 const Property = require('../models/Property')
 const router = express.Router()
@@ -12,7 +14,21 @@ router.get('/', (req, res, next) => {
     .catch(err => next(err))
 })
 
-// Route to add a new property
+// Checkbox à choix multiples
+
+Property.find({ rooms: [] })
+  .then(res => console.log(res.length))
+  .catch(err => console.log(err))
+
+Property.find({ bedrooms: [] })
+  .then(res => console.log(res.length))
+  .catch(err => console.log(err))
+
+Property.find({ others: [] })
+  .then(res => console.log(res.length))
+  .catch(err => console.log(err))
+
+//ADD NEW PROPERTIES FOR SALE
 // router.post('/', (req, res, next) => {
 //   let { name, capitals, area, description } = req.body
 //   Country.create({ name, capitals, area, description })
