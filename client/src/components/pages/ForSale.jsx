@@ -248,7 +248,6 @@ export default function ForSale() {
         </span>
         <span className="description"></span>
         <div className="container_min">
-          <label>Min</label>
           <input
             type="number"
             name="surface_min"
@@ -261,7 +260,6 @@ export default function ForSale() {
           <span className="unit">m²</span>
         </div>
         <div className="container_max">
-          <label>Max</label>
           <input
             type="number"
             name="surface_max"

@@ -5,7 +5,7 @@ const Property = require('../models/Property')
 const router = express.Router()
 const uploader = require('../configs/cloudinary')
 
-// Route to get properties FOR SALE
+// GET properties FOR SALE
 router.get('/', (req, res, next) => {
   Property.find({ kind: 'For Sale' })
     .then(properties => {
@@ -27,18 +27,5 @@ Property.find({ bedrooms: [] })
 Property.find({ others: [] })
   .then(res => console.log(res.length))
   .catch(err => console.log(err))
-
-//ADD NEW PROPERTIES FOR SALE
-// router.post('/', (req, res, next) => {
-//   let { name, capitals, area, description } = req.body
-//   Country.create({ name, capitals, area, description })
-//     .then(country => {
-//       res.json({
-//         success: true,
-//         country,
-//       })
-//     })
-//     .catch(err => next(err))
-// })
 
 module.exports = router
