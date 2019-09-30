@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 // import { Link } from "react-router-dom";
 
 export default function Properties(props) {
@@ -17,9 +19,20 @@ export default function Properties(props) {
   }, [])
 
   return (
-    <div className="background">
-      <h2>{property.title} in {property.location}</h2>
-      <p>{property.size}m²</p>
+    <div className="background-detail">
+      <br /><br /><br /><br />
+      <div className="title-block">
+        <h2>{property.title} in {property.location}<sup>th</sup></h2>
+      </div>
+
+      {/* <AwesomeSlider className="pictures-list slideshow-container">
+        {
+          property.pictures.map((pic, i) => (
+            <div key={i} data-src={pic} alt={property.title + ' photo ' + (i + 1)} className="img" />
+            // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
+          ))
+        }
+      </AwesomeSlider> */}
       <div>
 
 
