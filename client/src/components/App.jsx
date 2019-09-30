@@ -19,7 +19,6 @@ export default function App() {
     <div className="App">
       <MainNavbar />
       <Switch>
-
         <Route path="/" exact component={Home} />
         <Route path="/forsale" component={ForSale} />
         <Route path="/forrent" component={ForRent} />

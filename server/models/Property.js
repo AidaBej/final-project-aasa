@@ -8,7 +8,7 @@ const propertySchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['Apartment', 'Triplex', 'Loft', 'Penthouse', 'Barge', 'Duplex'],
+    enum: ['Apartment', 'Triplex', 'Loft', 'Penthouse', 'Houseboat', 'Duplex'],
     required: true,
   },
   kind: {

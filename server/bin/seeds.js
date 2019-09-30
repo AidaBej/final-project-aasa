@@ -21,6 +21,10 @@ const properties = [
     size: 101,
     rooms: 3,
     bedrooms: 2,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.782645, 1.690729],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406185/ironhack-project-3/properties/old-whorkshop-bohemian-1_xda3yc.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/old-whorkshop-bohemian-2_xun8hh.jpg',
@@ -44,6 +48,10 @@ const properties = [
     size: 29,
     rooms: 1,
     bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.6483903, 1.8352707],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-1_njqbh8.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-2_pyyh7q.jpg',
@@ -66,6 +74,10 @@ const properties = [
     size: 92,
     rooms: 2,
     bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [49.1949183, 6.6647235],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569423670/ironhack-project-3/properties/duplex-private-mansion-6_zotuxk.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569423670/ironhack-project-3/properties/duplex-private-mansion-4_pzieer.jpg',
@@ -86,6 +98,10 @@ const properties = [
     size: 136,
     rooms: 4,
     bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8581277, 2.3563382],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569425418/ironhack-project-3/properties/duplex-under-roof-mansion-2_vgfuos.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569425418/ironhack-project-3/properties/duplex-under-roof-mansion-1_l6bc53.jpg',
@@ -103,6 +119,10 @@ const properties = [
     size: 109,
     rooms: 4,
     bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8274436, 2.3344189],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-1_blwrzv.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-4_zdxn4o.jpg',
@@ -121,6 +141,10 @@ const properties = [
     size: 150,
     rooms: 5,
     bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8623272, 2.2935019],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569492159/ironhack-project-3/properties/duplex-terrace-architect-building-1_sob5pp.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569492159/ironhack-project-3/properties/duplex-terrace-architect-building-4_wayv9z.jpg',
@@ -141,6 +165,10 @@ const properties = [
     size: 205,
     rooms: 4,
     bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8482056, 2.3505388],
+    },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569492972/ironhack-project-3/properties/atypical-house-pool-1_ovpsfc.jpg',
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569492972/ironhack-project-3/properties/atypical-house-pool-2_ouiauw.jpg',

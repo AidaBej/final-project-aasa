@@ -17,13 +17,12 @@ export default function Properties(props) {
   }, [])
 
   return (
-    <div className="Property background">
-      <h2>{property.title}</h2>
+    <div className="background">
+      <h2>{property.title} in {property.location}</h2>
+      <p>{property.size}m²</p>
       <div>
 
-        {/* {properties.map((property, i) => {
-          return <div> {property.title} </div>
-        })} */}
+
         {/* <div className="img-card">
         {properties
           .map((property) => (
