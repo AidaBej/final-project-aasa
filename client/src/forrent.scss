@@ -2,7 +2,7 @@
 
 .properties {
   padding: 0 20px 20px 40px;
-  background: url('./images/properties.jpg') no-repeat center center fixed;
+  background: url('./images/properties-.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -24,6 +24,12 @@
 .property-details {
   flex-direction: column;
   text-decoration: none;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
 .pictures-list {

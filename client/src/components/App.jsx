@@ -14,12 +14,12 @@ import Signup from './pages/Signup'
 import Test from './pages/Test'
 import AboutUs from './pages/AboutUs'
 import OneProperty from './pages/OneProperty'
-
 export default function App() {
   return (
     <div className="App">
       <MainNavbar />
       <Switch>
+
         <Route path="/" exact component={Home} />
         <Route path="/forsale" component={ForSale} />
         <Route path="/forrent" component={ForRent} />
@@ -33,6 +33,7 @@ export default function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/secret" component={Secret} />
+
         <Route render={() => <h2>404</h2>} />
       </Switch>
     </div>
