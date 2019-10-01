@@ -58,11 +58,11 @@ function MainNavbar(props) {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink className="nav-link" to="/aboutus">
               About us{' '}
             </NavLink>
-          </li>
+          </li>*/}
 
           <li className="nav-item">
             <NavLink className="nav-link" to="/contactus">
@@ -74,6 +74,13 @@ function MainNavbar(props) {
             <li className="nav-item">
               <NavLink className="nav-link" to="/favorites">
                 Favorites{' '}
+              </NavLink>
+            </li>
+          )}
+          {api.isAdmin() && (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/add-new-property">
+                Add New
               </NavLink>
             </li>
           )}

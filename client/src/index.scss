@@ -156,18 +156,52 @@ a.navbar-brand {
 }
 
 .ContactUs {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-generic {
+  min-width: 400px;
+  max-width: 700px;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-generic .form-group,
+.form-generic .form-group-msg {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.form-generic .form-control {
+  margin: 0;
+}
+
+.form-generic label {
+  font-weight: lighter;
+  font-weight: 10px;
+  text-align: left;
+  align-items: flex-end;
+  flex: 0 0 33%;
+  margin: 0;
 }
 
 /* page contact */
 
-.background-image-contact {
+.background-image-contact,
+.background-image-signup,
+.background-image-login {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background-image: url('/paris-rooftop.jpg');
+  background-image: url('/background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -178,7 +212,9 @@ a.navbar-brand {
   }
 }
 
-.contact {
+.contact,
+.signup,
+.login {
   height: calc(100vh - (84px));
   overflow: hidden;
   display: flex;
@@ -187,9 +223,8 @@ a.navbar-brand {
   align-items: center;
   width: 100%;
   position: relative;
-
-  position: fixed;
-  top: 0;
+  position: relative;
+  top: 75px;
   left: 0;
   min-width: 100%;
   min-height: 100%;
@@ -201,7 +236,7 @@ a.navbar-brand {
   min-width: 300px;
   max-width: 970px;
   min-height: 330px;
-  max-height: 470px;
+  max-height: 500px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -212,7 +247,7 @@ a.navbar-brand {
   align-items: center;
   align-content: center;
   position: relative;
-  z-index: -1;
+  // z-index: -1;
   border-radius: 20px;
 }
 
@@ -247,6 +282,8 @@ a.navbar-brand {
 
 .form-group {
   display: inline-flex;
+  align-items: baseline;
+  align-self: flex-end;
 }
 
 label {
@@ -257,11 +294,12 @@ label {
   align-items: flex-end;
 }
 
-// form {
-//   width: 400px;
-//   display: flex;
-//   flex-direction: column;
-// }
+form {
+  min-width: 400px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
 
 .btn-primary {
   background-color: #212529;
@@ -281,8 +319,8 @@ label {
 }
 
 .contact-title {
-  padding-bottom: 20px;
   padding-top: 15px;
+  margin-bottom: 15px;
 }
 
 .App-logo {

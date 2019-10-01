@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../../api'
+import { Link } from 'react-router-dom'
 
 export default function Signup(props) {
   const [state, setState] = useState({
@@ -33,60 +34,67 @@ export default function Signup(props) {
       .catch(err => setState({ message: err.toString() }))
   }
   return (
-    <div className="Signup">
-      {/* <div className="square-contact">
-        <div className="opacity-low-contact">
+    <div className="signup">
+      <div className="square-contact">
+        <div className="opacity-low-contact"></div>
         <div className="bloc-contact">
-          <div className="ContactUs"> */}
-      <h2 className="contact-title">Signup</h2>
-      <form onSubmit={handleClick} onChange={handleInputChange}>
-        <div className="form-group">
-          <label for="InputName">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={state.name}
-            className="form-control"
-            placeholder="Enter your name"
-          />
-        </div>
-        <div class="form-group">
-          <label for="InputEmail">Email</label>
-          <input
-            id="InputEmail"
-            name="email"
-            value={state.email}
-            type="email"
-            className="form-control"
-            placeholder="email@example.com"
-          />
-        </div>
-        <div class="form-group">
-          <label for="InputPassword">Password</label>
-          <input
-            name="password"
-            value={state.password}
-            type="password"
-            className="form-control"
-            placeholder="*****"
-          />
-        </div>
-        <div class="button-submit-contact">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            onClick={e => handleClick(e)}
-          >
-            Signup
-          </button>
-        </div>
-      </form>
-      <br />
+          <div className="ContactUs">
+            <h2 className="contact-title">Signup</h2>
+            <form
+              className="form-generic"
+              onSubmit={handleClick}
+              onChange={handleInputChange}
+            >
+              <div className="form-group">
+                <label for="InputName">Name </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={state.name}
+                  className="form-control"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">Email </label>
+                <input
+                  id="InputEmail"
+                  name="email"
+                  value={state.email}
+                  type="email"
+                  className="form-control"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="InputPassword">Password</label>
+                <input
+                  name="password"
+                  value={state.password}
+                  type="password"
+                  className="form-control"
+                  placeholder="*****"
+                />
+              </div>
+              <div class="button-submit-contact">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  onClick={e => handleClick(e)}
+                >
+                  Signup
+                </button>
+              </div>
+            </form>
+            <small>
+              Already have an account ? <Link to="/login">Sign In</Link>
+            </small>
+            <br />
 
-      <div className="background-image-signup"></div>
-      {/* </div>
+            <div className="background-image-signup"></div>
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
