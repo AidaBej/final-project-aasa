@@ -3,6 +3,7 @@ import api from '../../api'
 import { Link } from 'react-router-dom'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
+
 // import AwsSliderStyles from 'react-awesome-slider/src/styles';
 
 export default function ForRent() {
@@ -43,6 +44,11 @@ export default function ForRent() {
       })
       .catch(err => console.log(err))
   }, [])
+  function getGoogleMapsDirection(property) {
+    let [lng, lat] = property.localisation.coordinates
+    return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
+  }
+
   function handleChange(e) {
     setFilter({ ...filter, [e.target.name]: e.target.value })
   }
@@ -146,6 +152,10 @@ export default function ForRent() {
                 </p>
                 <p className="text-color">
                   {property.rooms} rooms || {property.bedrooms} bedrooms
+                </p>
+                <p className="text-color">
+                  Longitude: {property.localisation.coordinates[0]} <br />
+                  Latitude: {property.localisation.coordinates[1]} <br />
                 </p>
               </Link>
             </div>

@@ -8,15 +8,15 @@ export default function Map() {
   let markers = useRef(null).current
 
   useEffect(() => {
-    initMap(15, 45)
+    initMap(48, 2.33333)
   }, [])
 
   useEffect(() => {
-    api.getOnePropery().then(oneProperty => {
+    api.getProperties().then(p => {
       markers = []
-      for (let i = 0; i < oneProperty.length; i++) {
+      for (let i = 0; i < p.length; i++) {
         markers.push = new mapboxgl.Marker({ color: 'red' })
-          .setLngLat(oneProperty[i].localisation.coordinates)
+          .setLngLat(p[i].localisation.coordinates)
           .addTo(map)
       }
     })
