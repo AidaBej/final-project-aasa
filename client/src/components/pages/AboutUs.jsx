@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import ReactGoogleMap from './ReactGoogleMap'
 // import Map from './Map'
 // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
