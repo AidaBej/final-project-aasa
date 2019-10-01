@@ -1,14 +1,14 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 
 .title {
   color: #5588a3;
 }
 
 .properties {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   padding: 90px 40px 20px 40px;
-  background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569855446/ironhack-project-3/properties/rob-potvin-VLWy8LIdzsQ-unsplash_z5z7bx.jpg')
+  background: url("https://res.cloudinary.com/drukuybdj/image/upload/v1569855446/ironhack-project-3/properties/rob-potvin-VLWy8LIdzsQ-unsplash_z5z7bx.jpg")
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,7 +17,7 @@
 }
 
 .property-card {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: row;
   border: none;
@@ -70,6 +70,11 @@ a {
 .filters {
   display: flex;
   flex-direction: row;
+}
+
+.dropdowns {
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-title {

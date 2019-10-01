@@ -165,14 +165,14 @@ export default function ForSale() {
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
         <form
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            marginTop: '50px',
-            marginLeft: '20px',
-            marginRight: '20px',
-            justifyContent: 'space-between',
-          }}
+        // style={{
+        //   display: 'flex',
+        //   flexDirection: 'row',
+        //   marginTop: '50px',
+        //   marginLeft: '20px',
+        //   marginRight: '20px',
+        //   justifyContent: 'space-between',
+        // }}
         >
           <select
             name="type"
