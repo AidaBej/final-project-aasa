@@ -40,9 +40,13 @@ export default function Signup(props) {
         <div className="bloc-contact">
           <div className="ContactUs">
             <h2 className="contact-title">Signup</h2>
-            <form onSubmit={handleClick} onChange={handleInputChange}>
+            <form
+              className="form-generic"
+              onSubmit={handleClick}
+              onChange={handleInputChange}
+            >
               <div className="form-group">
-                <label for="InputName">Name</label>
+                <label for="InputName">Name </label>
                 <input
                   type="text"
                   name="name"
@@ -52,7 +56,7 @@ export default function Signup(props) {
                 />
               </div>
               <div class="form-group">
-                <label for="InputEmail">Email</label>
+                <label for="InputEmail">Email </label>
                 <input
                   id="InputEmail"
                   name="email"

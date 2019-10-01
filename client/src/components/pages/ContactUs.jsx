@@ -41,7 +41,11 @@ export default function ContactUs(props) {
         <div className="bloc-contact">
           <div className="ContactUs">
             <h2 className="contact-title">Contact us</h2>
-            <form onSubmit={handleClick} onChange={handleInputChange}>
+            <form
+              className="form-generic"
+              onSubmit={handleClick}
+              onChange={handleInputChange}
+            >
               <div className="form-group">
                 <label for="InputName">Name</label>
                 <input
@@ -97,11 +101,11 @@ export default function ContactUs(props) {
                 />
               </div>
 
-              <div className="button-submit-contact">
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </div>
+              {/* <div className="button-submit-contact"> */}
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+              {/* </div> */}
             </form>
             <br></br>
 

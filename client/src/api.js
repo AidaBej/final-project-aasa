@@ -29,7 +29,7 @@ export default {
     return localStorage.getItem('user') != null
   },
   isAdmin() {
-    return JSON.parse(this.getLocalStorageUser().isAdmin)
+    return this.getLocalStorageUser() && this.getLocalStorageUser().isAdmin
 
     // console.log(this.getLocalStorageUser().isAdmin)
   },

@@ -26,7 +26,7 @@ export default function Login(props) {
         <div className="bloc-contact">
           <div className="ContactUs">
             <h2 className="contact-title">Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="form-generic" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label for="InputEmail">Email</label>
                 <input
@@ -39,7 +39,6 @@ export default function Login(props) {
                   placeholder="Enter email"
                 />
               </div>
-              <br />
               <div className="form-group">
                 <label for="InputPassword">Password</label>
                 <input
@@ -50,8 +49,15 @@ export default function Login(props) {
                   placeholder="*********"
                 />
               </div>
-              <br />
-              <button>Login</button>
+              <div class="button-submit-contact">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  // onClick={e => handleClick(e)}
+                >
+                  Login
+                </button>{' '}
+              </div>
             </form>
             <small>
               Don't have an account yet ?
