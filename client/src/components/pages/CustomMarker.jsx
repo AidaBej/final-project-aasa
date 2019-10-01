@@ -13,6 +13,11 @@ const CustomMarker = ({ property }) => {
   return (
     <Marker
       onClick={handleToggleOpen}
+      icon={{
+        url:
+          'https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif',
+        scaledSize: new window.google.maps.Size(46, 46),
+      }}
       position={{
         lat: property.localisation.coordinates[0],
         lng: property.localisation.coordinates[1],
