@@ -62,13 +62,13 @@ function MainNavbar(props) {
             <NavLink className="nav-link" to="/aboutus">
               About us{' '}
             </NavLink>
-          </li>
+          </li>*/}
 
           <li className="nav-item">
             <NavLink className="nav-link" to="/contactus">
               Contact us{' '}
             </NavLink>
-          </li> */}
+          </li>
 
           {api.isLoggedIn() && (
             <li className="nav-item">
