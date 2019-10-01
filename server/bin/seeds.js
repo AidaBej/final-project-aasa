@@ -8,8 +8,8 @@ const propertyModel = require('../models/Property')
 // const bcryptSalt = 10
 
 require('../configs/database')
-// ['Apartment', 'Triplex', 'Loft', 'Penthouse', 'Barge'],
-// ['Balcony', 'Swimming Pool', 'Terrace', 'Caretaker'],
+// ['Apartment', 'Triplex', 'Loft', 'Penthouse'],
+// ['Balcony', 'Caretaker'],
 
 const properties = [
   {
@@ -41,30 +41,26 @@ const properties = [
       'Near the Montorgueil district, this former workshop of 101 m2 Carrez is located on the 3rd floor of a small condominium without elevator. The entrance serves a living room of 41 m2 extended kitchen open, then a master bedroom with storage and bathroom, a second bedroom, a bathroom and separate toilet. Between two courtyards, this crossing apartment is bathed in light thanks to its many openings giving clear views. This calm place of life, with pleasant volumes, is decorated in bohemian chic spirit. A cellar completes this property. Subject to the status of the condominium. Metro: Sentier. Contact : Aïda, 0624409581',
   },
   {
-    title: 'Mini loft in Montorgueil',
-    type: 'Loft',
+    title: 'Luxury and refurbished houseboat on the Seine',
+    type: 'Houseboat',
     kind: 'For Sale',
-    location: 'Paris 2',
-    budget: 400000,
-    size: 29,
-    rooms: 1,
-    bedrooms: 1,
+    location: 'Paris 7',
+    budget: 1700000,
+    size: 150,
+    rooms: 4,
+    bedrooms: 2,
     localisation: {
       type: 'Point',
-      coordinates: [48.6483903, 1.8352707],
+      coordinates: [48.86343519796315, 2.3121648429922743],
     },
+    others: ['Swimming Pool', 'Terrace'],
     pictures: [
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-1_njqbh8.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-2_pyyh7q.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-3_in07e3.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-4_glf80o.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-5_ojbk6a.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-6_elqdry.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-7_w8a0v1.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-1_dss62e.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-6_zzhecm.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-2_djoiea.jpg',
     ],
     description:
-      'Rue de la Lune, space designed by architect of 29 m2 (28,55 m2 carrez) square located on the ground floor in a charming condominium. The crossing place offers a stay with a done up kitchen on courtyard, and side street a dining area. Between two windows, a bed has been cleverly arranged. A walk-in shower room with toilet completes the place. Contemporary spirit, optimized plan, quality materials, characterizes this apartment sold furnished and equipped. Metro Bonne Nouvelle. Contact : Aimée, 0666789151',
-    others: 'Caretaker',
+      'The whole houseboat is decorated with wonderful warm carpentry and lots of copper lamps, hinges and locks. By doing so we have chosen to maintain the original atmosphere aboard our ship. In the living room there is a wooden floor, painted in soft green, matching the rest of the interior very nicely. Note the wonderfully shaped windows along the ship, giving a very nice view over the harbor. And of course the many traditional Dutch elements such as the amazing woodstove burner/stove and the Delfts Blue tiles surrounding it.',
   },
   {
     title: 'Duplex in a private mansion in Le Marais',
@@ -113,29 +109,6 @@ const properties = [
       'At the foot of the metro Saint Paul and many shops, duplex under the roofs of an area of ​​136m2 (98,56 m2 carrez), with small terrace, within an exceptional mansion. Passing the carved solid wooden door, classified to the historical monuments, one reaches the property, located on the third and last floor, by an elegant stone staircase. The entrance with its cabinet of curiosities leads to a beautiful living room benefiting from a double height with 5 meters in the ridge covered with its apparent framework. In a house spirit, the apartment has a quadruple exposure, the living room is decorated with a functional chimney, it is extended by an open kitchen, storage, a laundry and separate toilet. With views of the main wooded courtyard, two bedrooms. A bedroom connected to a large mezzanine (office or bedroom), and another bedroom with its bathroom, dressing room and small mezzanine. Upstairs, overlooking the living room, a third bedroom, with its dressing room and a bathroom of charm, opens onto the small terrace full sky. This duplex nestled in the quiet of this condominium charged with history is a unique place of life. Property subject to condominium status.',
   },
   {
-    title: 'Art Deco artist workshop',
-    type: 'Apartment',
-    kind: 'For Rent',
-    location: 'Paris 14',
-    budget: 4500,
-    size: 109,
-    rooms: 4,
-    bedrooms: 1,
-    localisation: {
-      type: 'Point',
-      coordinates: [48.8274436, 2.3344189],
-    },
-
-    pictures: [
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-1_blwrzv.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-4_zdxn4o.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-2_ixa1is.jpg',
-      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491386/ironhack-project-3/properties/art-deco-artist-workshop-3_w96jg5.jpg',
-    ],
-    description:
-      'Between Montparnasse and Denfert Rochereau, this artist’s studio of 109 m2 is located on the 2nd floor of a listed building from 1910, illustrating the transition between Art Nouveau and Art Deco. An entry serves the living room lit by a glass roof and enjoys 6 meters high. Facing the latter a dining room is extended an independent kitchen and a toilet. A staircase leads to the floor creates in the height which distributes a room with dressing, a room of shower with toilet, a buanderie and finally an office space / library opened giving on the room of life in front of the canopy. The brightness, the volumes, as well as the original architectural elements make this place unique. Metro: Raspail',
-  },
-  {
     title: 'Duplex with terrace in renowned architects building',
     type: 'Duplex',
     kind: 'For Rent',
@@ -160,6 +133,29 @@ const properties = [
     others: ['Terrace', 'Parking', 'Balcony'],
   },
   {
+    title: 'Art Deco artist workshop',
+    type: 'Apartment',
+    kind: 'For Rent',
+    location: 'Paris 14',
+    budget: 4500,
+    size: 109,
+    rooms: 4,
+    bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8274436, 2.3344189],
+    },
+
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-1_blwrzv.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-4_zdxn4o.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491384/ironhack-project-3/properties/art-deco-artist-workshop-2_ixa1is.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569491386/ironhack-project-3/properties/art-deco-artist-workshop-3_w96jg5.jpg',
+    ],
+    description:
+      'Between Montparnasse and Denfert Rochereau, this artist’s studio of 109 m2 is located on the 2nd floor of a listed building from 1910, illustrating the transition between Art Nouveau and Art Deco. An entry serves the living room lit by a glass roof and enjoys 6 meters high. Facing the latter a dining room is extended an independent kitchen and a toilet. A staircase leads to the floor creates in the height which distributes a room with dressing, a room of shower with toilet, a buanderie and finally an office space / library opened giving on the room of life in front of the canopy. The brightness, the volumes, as well as the original architectural elements make this place unique. Metro: Raspail',
+  },
+  {
     title: 'Atypical house with pool',
     type: 'Penthouse',
     kind: 'For Rent',
@@ -182,6 +178,77 @@ const properties = [
     description:
       'House of 154m2 on three levels with garden, swimming pool and 15m2 of terrace. The house consists of a reception with a large fireplace, a dining kitchen. On the lower floor a master suite with a dressing room and a bathroom (bath and shower). At the first level, two bedrooms and an office or a third bedroom all overlooking a terrace of about 15m2 and a bathroom. The house is away from the street is in a quiet environment. The swimming pool and the garden faces the living room.',
     others: ['Swimming Pool', 'Terrace'],
+  },
+  {
+    title: 'Lovely houseboat on the Seine',
+    type: 'Houseboat',
+    kind: 'For Rent',
+    location: 'Paris 13',
+    budget: 4500,
+    size: 200,
+    rooms: 3,
+    bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.83471537543164, 2.3791189577422074],
+    },
+    others: ['Swimming Pool', 'Terrace'],
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-5_tdlh51.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-4_grztml.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569875169/ironhack-project-3/properties/peniche-3_vvj7gp.jpg',
+    ],
+    description:
+      'Welcome aboard this beautifully restored 1-bedroom Paris houseboat on the Seine with exceptional views of Paris. If you want to be right there in the heart of Paris this is the place!  Staying on board this luxurious 5* Paris houseboat is a truly memorable experience.',
+  },
+  {
+    title: 'Lovely Triplex',
+    type: 'Triplex',
+    kind: 'For Rent',
+    location: 'Paris 16',
+    budget: 2300,
+    size: 68,
+    rooms: 3,
+    bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.843966514657254, 2.298658379580843],
+    },
+    others: ['Caretaker', 'Balcony'],
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569877031/ironhack-project-3/properties/Triplex-4_svxvap.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569877031/ironhack-project-3/properties/Triplex-2_ynekfr.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569877031/ironhack-project-3/properties/Triplex-3_w8krje.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569877031/ironhack-project-3/properties/Triplex-1_cvtiml.jpg',
+    ],
+    description:
+      'In the immediate vicinity of the Parc de Passy, ​​shops of the rue de Passy and the Seine, this triplex of 68 m2 is on the ground floor of a beautiful building of the 50s. The first level consists of a living room with a fitted kitchen. On the floor, two crossing rooms offer the possibility of one or two rooms. There is also a modern shower room with a toilet and a laundry area. Enjoying the quiet of a quiet street and the West exposure on greenery, the apartment has double glazed windows and aluminum shutters. Metro: Passy. Rent 2300 euros / month. Fees tenant 820 euros off inventory. Guaranteed deposit 4600 euros.',
+  },
+  {
+    title: 'Mini loft in Montorgueil',
+    type: 'Loft',
+    kind: 'For Sale',
+    location: 'Paris 2',
+    budget: 400000,
+    size: 29,
+    rooms: 1,
+    bedrooms: 1,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.6483903, 1.8352707],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-1_njqbh8.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-2_pyyh7q.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-3_in07e3.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-4_glf80o.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-5_ojbk6a.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-6_elqdry.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-7_w8a0v1.jpg',
+    ],
+    description:
+      'Rue de la Lune, space designed by architect of 29 m2 (28,55 m2 carrez) square located on the ground floor in a charming condominium. The crossing place offers a stay with a done up kitchen on courtyard, and side street a dining area. Between two windows, a bed has been cleverly arranged. A walk-in shower room with toilet completes the place. Contemporary spirit, optimized plan, quality materials, characterizes this apartment sold furnished and equipped. Metro Bonne Nouvelle. Contact : Aimée, 0666789151',
+    others: 'Caretaker',
   },
 ]
 

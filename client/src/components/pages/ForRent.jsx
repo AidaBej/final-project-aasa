@@ -112,14 +112,14 @@ export default function ForRent() {
         <div key={i}>
           <div className="property-card">
             <div key={property._id}>
-              {/* <div key={property._id} className=""> */}
-              {/* <li> */}
+
               <Link to={`/detail/${property._id}`}>
                 <h3 className="card-title">
                   {property.title} in {property.location}
                 </h3>
               </Link>
-              <AwesomeSlider className="pictures-list slideshow-container">
+
+              <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
                   <div
                     key={i}
@@ -130,7 +130,7 @@ export default function ForRent() {
                   // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
                 ))}
               </AwesomeSlider>
-              {/* </li> */}
+
             </div>
 
             <div key={property._id} className="property-details">
@@ -143,21 +143,8 @@ export default function ForRent() {
             </div>
           </div>
         </div>
-        </div>
-  ))
-}
+      ))
+      }
     </div >
   )
-}
-
-{
-  /* <ul className="pictures-list slideshow-container">
-                      {
-                        property.pictures.map((pic, i) => (
-                          <li key={i}>
-                            <img src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
-                          </li>
-                        ))
-                      }
-                    </ul> */
 }
