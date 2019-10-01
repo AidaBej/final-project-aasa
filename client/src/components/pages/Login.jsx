@@ -23,7 +23,7 @@ export default function Login(props) {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         Email: <input type="text" {...getInputProps('email')} /> <br />
-        Password: <input type="password" {...getInputProps('password')} />{' '}
+        Password: <input type="password" {...getInputProps('password')} />
         <br />
         <button>Login</button>
       </form>

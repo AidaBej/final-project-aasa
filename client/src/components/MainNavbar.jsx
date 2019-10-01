@@ -4,6 +4,8 @@ import api from '../api'
 import { Link, NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router'
 function MainNavbar(props) {
+  api.isAdmin()
+
   function handleLogoutClick(e) {
     api.logout()
   }
@@ -12,7 +14,11 @@ function MainNavbar(props) {
     <nav className="navbar navbar-expand-sm navbar-dark position-fixed mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       {/* <img src="./../images/WealthySameDoe.webp" className="App-logo" alt="logo" /> */}
-      <img src="https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif" className="App-logo" alt="logo" />
+      <img
+        src="https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif"
+        className="App-logo"
+        alt="logo"
+      />
       <Link className="navbar-brand" to="/">
         Parisian Cocoon{' '}
       </Link>
@@ -71,6 +77,13 @@ function MainNavbar(props) {
               </NavLink>
             </li>
           )}
+          {api.isAdmin() && (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/manage-property">
+                Edit
+              </NavLink>
+            </li>
+          )}
 
           {!api.isLoggedIn() && (
             <li className="nav-item">
@@ -90,6 +103,13 @@ function MainNavbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="/" onClick={handleLogoutClick}>
                 Logout
+              </Link>
+            </li>
+          )}
+          {api.isLoggedIn() && (
+            <li className="nav-item">
+              <Link className="nav-link" to="/favorites">
+                <i className="fav fas fa-heart red"></i>
               </Link>
             </li>
           )}

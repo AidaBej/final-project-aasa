@@ -27,7 +27,15 @@
   margin: 20px 0 50px 50px;
   align-items: center;
   height: auto;
-  width: 800px;
+  width: 900px;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none !important;
+    color: #e3ceb0 !important;
+  }
 }
 
 .property-details {
@@ -55,9 +63,52 @@
   color: white;
 }
 
+.title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.filters {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.form-filters {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.dropdowns {
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  height: 40px;
+  background-color: #7bb4b5;
+  border: solid 1px #5588a3;
+  color: white;
+}
+
+.dropdowns:hover {
+  background-color: #e3ceb0;
+}
+
+.filter-block {
+  flex-direction: column;
+  width: 200px;
+  margin: 20px;
+}
+
+.input-min-max {
+  background-color: red;
+}
+
 .card-title {
   font-style: #5588a3 80px;
   text-align: center;
+  margin: 0 20px 0 20px;
+  width: 100%;
 }
 
 .property-type {
@@ -71,7 +122,7 @@
 .slideshow-container {
   max-width: 500px;
   position: relative;
-  margin: auto;
+  margin: 0 10px 50px 20px;
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -86,11 +137,15 @@
   width: 100%;
 }
 
+// .pictures-list {
+//   max-width: 500px;
+// }
+
 // To access ONE picture
-img {
-  width: 300px;
-  height: 100px;
-  object-fit: cover;
+.imgs {
+  width: 500px;
+  height: auto;
+  margin-bottom: 50px;
 }
 
 li {

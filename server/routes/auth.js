@@ -1,19 +1,31 @@
 const express = require('express')
 const passport = require('passport')
 const router = express.Router()
-const User = require('../models/User')
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 
+//Model to import
+const User = require('../models/User')
+
+//------------------------------------------------------
+//------------------------------------------------------
+
+//SIGN-UP
+
+router.get('/signup', (req, res, next) => {
+  res.render('signup')
+})
+
 router.post('/signup', (req, res, next) => {
-  const { username, password, name } = req.body
-  if (!username || !password) {
-    res.status(400).json({ message: 'Indicate username and password' })
+  const { email, password, name } = req.body
+
+  if (!name || !password || !email) {
+    res.status(400).json({ message: 'Form incomplete' })
     return
   }
-  User.findOne({ username })
+  User.findOne({ email })
     .then(userDoc => {
       if (userDoc !== null) {
         res.status(409).json({ message: 'The username already exists' })
@@ -21,10 +33,11 @@ router.post('/signup', (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-      const newUser = new User({ username, password: hashPass, name })
+      const newUser = new User({ email, password: hashPass, name })
       return newUser.save()
     })
     .then(userSaved => {
+      console.log(userSaved, '------------------')
       // LOG IN THIS USER
       // "req.logIn()" is a Passport method that calls "serializeUser()"
       // (that saves the USER ID in the session)
@@ -37,21 +50,34 @@ router.post('/signup', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.post('/login', (req, res, next) => {
-  const { username, password } = req.body
+//------------------------------------------------------
 
+//LOGIN
+
+router.post('/login', (req, res, next) => {
+  const { email, password } = req.body
+  console.log(email)
   // first check to see if there's a document with that username
-  User.findOne({ username })
+  User.findOne({ email })
     .then(userDoc => {
       // "userDoc" will be empty if the username is wrong (no document in database)
       if (!userDoc) {
         // create an error object to send to our error handler with "next()"
-        next(new Error('Incorrect username '))
+        next(new Error('Incorrect email '))
         return
       }
-
+      console.log(userDoc.password)
       // second check the password
       // "compareSync()" will return false if the "password" is wrong
+
+      // console.log(
+      //   bcrypt.compareSync(
+      //     password,
+      //     '$2b$10$OL38MsdfEe5vAJnjarM7aufokcLmKivnT29sICdxelA/me7Xrht3i'
+      //   )
+      // )
+      // console.log(userDoc.password)
+
       if (!bcrypt.compareSync(password, userDoc.password)) {
         // create an error object to send to our error handler with "next()"
         next(new Error('Password is wrong'))
@@ -93,6 +119,10 @@ router.post('/login-with-passport-local-strategy', (req, res, next) => {
     })
   })(req, res, next)
 })
+
+//------------------------------------------------------
+
+//LOGOUT
 
 router.get('/logout', (req, res) => {
   req.logout()

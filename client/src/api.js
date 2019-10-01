@@ -28,6 +28,9 @@ export default {
   isLoggedIn() {
     return localStorage.getItem('user') != null
   },
+  isAdmin() {
+    // console.log(this.getLocalStorageUser().isAdmin)
+  },
 
   // This method returns the user from the localStorage
   // Be careful, the value is the one when the user logged in for the last time
@@ -47,10 +50,10 @@ export default {
       .catch(errHandler)
   },
 
-  login(username, password) {
+  login(email, password) {
     return service
       .post('/login', {
-        username,
+        email,
         password,
       })
       .then(res => {
@@ -122,12 +125,12 @@ export default {
       .catch(errHandler)
   },
 
-  addCountry(body) {
-    return service
-      .post('/countries', body)
-      .then(res => res.data)
-      .catch(errHandler)
-  },
+  // addCountry(body) {
+  //   return service
+  //     .post('/countries', body)
+  //     .then(res => res.data)
+  //     .catch(errHandler)
+  // },
 
   getSecret() {
     return service
