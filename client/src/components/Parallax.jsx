@@ -80,6 +80,16 @@ export default function Parallax() {
       <div className="container-parallax">
         <section className="background">
           <div className="content-wrapper">
+            <p className="content-title">
+              Welcome to <br></br>Parisian Cocoon
+            </p>
+            <p className="content-subtitle">
+              Scroll down to discover our website
+            </p>
+          </div>
+        </section>
+        <section className="background">
+          <div className="content-wrapper">
             <div className="home">
               <div className="square-hp">
                 <div className="opacity-low"></div>
@@ -100,14 +110,13 @@ export default function Parallax() {
         </section>
         <section className="background">
           <div className="content-wrapper">
-            <p className="content-title">Our properties</p>
-            <p className="content-subtitle">Add gmaps</p>
-          </div>
-        </section>
-        <section className="background">
-          <div className="content-wrapper">
             <p className="content-title">Our team.</p>
             <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
+            <div className="buttons">
+              <a href="/aboutus">
+                <button className="button-view-meet">Meet our team</button>
+              </a>
+            </div>
           </div>
         </section>
       </div>

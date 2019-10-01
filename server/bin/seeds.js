@@ -23,7 +23,7 @@ const properties = [
     bedrooms: 2,
     localisation: {
       type: 'Point',
-      coordinates: [48.782645, 1.690729],
+      coordinates: [48.8558962, 2.3577906],
     },
     others: 'Terrace',
     pictures: [
@@ -73,7 +73,7 @@ const properties = [
     bedrooms: 1,
     localisation: {
       type: 'Point',
-      coordinates: [49.1949183, 6.6647235],
+      coordinates: [48.8632886, 2.3562899],
     },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569423670/ironhack-project-3/properties/duplex-private-mansion-6_zotuxk.jpg',
@@ -97,8 +97,9 @@ const properties = [
     bedrooms: 3,
     localisation: {
       type: 'Point',
-      coordinates: [48.8581277, 2.3563382],
+      coordinates: [48.8584556, 2.3517023],
     },
+
     others: 'Balcony',
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569425418/ironhack-project-3/properties/duplex-under-roof-mansion-2_vgfuos.jpg',
@@ -119,7 +120,7 @@ const properties = [
     bedrooms: 3,
     localisation: {
       type: 'Point',
-      coordinates: [48.8623272, 2.2935019],
+      coordinates: [48.858205, 2.282117],
     },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569492159/ironhack-project-3/properties/duplex-terrace-architect-building-1_sob5pp.jpg',
@@ -190,7 +191,7 @@ const properties = [
     bedrooms: 1,
     localisation: {
       type: 'Point',
-      coordinates: [48.83471537543164, 2.3791189577422074],
+      coordinates: [48.85341, 2.3488],
     },
     others: ['Swimming Pool', 'Terrace'],
     pictures: [
@@ -212,7 +213,7 @@ const properties = [
     bedrooms: 1,
     localisation: {
       type: 'Point',
-      coordinates: [48.843966514657254, 2.298658379580843],
+      coordinates: [48.8581239, 2.2882045],
     },
     others: ['Caretaker', 'Balcony'],
     pictures: [
@@ -235,7 +236,7 @@ const properties = [
     bedrooms: 1,
     localisation: {
       type: 'Point',
-      coordinates: [48.6483903, 1.8352707],
+      coordinates: [48.864174, 2.3465192],
     },
     pictures: [
       'https://res.cloudinary.com/drukuybdj/image/upload/v1569406183/ironhack-project-3/properties/mini-loft-montorgueil-1_njqbh8.jpg',
