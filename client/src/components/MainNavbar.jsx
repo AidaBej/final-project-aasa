@@ -14,7 +14,11 @@ function MainNavbar(props) {
     <nav className="navbar navbar-expand-sm navbar-dark position-fixed mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       {/* <img src="./../images/WealthySameDoe.webp" className="App-logo" alt="logo" /> */}
-      <img src="https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif" className="App-logo" alt="logo" />
+      <img
+        src="https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif"
+        className="App-logo"
+        alt="logo"
+      />
       <Link className="navbar-brand" to="/">
         Parisian Cocoon{' '}
       </Link>
@@ -105,7 +109,7 @@ function MainNavbar(props) {
           {api.isLoggedIn() && (
             <li className="nav-item">
               <Link className="nav-link" to="/favorites">
-                <i class="fav fas fa-heart red"></i>
+                <i className="fav fas fa-heart red"></i>
               </Link>
             </li>
           )}

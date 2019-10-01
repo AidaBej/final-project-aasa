@@ -25,7 +25,7 @@ export default function App() {
         <Route path="/forsale" component={ForSale} />
         <Route path="/forrent" component={ForRent} />
         <Route path="/favorites" component={Favorites} />
-        <Route path="/test" component={Test} />
+        {/* <Route path="/test" component={Test} /> */}
         <Route path="/aboutus" component={AboutUs} />
         <Route path="/detail/:id" component={OneProperty} />
         <Route path="/contactus" component={ContactUs} />
