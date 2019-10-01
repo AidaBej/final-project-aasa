@@ -184,9 +184,9 @@ export default function ForSale() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
-              <option value="">Types of properties to buy</option>
+              <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
               <option value="Loft">Loft</option>
               <option value="Duplex">Duplex</option>
@@ -200,7 +200,7 @@ export default function ForSale() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((property, i) => (
@@ -236,6 +236,7 @@ export default function ForSale() {
                 onChange={handleChange}
                 autoComplete="off"
                 maxLength="13"
+                className="input-min-max"
               ></input>
               <span className="unit">€</span>
             </div>
@@ -249,6 +250,7 @@ export default function ForSale() {
                 placeholder="max"
                 autoComplete="off"
                 maxLength="13"
+                className="input-min-max"
               ></input>
               <span className="unit">€</span>
               <br></br>
@@ -271,6 +273,7 @@ export default function ForSale() {
                 placeholder="min"
                 autoComplete="off"
                 maxLength="27"
+                className="input-min-max"
               ></input>
               <span className="unit">m²</span>
             </div>
@@ -283,6 +286,7 @@ export default function ForSale() {
                 placeholder="max"
                 autoComplete="off"
                 maxLength="27"
+                className="input-min-max"
               ></input>
               <span className="unit">m²</span>
             </div>
@@ -291,8 +295,8 @@ export default function ForSale() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-crit-room"></i>Number of rooms
-            </span>
+              <i className="fi fi-crit-room"></i>Rooms
+        </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -306,7 +310,7 @@ export default function ForSale() {
                   checked={filter.isChecked1Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="studio" className="form-check-label">
+                <label htmlFor="studio" className="form-check-label filter-label">
                   Studio
                 </label>
               </div>
@@ -318,7 +322,7 @@ export default function ForSale() {
                   checked={filter.isChecked2Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="2rooms">2</label>
+                <label htmlFor="2rooms" className="filter-label"> 2</label>
               </div>
               <div className="itemList active">
                 <input
@@ -328,7 +332,7 @@ export default function ForSale() {
                   checked={filter.isChecked3Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="3rooms">3</label>
+                <label htmlFor="3rooms" className="filter-label"> 3</label>
               </div>
               <div className="itemList active">
                 <input
@@ -338,7 +342,7 @@ export default function ForSale() {
                   checked={filter.isChecked4Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="4rooms">4</label>
+                <label htmlFor="4rooms" className="filter-label"> 4</label>
               </div>
               <div className="itemList active">
                 <input
@@ -348,7 +352,7 @@ export default function ForSale() {
                   checked={filter.isChecked5Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="5andmore">5+</label>
+                <label htmlFor="5andmore" className="filter-label"> 5+</label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -356,7 +360,7 @@ export default function ForSale() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-crit-room"></i>Number of bedrooms
+              <i className="fi fi-crit-room"></i>Bedrooms
             </span>
             <span className="description"></span>
             <div className="containerList">
@@ -370,7 +374,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isChecked1Bedroom}
                 ></input>
-                <label htmlFor="1">1</label>
+                <label htmlFor="1" className="filter-label">1</label>
               </div>
               <div className="itemList active">
                 <input
@@ -382,7 +386,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isChecked2Bedroom}
                 ></input>
-                <label htmlFor="2">2</label>
+                <label htmlFor="2" className="filter-label">2</label>
               </div>
               <div className="itemList active">
                 <input
@@ -393,7 +397,7 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="3">3</label>
+                <label htmlFor="3" className="filter-label">3</label>
               </div>
               <div className="itemList active">
                 <input
@@ -404,7 +408,7 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="4">4</label>
+                <label htmlFor="4" className="filter-label">4</label>
               </div>
               <div className="itemList active">
                 <input
@@ -415,7 +419,7 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="5andmore">5+</label>
+                <label htmlFor="5andmore" className="filter-label">5+</label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -437,7 +441,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedGarden}
                 ></input>
-                <label htmlFor="garden">
+                <label htmlFor="garden" className="filter-label">
                   <i className="fi fi-garden"></i>Garden
                 </label>
               </div>
@@ -451,7 +455,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedFireplace}
                 ></input>
-                <label htmlFor="fireplace">
+                <label htmlFor="fireplace" className="filter-label">
                   <i className="fi fi-crit-chimney"></i>Fireplace
                 </label>
               </div>
@@ -465,7 +469,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedCaretaker}
                 ></input>
-                <label htmlFor="guardian">
+                <label htmlFor="guardian" className="filter-label">
                   <i className="fi fi-crit-man-suit"></i>Caretaker
                 </label>
               </div>
@@ -479,7 +483,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedBalcony}
                 ></input>
-                <label htmlFor="balcony">
+                <label htmlFor="balcony" className="filter-label">
                   <i className="fi fi-crit-balcony"></i>Balcony
                 </label>
               </div>
@@ -493,7 +497,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedPool}
                 ></input>
-                <label htmlFor="Swimming-Pool">
+                <label htmlFor="Swimming-Pool" className="filter-label">
                   <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
                 </label>
               </div>
@@ -508,7 +512,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedTerrace}
                 ></input>
-                <label htmlFor="terrace">
+                <label htmlFor="terrace" className="filter-label">
                   <i className="fi fi-crit-table"></i>Terrace
                 </label>
               </div>
@@ -522,7 +526,7 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isCheckedParking}
                 ></input>
-                <label htmlFor="parking">
+                <label htmlFor="parking" className="filter-label">
                   <i></i>Parking
                 </label>
               </div>
