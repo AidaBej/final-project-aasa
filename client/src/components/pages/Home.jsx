@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 // import properties from 'seeds.js'
-import Parallax from "./../Parallax";
-import mapboxgl from "mapbox-gl/dist/mapbox-gl";
+// import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 // import Map from './pages/Map'
 
 import Parallax from './../Parallax'

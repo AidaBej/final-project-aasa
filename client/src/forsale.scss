@@ -1,14 +1,14 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 .title {
   color: #5588a3;
 }
 
 .properties {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   padding: 90px 40px 20px 40px;
-  background: url("https://res.cloudinary.com/drukuybdj/image/upload/v1569855446/ironhack-project-3/properties/rob-potvin-VLWy8LIdzsQ-unsplash_z5z7bx.jpg")
+  background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569855446/ironhack-project-3/properties/rob-potvin-VLWy8LIdzsQ-unsplash_z5z7bx.jpg')
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,12 +17,12 @@
 }
 
 .property-card {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   flex-direction: row;
   border: none;
   box-shadow: 0px 0px 4px 2px rgba(58, 58, 58, 0.4);
-  background: #f4ede5;
+  background: white;
   border-radius: 5px;
   margin: 20px 0 50px 50px;
   align-items: center;
@@ -63,18 +63,45 @@ a {
   color: white;
 }
 
-.page-title {
-  // margin-top: 70px;
+.title {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .filters {
   display: flex;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.form-filters {
+  display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 .dropdowns {
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  height: 40px;
+  background-color: #7bb4b5;
+  border: solid 1px #5588a3;
+  color: white;
+}
+
+.dropdowns:hover {
+  background-color: #e3ceb0;
+}
+
+.filter-block {
   flex-direction: column;
-  justify-content: space-between;
+  width: 200px;
+  margin: 20px;
+}
+
+.input-min-max {
+  background-color: red;
 }
 
 .card-title {
