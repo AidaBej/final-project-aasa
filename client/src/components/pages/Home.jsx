@@ -20,7 +20,7 @@ export default function Home() {
       {/* <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      // onViewportChange={viewport => this.setState({ viewport })}
+        // onViewportChange={viewport => this.setState({ viewport })}
       /> */}
     </>
   )

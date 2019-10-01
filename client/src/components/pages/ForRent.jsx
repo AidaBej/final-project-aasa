@@ -4,7 +4,17 @@ import { Link } from 'react-router-dom'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
 
+// import AwsSliderStyles from 'react-awesome-slider/src/styles';
+
 export default function ForRent() {
+  // const slider = (
+  //   <AwesomeSlider>
+  //     <div data-src="/path/to/image-0.png" />
+  //     <div data-src="/path/to/image-1.png" />
+  //     <div data-src="/path/to/image-2.jpg" />
+  //   </AwesomeSlider>
+  // );
+
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -67,6 +77,10 @@ export default function ForRent() {
       })
       .catch(err => console.log(err))
   }, [])
+  function getGoogleMapsDirection(property) {
+    let [lng, lat] = property.localisation.coordinates
+    return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
+  }
 
   function handleChange(e) {
     let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
@@ -524,6 +538,12 @@ export default function ForRent() {
           <div className="property-card">
             <div key={property._id + Date.now()}>
               <Link to={`/detail/${property._id}`}>
+                {api.isLoggedIn() && (
+                  <i
+                    className="fav fas fa-heart white"
+                    data-id="{{this._id}}"
+                  ></i>
+                )}
                 <h3 className="card-title">
                   {property.title} in {property.location}
                 </h3>
@@ -557,6 +577,10 @@ export default function ForRent() {
                 </p>
                 <p className="text-color">
                   {property.rooms} rooms || {property.bedrooms} bedrooms
+                </p>
+                <p className="text-color">
+                  Longitude: {property.localisation.coordinates[0]} <br />
+                  Latitude: {property.localisation.coordinates[1]} <br />
                 </p>
               </Link>
               <i className="fas fa-heart"></i>

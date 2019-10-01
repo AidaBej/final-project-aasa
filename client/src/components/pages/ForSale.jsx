@@ -38,6 +38,8 @@ export default function ForSale() {
 
   const [properties, setProperties] = useState([])
 
+  const [filteredProperties, setFilteredProperties] = useState([])
+
   //Pour récupérer toutes les location des propriétés et les mettre ensuite dans le select
   function getLocation() {
     return properties
@@ -49,9 +51,20 @@ export default function ForSale() {
   }
 
   useEffect(() => {
+    // if (filter.type) {
+    //   // utilise base data pour mettre à jour filtered data
+    //   // la liste des properties reste tjs complète
+    //   // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
+    setFilteredProperties(getFilteredSales())
+  }, [filter])
+
+  useEffect(() => {
     api
       .getProperties()
-      .then(res => setProperties(res))
+      .then(res => {
+        setProperties(res) // base data
+        setFilteredProperties(res) // copy of base data
+      })
       .catch(err => console.log(err))
   }, [])
 
@@ -164,7 +177,6 @@ export default function ForSale() {
       <h2 className="page-title">Properties for sale</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
-
         <form className="form-filters">
           <div className="filter-block">
             <select
@@ -203,7 +215,7 @@ export default function ForSale() {
             <span className="title">
               <i className="fi fi-euro"></i>
               Budget
-        </span>
+            </span>
             <div className="container_min">
               {/* <input
             type="range"
@@ -250,7 +262,7 @@ export default function ForSale() {
             <span className="title">
               <i className="fi fi-crit-size"></i>
               Size
-        </span>
+            </span>
             <span className="description"></span>
             <div className="container_min">
               <input
@@ -300,7 +312,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="studio" className="form-check-label filter-label">
                   Studio
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -416,7 +428,7 @@ export default function ForSale() {
           <div className="filter-block">
             <span className="title">
               <i className="fi fi-heart"></i> Other criterias
-        </span>
+            </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -431,7 +443,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="garden" className="filter-label">
                   <i className="fi fi-garden"></i>Garden
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -445,7 +457,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="fireplace" className="filter-label">
                   <i className="fi fi-crit-chimney"></i>Fireplace
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -459,7 +471,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="guardian" className="filter-label">
                   <i className="fi fi-crit-man-suit"></i>Caretaker
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -473,7 +485,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="balcony" className="filter-label">
                   <i className="fi fi-crit-balcony"></i>Balcony
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -487,7 +499,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="Swimming-Pool" className="filter-label">
                   <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
-            </label>
+                </label>
               </div>
 
               <div className="itemList active">
@@ -502,7 +514,7 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="terrace" className="filter-label">
                   <i className="fi fi-crit-table"></i>Terrace
-            </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -516,24 +528,26 @@ export default function ForSale() {
                 ></input>
                 <label htmlFor="parking" className="filter-label">
                   <i></i>Parking
-            </label>
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
           </div>
-
         </form>{' '}
       </div>
       <br />
       <br />
       <br />
-      {getFilteredSales().map((property, i) => (
+      {filteredProperties.map((property, i) => (
         <div key={i}>
           <div className="property-card">
-            <div key={property._id}>
+            <div key={property._id + Date.now()}>
               <Link to={`/detail/${property._id}`} className="property-details">
                 {api.isLoggedIn() && (
-                  <i className="fav fas fa-heart white" data-id="{{this._id}}"></i>
+                  <i
+                    className="fav fas fa-heart white"
+                    data-id="{{this._id}}"
+                  ></i>
                 )}
                 <h3 className="card-title">
                   {property.title} in {property.location}
@@ -551,13 +565,20 @@ export default function ForSale() {
                   // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
                 ))}
               </AwesomeSlider>
-
             </div>
             <div key={property._id} className="property-details">
               <Link to={`/detail/${property._id}`} className="property-details">
-                <p>{property.type} {property.kind}</p>
-                <p className="text-color"><strong>{property.budget}€</strong></p>
-                <p className="text-color"><strong>{property.size} m<sup>2</sup></strong></p>
+                <p>
+                  {property.type} {property.kind}
+                </p>
+                <p className="text-color">
+                  <strong>{property.budget}€</strong>
+                </p>
+                <p className="text-color">
+                  <strong>
+                    {property.size} m<sup>2</sup>
+                  </strong>
+                </p>
                 <p className="text-color">{property.rooms} rooms</p>
                 <p className="text-color">{property.bedrooms} bedrooms</p>
               </Link>

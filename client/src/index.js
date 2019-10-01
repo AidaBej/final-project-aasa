@@ -4,8 +4,7 @@ import './index.scss'
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './components/App.jsx'
 // import registerServiceWorker from './registerServiceWorker';
-// import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
-// mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 
 ReactDOM.render(
   <Router>
