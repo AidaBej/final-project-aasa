@@ -164,52 +164,48 @@ export default function ForSale() {
       <h2 className="page-title">Properties for sale</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
-        <form
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            marginTop: '50px',
-            marginLeft: '20px',
-            marginRight: '20px',
-            justifyContent: 'space-between',
-          }}
-        >
-          <select
-            name="type"
-            value={filter.type}
-            onChange={handleChange}
-          // className="form-control"
-          // style={{ width: '30%' }}
-          >
-            <option value="">Types of properties to buy</option>
-            <option value="Apartment">Apartment</option>
-            <option value="Loft">Loft</option>
-            <option value="Duplex">Duplex</option>
-            <option value="Triplex">Triplex</option>
-            <option value="Penthouse">Penthouse</option>
-            <option value="Houseboat">Houseboat</option>
-          </select>
 
-          <select
-            name="location"
-            value={filter.location}
-            onChange={handleChange}
-          // className="form-control"
-          // style={{ width: '30%' }}
-          >
-            <option value="">Location</option>
-            {getLocation().map((property, i) => (
-              <option key={i} value={property}>
-                {property}
-              </option>
-            ))}
-          </select>
-          <span className="title">
-            <i className="fi fi-euro"></i>
-            Budget
+        <form className="form-filters">
+          <div className="filter-block">
+            <select
+              name="type"
+              value={filter.type}
+              onChange={handleChange}
+              className="dropdowns"
+            // style={{ width: '30%' }}
+            >
+              <option value="">Types of properties to buy</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Loft">Loft</option>
+              <option value="Duplex">Duplex</option>
+              <option value="Triplex">Triplex</option>
+              <option value="Penthouse">Penthouse</option>
+              <option value="Houseboat">Houseboat</option>
+            </select>
+
+            <select
+              name="location"
+              value={filter.location}
+              onChange={handleChange}
+              className="dropdowns"
+            // style={{ width: '30%' }}
+            >
+              <option value="">Location</option>
+              {getLocation().map((property, i) => (
+                <option key={i} value={property}>
+                  {property}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-euro"></i>
+              Budget
         </span>
-          <div className="container_min">
-            {/* <input
+            <div className="container_min">
+              {/* <input
             type="range"
             min="0"
             name="price_min"
@@ -219,295 +215,309 @@ export default function ForSale() {
             step="10000"
             oninput="result4.value=parseInt(d.value)"
           ></input> */}
-            <input
-              min={0}
-              type="number"
-              name="price_min"
-              value={filter.price_min}
-              placeholder="min"
-              onChange={handleChange}
-              autoComplete="off"
-              maxLength="13"
-            ></input>
-            <span className="unit">€</span>
-          </div>
-          <div className="container_max">
-            <input
-              type="number"
-              name="price_max"
-              value={filter.price_max}
-              onChange={handleChange}
-              placeholder="max"
-              autoComplete="off"
-              maxLength="13"
-            ></input>
-            <span className="unit">€</span>
-            <br></br>
-            {/* <button onClick={handleChange}>OK</button> */}
-          </div>
-          <span className="title">
-            <i className="fi fi-crit-size"></i>
-            Size
-        </span>
-          <span className="description"></span>
-          <div className="container_min">
-            <input
-              type="number"
-              name="surface_min"
-              value={filter.surface_min}
-              onChange={handleChange}
-              placeholder="min"
-              autoComplete="off"
-              maxLength="27"
-            ></input>
-            <span className="unit">m²</span>
-          </div>
-          <div className="container_max">
-            <input
-              type="number"
-              name="surface_max"
-              value={filter.surface_max}
-              onChange={handleChange}
-              placeholder="max"
-              autoComplete="off"
-              maxLength="27"
-            ></input>
-            <span className="unit">m²</span>
-          </div>
-          <span className="error invisible"></span>
-
-          <span className="title">
-            <i className="fi fi-crit-room"></i>Number of rooms
-        </span>
-          <span className="description"></span>
-          <div className="containerList">
-            <div className="itemList active">
-              {/* <b-form-group label> */}
               <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                name="isChecked1Room"
-                id="studio"
-                checked={filter.isChecked1Room}
+                min={0}
+                type="number"
+                name="price_min"
+                value={filter.price_min}
+                placeholder="min"
                 onChange={handleChange}
+                autoComplete="off"
+                maxLength="13"
               ></input>
-              <label htmlFor="studio" className="form-check-label">
-                Studio
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                type="checkbox"
-                name="isChecked2Room"
-                id="2rooms"
-                checked={filter.isChecked2Room}
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="2rooms">2</label>
-            </div>
-            <div className="itemList active">
-              <input
-                type="checkbox"
-                name="isChecked3Room"
-                id="3rooms"
-                checked={filter.isChecked3Room}
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="3rooms">3</label>
-            </div>
-            <div className="itemList active">
-              <input
-                type="checkbox"
-                name="isChecked4Room"
-                id="4rooms"
-                checked={filter.isChecked4Room}
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="4rooms">4</label>
-            </div>
-            <div className="itemList active">
-              <input
-                type="checkbox"
-                name="isChecked5Room"
-                id="5andmore"
-                checked={filter.isChecked5Room}
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="5andmore">5+</label>
-            </div>
-          </div>
-          <span className="error invisible"></span>
-          <span className="title">
-            <i className="fi fi-crit-room"></i>Number of bedrooms
-        </span>
-          <span className="description"></span>
-          <div className="containerList">
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isChecked1Bedroom"
-                id="1"
-                value=""
-                onChange={handleChange}
-                checked={filter.isChecked1Bedroom}
-              ></input>
-              <label htmlFor="1">1</label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isChecked2Bedroom"
-                id="2"
-                value=""
-                onChange={handleChange}
-                checked={filter.isChecked2Bedroom}
-              ></input>
-              <label htmlFor="2">2</label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isChecked3Bedroom"
-                id="3"
-                value=""
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="3">3</label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isChecked4Bedroom"
-                id="4"
-                value=""
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="4">4</label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isChecked5Bedroom"
-                id="5andmore"
-                value=""
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="5andmore">5+</label>
-            </div>
-          </div>
-          <span className="error invisible"></span>
-          <span className="title">
-            <i className="fi fi-heart"></i> Other criterias
-        </span>
-          <span className="description"></span>
-          <div className="containerList">
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedGarden"
-                id="garden"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedGarden}
-              ></input>
-              <label htmlFor="garden">
-                <i className="fi fi-garden"></i>Garden
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedFireplace"
-                id="fireplace"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedFireplace}
-              ></input>
-              <label htmlFor="fireplace">
-                <i className="fi fi-crit-chimney"></i>Fireplace
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedCaretaker"
-                id="guardian"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedCaretaker}
-              ></input>
-              <label htmlFor="guardian">
-                <i className="fi fi-crit-man-suit"></i>Caretaker
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedBalcony"
-                id="balcony"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedBalcony}
-              ></input>
-              <label htmlFor="balcony">
-                <i className="fi fi-crit-balcony"></i>Balcony
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedPool"
-                id="pool"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedPool}
-              ></input>
-              <label htmlFor="Swimming-Pool">
-                <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
-            </label>
+              <span className="unit">€</span>
             </div>
 
-            <div className="itemList active">
+            <div className="container_max">
               <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedTerrace"
-                id="terrace"
-                value=""
+                type="number"
+                name="price_max"
+                value={filter.price_max}
                 onChange={handleChange}
-                checked={filter.isCheckedTerrace}
+                placeholder="max"
+                autoComplete="off"
+                maxLength="13"
               ></input>
-              <label htmlFor="terrace">
-                <i className="fi fi-crit-table"></i>Terrace
-            </label>
-            </div>
-            <div className="itemList active">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="isCheckedParking"
-                id="parking"
-                value=""
-                onChange={handleChange}
-                checked={filter.isCheckedParking}
-              ></input>
-              <label htmlFor="parking">
-                <i></i>Parking
-            </label>
+              <span className="unit">€</span>
+              <br></br>
+              {/* <button onClick={handleChange}>OK</button> */}
             </div>
           </div>
-          <span className="error invisible"></span>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-crit-size"></i>
+              Size
+        </span>
+            <span className="description"></span>
+            <div className="container_min">
+              <input
+                type="number"
+                name="surface_min"
+                value={filter.surface_min}
+                onChange={handleChange}
+                placeholder="min"
+                autoComplete="off"
+                maxLength="27"
+              ></input>
+              <span className="unit">m²</span>
+            </div>
+            <div className="container_max">
+              <input
+                type="number"
+                name="surface_max"
+                value={filter.surface_max}
+                onChange={handleChange}
+                placeholder="max"
+                autoComplete="off"
+                maxLength="27"
+              ></input>
+              <span className="unit">m²</span>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-crit-room"></i>Number of rooms
+        </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
+                {/* <b-form-group label> */}
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="isChecked1Room"
+                  id="studio"
+                  checked={filter.isChecked1Room}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="studio" className="form-check-label">
+                  Studio
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  type="checkbox"
+                  name="isChecked2Room"
+                  id="2rooms"
+                  checked={filter.isChecked2Room}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="2rooms">2</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  type="checkbox"
+                  name="isChecked3Room"
+                  id="3rooms"
+                  checked={filter.isChecked3Room}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="3rooms">3</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  type="checkbox"
+                  name="isChecked4Room"
+                  id="4rooms"
+                  checked={filter.isChecked4Room}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="4rooms">4</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  type="checkbox"
+                  name="isChecked5Room"
+                  id="5andmore"
+                  checked={filter.isChecked5Room}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="5andmore">5+</label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-crit-room"></i>Number of bedrooms
+        </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isChecked1Bedroom"
+                  id="1"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isChecked1Bedroom}
+                ></input>
+                <label htmlFor="1">1</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isChecked2Bedroom"
+                  id="2"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isChecked2Bedroom}
+                ></input>
+                <label htmlFor="2">2</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isChecked3Bedroom"
+                  id="3"
+                  value=""
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="3">3</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isChecked4Bedroom"
+                  id="4"
+                  value=""
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="4">4</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isChecked5Bedroom"
+                  id="5andmore"
+                  value=""
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="5andmore">5+</label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-heart"></i> Other criterias
+        </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedGarden"
+                  id="garden"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedGarden}
+                ></input>
+                <label htmlFor="garden">
+                  <i className="fi fi-garden"></i>Garden
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedFireplace"
+                  id="fireplace"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedFireplace}
+                ></input>
+                <label htmlFor="fireplace">
+                  <i className="fi fi-crit-chimney"></i>Fireplace
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedCaretaker"
+                  id="guardian"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedCaretaker}
+                ></input>
+                <label htmlFor="guardian">
+                  <i className="fi fi-crit-man-suit"></i>Caretaker
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedBalcony"
+                  id="balcony"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedBalcony}
+                ></input>
+                <label htmlFor="balcony">
+                  <i className="fi fi-crit-balcony"></i>Balcony
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedPool"
+                  id="pool"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedPool}
+                ></input>
+                <label htmlFor="Swimming-Pool">
+                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
+            </label>
+              </div>
+
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedTerrace"
+                  id="terrace"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedTerrace}
+                ></input>
+                <label htmlFor="terrace">
+                  <i className="fi fi-crit-table"></i>Terrace
+            </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="isCheckedParking"
+                  id="parking"
+                  value=""
+                  onChange={handleChange}
+                  checked={filter.isCheckedParking}
+                ></input>
+                <label htmlFor="parking">
+                  <i></i>Parking
+            </label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
         </form>{' '}
       </div>
       <br />

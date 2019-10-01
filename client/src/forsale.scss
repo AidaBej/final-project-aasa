@@ -22,7 +22,7 @@
   flex-direction: row;
   border: none;
   box-shadow: 0px 0px 4px 2px rgba(58, 58, 58, 0.4);
-  background: #f4ede5;
+  background: white;
   border-radius: 5px;
   margin: 20px 0 50px 50px;
   align-items: center;
@@ -63,13 +63,45 @@ a {
   color: white;
 }
 
-.page-title {
-  // margin-top: 70px;
+.title {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .filters {
   display: flex;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.form-filters {
+  display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.dropdowns {
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  height: 40px;
+  background-color: #7bb4b5;
+  border: solid 1px #5588a3;
+  color: white;
+}
+
+.dropdowns:hover {
+  background-color: #e3ceb0;
+}
+
+.filter-block {
+  flex-direction: column;
+  width: 200px;
+  margin: 20px;
+}
+
+.input-min-max {
+  background-color: red;
 }
 
 .card-title {
