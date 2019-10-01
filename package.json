@@ -20,6 +20,11 @@
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^2.2.1",
     "nodemailer": "^6.3.0",
+<<<<<<< HEAD
+    "react-map-gl": "^5.0.11",
+    "slick-carousel": "^1.8.1"
+=======
     "react-map-gl": "^5.0.11"
+>>>>>>> 3b92bf2c71e49919f85d4662c376c8b864d1549d
   }
 }

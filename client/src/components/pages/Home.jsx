@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
-// import ReactMapGL from 'react-map-gl'
+import React, { useEffect, useState, useRef } from "react";
+// import properties from 'seeds.js'
+import Parallax from "./../Parallax";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl";
+// import Map from './pages/Map'
 
 import Parallax from './../Parallax'
 // import api from '../../api';
@@ -13,7 +16,6 @@ export default function Home() {
     width: '100vw',
     height: '100vh',
   })
-
   return (
     <>
       <Parallax />
@@ -23,5 +25,5 @@ export default function Home() {
       // onViewportChange={viewport => this.setState({ viewport })}
       /> */}
     </>
-  )
+  );
 }
