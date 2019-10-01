@@ -1,17 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+// }
 
 .white {
   color: white;
 }
-h2 {
-  font-size: 50px;
+
+.one-property-title {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 35px;
   color: white;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px #8b8b8b;
+  margin-top: 20px;
+}
+
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.showme {
+  font-size: 500px;
+  color: white;
 }
 
 .background-detail {

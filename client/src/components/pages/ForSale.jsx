@@ -174,7 +174,7 @@ export default function ForSale() {
 
   return (
     <div className="properties">
-      <h2 className="page-title">Properties for sale</h2>
+      <h2>Properties for sale</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
         <form className="form-filters">
@@ -541,18 +541,14 @@ export default function ForSale() {
       {filteredProperties.map((property, i) => (
         <div key={i}>
           <div className="property-card">
-            <div key={property._id + Date.now()}>
-              <Link to={`/detail/${property._id}`} className="property-details">
-                {api.isLoggedIn() && (
-                  <i
-                    className="fav fas fa-heart white"
-                    data-id="{{this._id}}"
-                  ></i>
-                )}
-                <h3 className="card-title">
-                  {property.title} in {property.location}
-                </h3>
-              </Link>
+            <div className="slider" key={property._id + Date.now()}>
+
+              {api.isLoggedIn() && (
+                <i
+                  className="fav fas fa-heart white"
+                  data-id="{{this._id}}"
+                ></i>
+              )}
 
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
@@ -562,26 +558,31 @@ export default function ForSale() {
                     alt={property.title + ' photo ' + (i + 1)}
                     className="imgs"
                   />
-                  // <img key={i} src={pic} alt={property.title + ' photo ' + (i + 1)} className="imgs" />
                 ))}
               </AwesomeSlider>
             </div>
             <div key={property._id} className="property-details">
-              <Link to={`/detail/${property._id}`} className="property-details">
-                <p>
-                  {property.type} {property.kind}
-                </p>
-                <p className="text-color">
-                  <strong>{property.budget}€</strong>
-                </p>
-                <p className="text-color">
-                  <strong>
-                    {property.size} m<sup>2</sup>
-                  </strong>
-                </p>
-                <p className="text-color">{property.rooms} rooms</p>
-                <p className="text-color">{property.bedrooms} bedrooms</p>
+
+              <h3 className="card-title">
+                {property.title} in {property.location}
+              </h3>
+
+              <p className="text-color">
+                <strong>{property.budget}€</strong>
+                <br />
+                <strong>
+                  {property.size} m<sup>2</sup>
+                </strong>
+                <br />
+                {property.rooms} rooms
+                <br />
+                {property.bedrooms} bedrooms</p>
+
+              <div className="link-to-detail">
+                <Link to={`/detail/${property._id}`} className="dropdowns link-to-detail">
+                  See more details
               </Link>
+              </div>
             </div>
           </div>
         </div>
