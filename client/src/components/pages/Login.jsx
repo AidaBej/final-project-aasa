@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import api from '../../api'
 import { useForm } from '../../hooks'
+import { Link } from 'react-router-dom'
 
 export default function Login(props) {
   const { formValues, getInputProps } = useForm({ email: '', password: '' })
@@ -19,15 +20,50 @@ export default function Login(props) {
   const [message, setMessage] = useState(null)
 
   return (
-    <div className="Login">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        Email: <input type="text" {...getInputProps('email')} /> <br />
-        Password: <input type="password" {...getInputProps('password')} />
-        <br />
-        <button>Login</button>
-      </form>
-      {message && <div className="info info-danger">{message}</div>}
+    <div className="login">
+      <div className="square-contact">
+        <div className="opacity-low-contact"></div>
+        <div className="bloc-contact">
+          <div className="ContactUs">
+            <h2 className="contact-title">Login</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label for="InputEmail">Email</label>
+                <input
+                  name="email"
+                  // style={{ width: '20%' }}
+                  value={formValues.email}
+                  type="text"
+                  {...getInputProps('email')}
+                  className="form-control"
+                  placeholder="Enter email"
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label for="InputPassword">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  {...getInputProps('password')}
+                  className="form-control"
+                  placeholder="*********"
+                />
+              </div>
+              <br />
+              <button>Login</button>
+            </form>
+            <small>
+              Don't have an account yet ?
+              <Link className="" to="/signup">
+                Sign Up
+              </Link>
+            </small>
+            <br />
+            <div className="background-image-login"></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
