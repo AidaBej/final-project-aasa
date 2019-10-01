@@ -7,6 +7,20 @@
 //   let map = useRef(null).current
 //   let markers = useRef(null).current
 
+useEffect(() => {
+  initMap(48, 2.33333)
+}, [])
+
+useEffect(() => {
+  api.getProperties().then(p => {
+    markers = []
+    for (let i = 0; i < p.length; i++) {
+      markers.push = new mapboxgl.Marker({ color: 'red' })
+        .setLngLat(p[i].localisation.coordinates)
+        .addTo(map)
+    }
+  })
+}, [])
 //   useEffect(() => {
 //     initMap(15, 45)
 //   }, [])
