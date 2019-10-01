@@ -538,6 +538,12 @@ export default function ForRent() {
           <div className="property-card">
             <div key={property._id + Date.now()}>
               <Link to={`/detail/${property._id}`}>
+                {api.isLoggedIn() && (
+                  <i
+                    className="fav fas fa-heart white"
+                    data-id="{{this._id}}"
+                  ></i>
+                )}
                 <h3 className="card-title">
                   {property.title} in {property.location}
                 </h3>
