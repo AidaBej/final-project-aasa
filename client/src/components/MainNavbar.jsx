@@ -79,6 +79,13 @@ function MainNavbar(props) {
           )}
           {api.isAdmin() && (
             <li className="nav-item">
+              <NavLink className="nav-link" to="/add-new-property">
+                Add New
+              </NavLink>
+            </li>
+          )}
+          {api.isAdmin() && (
+            <li className="nav-item">
               <NavLink className="nav-link" to="/manage-property">
                 Edit
               </NavLink>

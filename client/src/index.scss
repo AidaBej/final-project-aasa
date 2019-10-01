@@ -161,7 +161,9 @@ a.navbar-brand {
 
 /* page contact */
 
-.background-image-contact {
+.background-image-contact,
+.background-image-signup,
+.background-image-login {
   position: fixed;
   top: 0;
   left: 0;
@@ -178,7 +180,9 @@ a.navbar-brand {
   }
 }
 
-.contact {
+.contact,
+.signup,
+.login {
   height: calc(100vh - (84px));
   overflow: hidden;
   display: flex;
