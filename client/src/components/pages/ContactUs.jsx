@@ -19,6 +19,7 @@ export default function ContactUs(props) {
     })
   }
 
+  const [msg, setMsg] = useState('')
   function handleClick(e) {
     e.preventDefault()
     console.log('clicked')
@@ -33,7 +34,7 @@ export default function ContactUs(props) {
       .then(result => {
         console.log('SUCCESS!')
         console.log(props.history)
-
+        setMsg('Thank you. Your message has been sent.')
         props.history.push('/') // Redirect to the home page
       })
       .catch(err => setState({ message: err.toString() }))
@@ -107,24 +108,16 @@ export default function ContactUs(props) {
               </div>
 
               {/* <div className="button-submit-contact"> */}
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onclick={() => {
+                  alert.show('message sent')
+                }}
+              >
                 Submit
               </button>
-              {/* <div
-                class="alert alert-warning alert-dismissible fade show"
-                role="alert"
-              >
-                <strong>Thank you !</strong> Your message has been sent
-                succefully.
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div> */}
+              <div class="msg-submit">{msg}</div>
               {/* </div> */}
             </form>
             <br></br>

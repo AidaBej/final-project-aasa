@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  GoogleMap,
-  withScriptjs,
-  withGoogleMap,
-  Marker,
-  InfoWindow,
-  DirectionsRenderer,
-} from 'react-google-maps'
+import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps'
 import CustomMarker from './CustomMarker'
 import _ from 'lodash'
 import api from '../../api'
@@ -23,6 +16,7 @@ const Map = React.memo(props => {
       center={props.center}
       defaultCenter={{ lat: 48.866667, lng: 2.333333 }}
     >
+      {props.property && <CustomMarker property={props.property} />}
       {props.properties.map((p, i) => (
         <CustomMarker key={i} property={p} />
       ))}
@@ -46,13 +40,15 @@ const AppMap = props => {
   const refs = {}
 
   useEffect(() => {
-    api.getProperties().then(p => {
-      console.log(p)
-      setState({
-        ...state,
-        properties: [...p],
+    if (!props.property) {
+      api.getProperties('/all').then(p => {
+        console.log('ici>', p)
+        setState({
+          ...state,
+          properties: [...p],
+        })
       })
-    })
+    }
   }, [])
 
   const onMapMounted = ref => (refs.map = ref)
@@ -74,8 +70,9 @@ const AppMap = props => {
     console.log(e)
   }
   return (
-    <div style={{ height: '50vh' }}>
+    <div style={{ height: '100vh' }}>
       <WrapperMap
+        property={props.property}
         onToggleOpen={handleToggleOpen}
         properties={state.properties}
         handleMarkerClick={handleMarkerClick}

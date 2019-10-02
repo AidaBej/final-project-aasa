@@ -65,7 +65,7 @@ export default function ForSale() {
 
 
     api
-      .getProperties()
+      .getProperties('/forsale')
       .then(res => {
         setProperties(res) // base data
         setFilteredProperties(res) // copy of base data
@@ -340,7 +340,7 @@ export default function ForSale() {
           <div className="filter-block">
             <span className="title">
               <i className="fi fi-crit-room"></i>Rooms
-        </span>
+            </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -354,7 +354,10 @@ export default function ForSale() {
                   checked={filter.isChecked1Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="studio" className="form-check-label filter-label">
+                <label
+                  htmlFor="studio"
+                  className="form-check-label filter-label"
+                >
                   Studio
                 </label>
               </div>
@@ -366,7 +369,10 @@ export default function ForSale() {
                   checked={filter.isChecked2Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="2rooms" className="filter-label"> 2</label>
+                <label htmlFor="2rooms" className="filter-label">
+                  {' '}
+                  2
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -376,7 +382,10 @@ export default function ForSale() {
                   checked={filter.isChecked3Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="3rooms" className="filter-label"> 3</label>
+                <label htmlFor="3rooms" className="filter-label">
+                  {' '}
+                  3
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -386,7 +395,10 @@ export default function ForSale() {
                   checked={filter.isChecked4Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="4rooms" className="filter-label"> 4</label>
+                <label htmlFor="4rooms" className="filter-label">
+                  {' '}
+                  4
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -396,7 +408,10 @@ export default function ForSale() {
                   checked={filter.isChecked5Room}
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="5andmore" className="filter-label"> 5+</label>
+                <label htmlFor="5andmore" className="filter-label">
+                  {' '}
+                  5+
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -418,7 +433,9 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isChecked1Bedroom}
                 ></input>
-                <label htmlFor="1" className="filter-label">1</label>
+                <label htmlFor="1" className="filter-label">
+                  1
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -430,7 +447,9 @@ export default function ForSale() {
                   onChange={handleChange}
                   checked={filter.isChecked2Bedroom}
                 ></input>
-                <label htmlFor="2" className="filter-label">2</label>
+                <label htmlFor="2" className="filter-label">
+                  2
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -441,7 +460,9 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="3" className="filter-label">3</label>
+                <label htmlFor="3" className="filter-label">
+                  3
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -452,7 +473,9 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="4" className="filter-label">4</label>
+                <label htmlFor="4" className="filter-label">
+                  4
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -463,7 +486,9 @@ export default function ForSale() {
                   value=""
                   onChange={handleChange}
                 ></input>
-                <label htmlFor="5andmore" className="filter-label">5+</label>
+                <label htmlFor="5andmore" className="filter-label">
+                  5+
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -587,6 +612,13 @@ export default function ForSale() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
+              {/* {api.isLoggedIn() && (
+                <span
+                  className="fav fas fa-heart white"
+                  // data-id={{ this._id }}
+                ></span>
+              )} */}
+
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
                   <div
@@ -598,7 +630,6 @@ export default function ForSale() {
                 ))}
               </AwesomeSlider>
             </div>
-
             <div key={property._id} className="property-details">
               <h3 className="card-title">
                 {property.title} in {property.location}
@@ -613,11 +644,8 @@ export default function ForSale() {
                 <br />
                 {property.rooms} rooms
                 <br />
-                {property.bedrooms} bedrooms</p>
-
-
-
-
+                {property.bedrooms} bedrooms
+              </p>
 
               <div className="ctas">
                 {api.isLoggedIn() && (
@@ -633,7 +661,7 @@ export default function ForSale() {
 
                 <Link to={`/detail/${property._id}`} className="dropdowns ctas">
                   See more details
-              </Link>
+                </Link>
               </div>
             </div>
           </div>

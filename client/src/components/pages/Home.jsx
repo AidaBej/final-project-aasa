@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 // import properties from 'seeds.js'
 import Parallax from './../Parallax'
 import ContactUs from './ContactUs'
+import Map from './ReactGoogleMap'
+
 // import api from '../../api';
 // import test from './../../test';
 
@@ -19,7 +21,8 @@ export default function Home(props) {
   return (
     <>
       <Parallax />
-      <ContactUs {...props} />
+      <Map />
+      {/* <ContactUs {...props} /> */}
 
       {/* <ReactMapGL
         {...viewport}

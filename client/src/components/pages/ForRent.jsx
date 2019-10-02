@@ -60,7 +60,7 @@ export default function ForRent() {
 
   useEffect(() => {
     api
-      .getForRent()
+      .getProperties('/forrent')
       .then(res => {
         setProperties(res) // base data
         setFilteredProperties(res) // copy of base data
@@ -302,7 +302,6 @@ export default function ForRent() {
                 </label>
               </div>
               <div className="itemList active">
-
                 <input type="checkbox" name="nbRooms" value="2"></input>
                 <label htmlFor="2rooms" className="filter-label">2</label>
               </div>
@@ -336,7 +335,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="1"
                 ></input>
-                <label htmlFor="1" className="filter-label">1</label>
+                <label htmlFor="1" className="filter-label">
+                  1
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -345,7 +346,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="2"
                 ></input>
-                <label htmlFor="2" className="filter-label">2</label>
+                <label htmlFor="2" className="filter-label">
+                  2
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -354,7 +357,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="3"
                 ></input>
-                <label htmlFor="3" className="filter-label">3</label>
+                <label htmlFor="3" className="filter-label">
+                  3
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -363,7 +368,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="4"
                 ></input>
-                <label htmlFor="4" className="filter-label">4</label>
+                <label htmlFor="4" className="filter-label">
+                  4
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -372,7 +379,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="5"
                 ></input>
-                <label htmlFor="5andmore" className="filter-label">5+</label>
+                <label htmlFor="5andmore" className="filter-label">
+                  5+
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
