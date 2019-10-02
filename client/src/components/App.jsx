@@ -12,6 +12,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import AboutUs from './pages/AboutUs'
 import OneProperty from './pages/OneProperty'
+import EditOne from './pages/EditOne'
 import Map from './pages/Map'
 import AddNewProperty from './pages/AddNewProperty'
 import EditProperty from './pages/Edit'
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/add-new-property" component={AddNewProperty} />
         <Route path="/manage-property" component={EditProperty} />
+        <Route path="/edit/:id" component={EditOne} />
         <Route path="/login" component={Login} />
         <Route path="/secret" component={Secret} />
         <Route path="/map" component={Map} />
