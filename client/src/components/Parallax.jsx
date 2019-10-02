@@ -84,7 +84,7 @@ export default function Parallax() {
               Welcome to <br></br>Parisian Cocoon
             </p>
             <p className="content-subtitle">
-              Scroll down to discover our website
+              <img class="arrow" src="/arrow.png" alt="arrow" />
             </p>
           </div>
         </section>
@@ -110,11 +110,11 @@ export default function Parallax() {
         </section>
         <section className="background">
           <div className="content-wrapper">
-            <p className="content-title">Our team.</p>
+            <p className="content-title">Our team</p>
             <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
             <div className="buttons">
               <a href="/aboutus">
-                <button className="button-view-meet">Meet our team</button>
+                <button className="btn btn-primary">Meet our team</button>
               </a>
             </div>
           </div>

@@ -5,7 +5,7 @@ import ContactUs from './ContactUs'
 // import api from '../../api';
 // import test from './../../test';
 
-export default function Home() {
+export default function Home(props) {
   const [viewport, setViewport] = useState({
     latitude: 48,
     longitude: 22,
@@ -13,10 +13,13 @@ export default function Home() {
     width: '100vw',
     height: '100vh',
   })
+  useEffect(() => {
+    console.log('hereeee', props)
+  }, [])
   return (
     <>
       <Parallax />
-      <ContactUs />
+      <ContactUs {...props} />
 
       {/* <ReactMapGL
         {...viewport}

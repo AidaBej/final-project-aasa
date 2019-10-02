@@ -40,7 +40,7 @@ $primary: #1c698a;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background-image: url('/background-image.png');
+  // background-image: url('/background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -87,8 +87,8 @@ a.navbar-brand {
 .square-hp {
   // background-color: lightgray;
   // opacity: 0.8;
-  min-width: 370px;
-  max-width: 270px;
+  min-width: 570px;
+  max-width: 770px;
   min-height: 130px;
   max-height: 270px;
   border-radius: 20px;
@@ -201,6 +201,7 @@ a.navbar-brand {
   left: 0;
   width: 100%;
   min-height: 100vh;
+  // background-color: red;
   background-image: url('/background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -266,6 +267,7 @@ a.navbar-brand {
   // z-index: 999;
   text-align: center;
   border-radius: 20px;
+  background-color: rgba(85, 136, 163, 0.8);
 }
 
 .opacity-low-contact {
@@ -275,8 +277,8 @@ a.navbar-brand {
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: #5588a3;
-  opacity: 0.9;
+  // background: #5588a3;
+  opacity: 0.2;
   border-radius: 20px;
 }
 
@@ -304,7 +306,7 @@ form {
 .btn-primary {
   background-color: #212529;
   color: white;
-  width: 200px;
+  width: 147px;
 }
 
 .btn-primary:hover {
@@ -316,6 +318,10 @@ form {
 
 .form-group-msg {
   padding-bottom: 20px;
+}
+
+small {
+  padding-top: 20px;
 }
 
 .contact-title {
@@ -445,4 +451,11 @@ body {
       transform: translateY($parallax-offset / 2);
     }
   }
+}
+
+.arrow {
+  width: 90px;
+  font-weight: bolder;
+  padding-top: 50px;
+  height: auto;
 }
