@@ -13,6 +13,77 @@ require('../configs/database')
 
 const properties = [
   {
+    title: 'Triplex loft with terrace in hypercentre',
+    type: 'Triplex',
+    kind: 'For Sale',
+    location: 'Paris 5',
+    budget: 1295000,
+    size: 127,
+    rooms: 6,
+    bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8841657, 2.3593645],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-1_ja2swc.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-2_wkj8ij.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-3_vlcktk.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-4_mfnji2.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-5_os4to6.jpg',
+    ],
+    description:
+      'In Paris 5th arrondissement, this apartment of 127 m² (101.54 m² Carrez) is located in the city center, close to all shops and close to public transport. On the 2nd and last floor with elevator of a small residence of the 90s, this magnificent triplex very bright profits from a very nice height under ceiling and greenery thanks to its pretty terrace exposed south. The spacious living room of 57 m² with fireplace and 9 m high ceiling with large windows overlooking a terrace facing south and its open kitchen. In extension, a space TV or office as well as a toilet complete this level. A metal staircase leads to a mezzanine and its library and its first sleeping area with two bedrooms of 14.50 and 10.30 m², which share a bathroom with toilet. At the third level is discovered the parental space composed of a room with glass roof overhanging the living room, and its bathroom. Two parking spaces and a cellar add to the benefits of this unique and rare property. Gare de Sèvres-Ville d’Avray 10 minutes walk, 2 stations from Versailles Right Bank and 20 minutes from St Lazare. Bus in the street in 10 minutes to Boulogne or Versailles. Commerce nearby within walking distance. Parc de Saint-Cloud at 6 min. Pont de Saint-Cloud in 13 min by car by the park of Saint-Cloud (subscription). Crèches, elementary and primary school La Ronce and Edmond Rostand nearby. La Fontaine du Roy College 3 min walk. International School of Sèvres in 12 min by bus.',
+    others: ['Balcony', 'Fireplace', 'Caretaker', 'Terrace'],
+  },
+  {
+    title: 'Duplex penthouse near the Place du Commerce',
+    type: 'Penthouse',
+    kind: 'For Sale',
+    location: 'Paris 15',
+    budget: 1250000,
+    size: 122,
+    rooms: 4,
+    bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8445017, 2.2937179],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935745/ironhack-project-3/properties/duplex-penthouse-1_jrjcyf.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935745/ironhack-project-3/properties/duplex-penthouse-4_g3b6q6.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935745/ironhack-project-3/properties/duplex-penthouse-5_tvajje.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935745/ironhack-project-3/properties/duplex-penthouse-2_ttjjy2.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935745/ironhack-project-3/properties/duplex-penthouse-3_lzagia.jpg',
+    ],
+    description:
+      'Grenelle area near the Place du Commerce and Motte-Piquet Grenelle, this crossing duplex located in absolute calm offers a surface of 99m ² Carrez. Located on the top two floors of the condominium, former residence of the Citroën factories, this cozy apartment offers solid oak flooring and the charm of old beams. It consists of an entrance, a guest toilet, a lounge / living room of 46.20m2, a kitchen and an office. Two exterior windows with balcony and view on courtyard, are true skylights reinforcing the stamp of this space reception. From there, the central staircase leads to the attic sleeping area, it serves three rooms under Velux offering a beautiful natural light, a sky view and Eiffel Tower for those street side quiet. In the center, a tiled bathroom in rustic chic style whose natural irregular wood seduce lovers of authenticity includes a shower and a toilet. Many storage spaces are subtly integrated offering real development potential on these volumes to reinvent. A cellar completes this property subject to the status of the condominium. Metro: Commerce, Félix Faure, Émile Zola.',
+    others: ['Balcony', 'Parking', 'Fireplace'],
+  },
+  {
+    title: 'Last floor to revisit rue Mouffetard',
+    type: 'Apartment',
+    kind: 'For Sale',
+    location: 'Paris 4',
+    budget: 1400000,
+    size: 155,
+    rooms: 6,
+    bedrooms: 5,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8431174, 2.3496251],
+    },
+    others: ['Fireplace', 'Caretaker'],
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935220/ironhack-project-3/properties/luxurious-loft-1_xzhtq4.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935220/ironhack-project-3/properties/luxurious-loft-4_yylxke.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935220/ironhack-project-3/properties/luxurious-loft-2_yn9hho.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569935220/ironhack-project-3/properties/luxurious-loft-3_xq2wvz.jpg',
+    ],
+    description:
+      'Located in the heart of the district Mouffetard and close to the Place Monge, this amazing surface located on the 4th and last floor is entirely to rethink around century-old beams and develops a surface of 155m ² (105m ² Carrez). The entrance to the largest lot overlooks a corridor serving all the rooms, including a large living room in double exposure with a fireplace. On the opposite side are a kitchen, a bathroom and two bedrooms. A first staircase leads to an extra bedroom with an open bathroom under the eaves. On the same landing and adjoining the first one, a second lot opens directly onto a reception room with a cathedral height which also reveals vintage beams. A kitchen corner completes this level which also benefits from a zenith light coming from Velux. Distributed by a spiral staircase, a mezzanine bedroom has a bathroom with wc. Finally a third lot adjoining the first two lots, offers a volume all in length. Now converted into a large studio, it also has a shower room with toilet and a kitchenette. Preserved by time, this surface to be reinvented is extremely rare on the local market. Consisting of three lots, it is a real playground for all those who dream of a unique property, a good in their image. The immediate proximity of the businesses of the street Mouffetard, offers in addition to this place a quality of life which made the reputation of the district Mouffetard. Well subject to the status of the condominium. Metro: Censier-Daubenton or Monge',
+  },
+  {
     title: 'Old workshop with a bohemian spirit',
     type: 'Apartment',
     kind: 'For Sale',
@@ -178,7 +249,7 @@ const properties = [
     ],
     description:
       'House of 154m2 on three levels with garden, swimming pool and 15m2 of terrace. The house consists of a reception with a large fireplace, a dining kitchen. On the lower floor a master suite with a dressing room and a bathroom (bath and shower). At the first level, two bedrooms and an office or a third bedroom all overlooking a terrace of about 15m2 and a bathroom. The house is away from the street is in a quiet environment. The swimming pool and the garden faces the living room.',
-    others: ['Swimming Pool', 'Terrace'],
+    others: ['Swimming Pool', 'Terrace', 'Garden'],
   },
   {
     title: 'Lovely houseboat on the Seine',
@@ -250,6 +321,74 @@ const properties = [
     description:
       'Rue de la Lune, space designed by architect of 29 m2 (28,55 m2 carrez) square located on the ground floor in a charming condominium. The crossing place offers a stay with a done up kitchen on courtyard, and side street a dining area. Between two windows, a bed has been cleverly arranged. A walk-in shower room with toilet completes the place. Contemporary spirit, optimized plan, quality materials, characterizes this apartment sold furnished and equipped. Metro Bonne Nouvelle. Contact : Aimée, 0666789151',
     others: 'Caretaker',
+  },
+  {
+    title: 'Old workshop on the last floor',
+    type: 'Loft',
+    kind: 'For Rent',
+    location: 'Paris 11',
+    budget: 6000,
+    size: 215,
+    rooms: 7,
+    bedrooms: 4,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.869202, 2.3773985],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569932875/ironhack-project-3/properties/loft-for-rent-2_uadv7d.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569932877/ironhack-project-3/properties/loft-for-rent-1_ua6mjj.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569932875/ironhack-project-3/properties/loft-for-rent-3_i16bjs.jpg',
+    ],
+    description:
+      'In a small Eiffel style building on courtyard, rue de la Fontaine au Roi, this former workshop located on the 2nd and last floor with an area of ​​215 m2 (192 m2 Carrez) develops on two levels. From the entrance, this plateau of over 100 m2 offers a beautiful feeling of space and volumes. The fitted kitchen open to the dining room is next to a warm living room with a fireplace and extended by an office space. A laundry room, separate toilet and a bathroom complete the level. All under an apparent frame, and bathed in light thanks to its windows type workshop. Two independent access stairs lead to the top floor which accommodates three bedrooms and a master bedroom with shower room and toilet. Calm, light and volumes characterize this authentic place of life. Subject to the status of the condominium. Metro: Goncourt, Parmentier or République.',
+    others: ['Garden', 'Fireplace', 'Caretaker'],
+  },
+  {
+    title: 'Contemporary triplex with views',
+    type: 'Triplex',
+    kind: 'For Sale',
+    location: 'Paris 10',
+    budget: 661000,
+    size: 100,
+    rooms: 5,
+    bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8841657, 2.3593645],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569933895/ironhack-project-3/properties/triplex-for-sale-4_hd2hlt.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569933895/ironhack-project-3/properties/triplex-for-sale-3_w9ribw.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569933895/ironhack-project-3/properties/triplex-for-sale-1_niskot.jpg',
+    ],
+    description:
+      'Rue du Faubourg Saint Denis, this apartment of 59,29 m2 Carrez, offers an exceptional view of the Sacré Coeur. Located on the 5th floor of a bourgeois building, this apartment has been completely remodeled, making it functional with a design and contemporary decoration. The entrance leads to the double living room with two windows facing West with a view on the horizon on the Sacré Coeur. The Bulthaup kitchen with central island reinforces the conviviality of this living room. East side, the room decorated with a headboard that defines an office space and a night area, facing a small balcony with views. The shower room with a dressing room and toilet enjoys a great brightness. This place of life combines the classic chevron parquet and moldings, with many custom contemporary fittings. Subject to the status of the condominium. Metro: Gare du Nord or La Chapelle.',
+    others: ['Balcony', 'Fireplace', 'Caretaker'],
+  },
+  {
+    title: 'Beautiful and spacious loft with terrace',
+    type: 'Loft',
+    kind: 'For Rent',
+    location: 'Paris 15',
+    budget: 4000,
+    size: 127,
+    rooms: 6,
+    bedrooms: 3,
+    localisation: {
+      type: 'Point',
+      coordinates: [48.8449432, 2.2896262],
+    },
+    pictures: [
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-1_ja2swc.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-2_wkj8ij.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-3_vlcktk.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-4_mfnji2.jpg',
+      'https://res.cloudinary.com/drukuybdj/image/upload/v1569934368/ironhack-project-3/properties/triplex-hypercentre-5_os4to6.jpg',
+    ],
+    description:
+      'In Paris 15th arrondissement, this apartment of 127 m² (101.54 m² Carrez) is located in the city center, close to all shops and close to public transport. On the 2nd and last floor with elevator of a small residence of the 90s, this magnificent triplex very bright profits from a very nice height under ceiling and greenery thanks to its pretty terrace exposed south. The spacious living room of 57 m² with fireplace and 9 m high ceiling with large windows overlooking a terrace facing south and its open kitchen. In extension, a space TV or office as well as a toilet complete this level. A metal staircase leads to a mezzanine and its library and its first sleeping area with two bedrooms of 14.50 and 10.30 m², which share a bathroom with toilet. At the third level is discovered the parental space composed of a room with glass roof overhanging the living room, and its bathroom. Two parking spaces and a cellar add to the benefits of this unique and rare property. Gare de Sèvres-Ville d’Avray 10 minutes walk, 2 stations from Versailles Right Bank and 20 minutes from St Lazare. Bus in the street in 10 minutes to Boulogne or Versailles. Commerce nearby within walking distance. Parc de Saint-Cloud at 6 min. Pont de Saint-Cloud in 13 min by car by the park of Saint-Cloud (subscription). Crèches, elementary and primary school La Ronce and Edmond Rostand nearby. La Fontaine du Roy College 3 min walk. International School of Sèvres in 12 min by bus.',
+    others: ['Balcony', 'Fireplace', 'Caretaker', 'Terrace'],
   },
 ]
 
