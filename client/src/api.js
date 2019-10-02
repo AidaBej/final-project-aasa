@@ -74,9 +74,9 @@ export default {
   // This is an example on how to use this method in a different file
   // api.getCountries().then(countries => { /* ... */ })
 
-  getProperties() {
+  getProperties(url) {
     return service
-      .get('/forsale')
+      .get(url)
       .then(res => res.data)
       .catch(errHandler)
   },

@@ -46,7 +46,7 @@ const AppMap = props => {
   const refs = {}
 
   useEffect(() => {
-    api.getProperties().then(p => {
+    api.getProperties('/all').then(p => {
       console.log(p)
       setState({
         ...state,
@@ -74,7 +74,7 @@ const AppMap = props => {
     console.log(e)
   }
   return (
-    <div style={{ height: '50vh' }}>
+    <div style={{ height: '100vh' }}>
       <WrapperMap
         onToggleOpen={handleToggleOpen}
         properties={state.properties}
