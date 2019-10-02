@@ -5,6 +5,16 @@ const User = require('../models/User')
 require('dotenv').config()
 require('../configs/database')
 
+// GET all  Properties
+router.get('/all', (req, res, next) => {
+  Property.find()
+    .then(properties => {
+      console.log(properties)
+      res.json(properties)
+    })
+    .catch(err => next(err))
+})
+
 // GET Properties FOR RENT
 router.get('/forrent', (req, res, next) => {
   Property.find({ kind: 'For Rent' })
