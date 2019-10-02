@@ -16,14 +16,4 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-// router.get('/forsale/:id', (req, res, next) => {
-//   Property.findById(req.params.id)
-//     .then(dbRes => {
-//       res.render('detail', { property: dbRes })
-//     })
-//     .catch(error => {
-//       console.log(error)
-//     })
-// })
-
 module.exports = router

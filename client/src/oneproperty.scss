@@ -5,6 +5,16 @@
 //   margin: 0;
 // }
 
+.background-detail {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569851004/ironhack-project-3/properties/colin-maynard-hSXt6ZYYPsk-unsplash_jrilbn.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  background-attachment: fixed;
+  width: 100vw;
+  padding: 30px;
+}
+
 .white {
   color: white;
 }
@@ -27,26 +37,44 @@
   padding: 0;
 }
 
-.showme {
-  font-size: 500px;
-  color: white;
-}
-
-.background-detail {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569851004/ironhack-project-3/properties/colin-maynard-hSXt6ZYYPsk-unsplash_jrilbn.jpg');
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-}
-
 .title-block {
   display: flex;
   justify-content: flex-end;
-  margin-right: 100px;
+  // margin-right: 100px;
+}
+.column-content {
+  display: flex;
+  flex-direction: column;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  margin: 50px 0 20px 0;
 }
 
-.test-container {
-  height: 1200px;
-  background: red;
+.details-left {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 50%;
+  background: white;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.details-right {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 50%;
+  padding: 20px;
+  color: #5588a3;
+  margin-left: 10px;
+}
+
+.details-slider {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  margin-top: 30px;
 }

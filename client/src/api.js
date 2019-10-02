@@ -110,7 +110,14 @@ export default {
 
   getFavorites() {
     return service
-      .get('/favorite')
+      .get('/favorites')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  addFavorite(body) {
+    return service
+      .post('/favorites', body)
       .then(res => res.data)
       .catch(errHandler)
   },
@@ -130,13 +137,6 @@ export default {
   },
 
   editProperty() {},
-
-  // addCountry(body) {
-  //   return service
-  //     .post('/countries', body)
-  //     .then(res => res.data)
-  //     .catch(errHandler)
-  // },
 
   getSecret() {
     return service

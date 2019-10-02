@@ -26,28 +26,37 @@ export default function Properties(props) {
         <h2>{property.title} in {property.location}</h2>
       </div>
 
-      {property.pictures && <AwesomeSlider>
-        {property.pictures
-          .map((pic, i) => (
-            <div
-              key={i}
-              data-src={pic}
-              alt={property.title + ' photo ' + (i + 1)}
-              className="imgs"
-            />
-          ))}
-      </AwesomeSlider>}
+      <div className="details-slider" key={property._id + Date.now()}>
+        {property.pictures && <AwesomeSlider>
+          {property.pictures
+            .map((pic, i) => (
+              <div
+                key={i}
+                data-src={pic}
+                alt={property.title + ' photo ' + (i + 1)}
+                className="imgs"
+              />
+            ))}
+        </AwesomeSlider>}
+      </div>
+      <div className="details">
 
-      <div className="img-card">
-        <div key={property._id}>
-          <p><strong>{property.budget}€</strong></p>
+        <div className="details-left" key={property._id}>
+          <h2>{property.location}, {property.title}</h2>
+          <p>{property.description}</p>
+          <p>Additional information: {property.others}</p>
+        </div>
+
+        <div className="details-right">
           <p><strong>{property.type} {property.kind}</strong></p>
-          <p>{property.rooms} rooms</p>
-          <p>{property.bedrooms} bedrooms</p>
-          <p>{property.size} m²</p>
-          <p>{property.location}</p>
+          <p><strong>Price: {property.budget}€</strong></p>
+          <p>Number of rooms: {property.rooms}</p>
+          <p>Number of bedrooms:{property.bedrooms}</p>
+          <p>Size: {property.size} m²</p>
+          <p>Location: {property.location}</p>
         </div>
       </div>
+
     </div>
   );
 }
