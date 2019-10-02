@@ -76,63 +76,66 @@ export default function Parallax() {
     $currentSlide.removeClass('down-scroll').addClass('up-scroll')
   }
   return (
-    <div className="wrapper-parallax">
-      <div className="container-parallax">
-        <section className="background">
-          <br />
-          <br />
-          <br />
-          <div className="content-wrapper">
-            <p className="content-title">
-              Welcome to <br></br>Parisian Cocoon
-            </p>
-            <p className="content-subtitle">
-              <img class="arrow" src="/arrow.png" alt="arrow" />
-            </p>
-          </div>
-        </section>
-        <section className="background">
-          <div className="content-wrapper">
-            <div className="home">
-              <br />
-              <br />
-              <br />
-              <div className="square-hp">
-                <div className="opacity-low"></div>
+    <div className="container-parallax">
+      <section className="background">
+        <br />
+        <br />
+        <br />
+        <div className="content-wrapper">
+          <p className="content-title">
+            Welcome to <br></br>
+            Parisian Cocoon
+          </p>
+          <p className="content-subtitle">
+            <img class="arrow" src="/arrow.png" alt="arrow" />
+          </p>
+        </div>
+      </section>
+      <section className="background">
+        <div className="content-wrapper">
+          <div className="home">
+            <br />
+            <br />
+            <br />
+            <div className="square-hp">
+              <div className="opacity-low"></div>
 
-                <div className="bloc-hp">
-                  What are you looking for?
-                  <div className="buttons">
-                    <a href="/forsale">
-                      <button className="button-view">Buy</button>
-                    </a>
-                    <a href="/forrent">
-                      <button className="button-view">Rent</button>
-                    </a>
-                  </div>
+              <div className="bloc-hp">
+                What are you looking for?
+                <div className="buttons">
+                  <a href="/forsale">
+                    <button className="button-view">Buy</button>
+                  </a>
+                  <a href="/forrent">
+                    <button className="button-view">Rent</button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <section className="background">
-          <div className="content-wrapper">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <p className="content-title">Our team</p>
-            <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
-            <div className="buttons">
-              <a href="/aboutus">
-                <button className="btn btn-primary">Meet our team</button>
-              </a>
-            </div>
+        </div>
+      </section>
+      <section className="background">
+        <div className="content-wrapper">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p className="content-title">Our team</p>
+          <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
+          <div className="buttons">
+            <a href="/aboutus">
+              <button className="btn btn-primary">Meet our team</button>
+            </a>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      {/* <br />
+      <br />
+      <br />
+      <p>Our offer</p> */}
     </div>
   )
 }
