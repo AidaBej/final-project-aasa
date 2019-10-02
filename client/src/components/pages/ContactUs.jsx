@@ -45,7 +45,7 @@ export default function ContactUs(props) {
         <div className="opacity-low-contact"></div>
         <div className="bloc-contact">
           <div className="ContactUs">
-            <h2 className="contact-title">Contact us</h2>
+            <h2 className="contact-title">CONTACT US</h2>
             <form
               className="form-generic"
               onSubmit={handleClick}

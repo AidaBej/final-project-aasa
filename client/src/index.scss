@@ -61,6 +61,7 @@ $primary: #1c698a;
 a.navbar-brand {
   font-family: 'Dancing Script', cursive;
   font-size: 33px;
+  text-shadow: 0 0 3px #d4a535;
 }
 
 .button-view {
@@ -422,6 +423,7 @@ body {
   &-title {
     font-size: 12vh;
     line-height: 1.4;
+    text-shadow: 0 0 3px #d4a535;
   }
 }
 
