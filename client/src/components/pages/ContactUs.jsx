@@ -110,6 +110,21 @@ export default function ContactUs(props) {
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
+              {/* <div
+                class="alert alert-warning alert-dismissible fade show"
+                role="alert"
+              >
+                <strong>Thank you !</strong> Your message has been sent
+                succefully.
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div> */}
               {/* </div> */}
             </form>
             <br></br>
