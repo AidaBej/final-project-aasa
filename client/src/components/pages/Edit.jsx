@@ -1,73 +1,73 @@
-// import React, { useState, useEffect } from 'react'
-// import api from '../../api'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import api from '../../api'
 
-// export default function EditProperty(props) {
-//   const [edit, setEdit] = useState
+export default function EditProperty(props) {
+  const [properties, setProperties] = useState([])
 
-//   useEffect(() => {
-//     api.getProperties('/all').then(p => {
-//       console.log(p)
-//       setEdit({
-//         ...edit,
-//         properties: [...p],
-//       })
-//     })
-//   }, [])
+  useEffect(() => {
+    // if (!props.property) {
+    api.getProperties('/all').then(p => {
+      console.log('ici>', p)
+      setProperties(p)
+    })
+    // }
+  }, [])
 
-//   const [properties, setProperties] = useState([])
+  //   const [properties, setProperties] = useState([])
 
-//   function getAllProperties() {
-//     return properties
-//     .map(property => property)
-//   }
+  // function getAllProperties(property) {
+  //   return properties
+  // }
 
-//   return (
-//     // <div className="edit">
-//     //   <h2 className="manage-properties-title">Manage your Properties stock</h2>
-//     //   {}
-//     //   <div>
-//     //     <div className="property-card">
-//     //       <div className="slider" key={property._id + Date.now()}>
-//     //         <AwesomeSlider className="slideshow-container">
-//     //           {property.pictures.map((pic, i) => (
-//     //             <div
-//     //               key={i}
-//     //               data-src={pic}
-//     //               alt={property.title + ' photo ' + (i + 1)}
-//     //               className="imgs"
-//     //             />
-//     //           ))}
-//     //         </AwesomeSlider>
-//     //       </div>
-
-//     //       <div key={property._id} className="property-details">
-//     //         <h3 className="card-title">
-//     //           {property.title} in {property.location}
-//     //         </h3>
-
-//     //         <p className="text-color">
-//     //           <strong>{property.budget}€ per month</strong>
-//     //           <br />
-//     //           <strong>
-//     //             {property.size} m<sup>2</sup>
-//     //           </strong>
-//     //           <br />
-//     //           {property.rooms} rooms
-//     //           <br />
-//     //           {property.bedrooms} bedrooms
-//     //         </p>
-
-//     //         <div className="link-to-detail">
-//     //           <Link
-//     //             to={`/detail/${property._id}`}
-//     //             className="dropdowns link-to-detail"
-//     //           >
-//     //             See more details
-//     //           </Link>
-//     //         </div>
-//     //       </div>
-//     //     </div>
-//     //   </div>
-//   // </div>
-//   )
-//   }
+  return (
+    <div className="edit">
+      <h2 className="manage-properties-title">Manage your Properties stock</h2>
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Property Title</th>
+              <th scope="col">Type</th>
+              <th scope="col">Location</th>
+              <th scope="col">Rent/Sale</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          {properties.map((property, i) => (
+            <tbody>
+              <tr>
+                <td>
+                  <div>{property.title}</div>
+                </td>
+                <td>
+                  <div>{property.type}</div>
+                </td>
+                <td>
+                  <div>{property.location}</div>
+                </td>
+                <td>
+                  <div>{property.kind}</div>
+                </td>
+                <td>
+                  <Link
+                    to={`/edit/${property._id}`}
+                    className="fa fa-edit table-icon"
+                  ></Link>
+                </td>
+                <td>
+                  <Link
+                    to={`/delete/${property._id}`}
+                    className="fa fa-trash table-icon"
+                    aria-hidden="true"
+                  ></Link>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+      </div>
+    </div>
+  )
+}

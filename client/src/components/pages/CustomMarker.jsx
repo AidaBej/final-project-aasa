@@ -27,8 +27,9 @@ const CustomMarker = ({ property }) => {
         <InfoWindow onCloseClick={handleToggleClose}>
           <>
             <p>{property.title}</p>
-            <img src={property.pictures[0]} alt="image" />
-
+            <img src={property.pictures[0]} alt="image" width="300px" />
+            <br />
+            <br />
             <Link to={`/detail/${property._id}`}>View detail</Link>
           </>
         </InfoWindow>

@@ -60,7 +60,7 @@ export default function ForRent() {
 
   useEffect(() => {
     api
-      .getForRent()
+      .getProperties('/forrent')
       .then(res => {
         setProperties(res) // base data
         setFilteredProperties(res) // copy of base data
