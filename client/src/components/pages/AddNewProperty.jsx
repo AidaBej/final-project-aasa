@@ -62,7 +62,7 @@ export default function AddProperty(props) {
         setState({
           title: '',
           type: '',
-          king: '',
+          kind: '',
           location: '',
           localisation: '',
           budget: '',
@@ -87,6 +87,7 @@ export default function AddProperty(props) {
           <div className="">
             <h2 className="contact-title">Add New Property</h2>
             <form
+              className="form-generic"
               onSubmit={handleClick}
               onChange={handleInputChange}
               enctype="multipart/form-data"
