@@ -8,7 +8,7 @@ const userSchema = new Schema(
     favorite: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Properties',
+        ref: 'Property',
       },
     ],
     isAdmin: { type: Boolean, default: false },
