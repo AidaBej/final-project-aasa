@@ -1,6 +1,8 @@
 // @import 'font-awesome'
 @import url('./forrent.scss');
 @import url('./forsale.scss');
+@import url('./aboutus.scss');
+
 @import url('./styles/parallax.scss');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 @import url('./oneproperty.scss');
@@ -45,7 +47,6 @@ $primary: #1c698a;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  // background-image: url('/background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,6 +62,9 @@ $primary: #1c698a;
   background-color: #145374;
   width: 100%;
   // position: fixed;
+}
+.navbar-brand-home {
+  font-family: 'Dancing Script', cursive;
 }
 
 a.navbar-brand {
