@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 .properties {
+  position: relative;
   font-family: 'Source Sans Pro', sans-serif;
   padding: 90px 40px 20px 40px;
   background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569855446/ironhack-project-3/properties/rob-potvin-VLWy8LIdzsQ-unsplash_z5z7bx.jpg')
@@ -10,6 +11,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
 .property-card {
@@ -82,13 +85,15 @@
 }
 
 .dropdowns {
-  display: flex;
-  margin-bottom: 25px;
-  justify-content: center;
+  // display: flex;
+  // margin-bottom: 25px;
+  margin-top: 25px;
+  // justify-content: center;
+  justify-content: flex-start;
   height: 30px;
   width: 160px;
-  border-radius: 10px;
-  font-size: 18px;
+  // border-radius: 10px;
+  // font-size: 18px;
   background-color: #7bb4b5;
   border: solid 1px #7bb4b5;
   color: white;

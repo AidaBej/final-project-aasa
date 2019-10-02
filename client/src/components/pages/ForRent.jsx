@@ -227,6 +227,7 @@ export default function ForRent() {
                 onChange={handleChange}
                 autoComplete="off"
                 maxLength="13"
+                className="input-min-max"
               ></input>
               <span className="unit">€</span>
             </div>
@@ -240,6 +241,7 @@ export default function ForRent() {
                 placeholder="max"
                 autoComplete="off"
                 maxLength="13"
+                className="input-min-max"
               ></input>
               <span className="unit">€</span>
               <br></br>
@@ -262,6 +264,7 @@ export default function ForRent() {
                 placeholder="min"
                 autoComplete="off"
                 maxLength="27"
+                className="input-min-max"
               ></input>
               <span className="unit">m²</span>
             </div>
@@ -274,6 +277,7 @@ export default function ForRent() {
                 placeholder="max"
                 autoComplete="off"
                 maxLength="27"
+                className="input-min-max"
               ></input>
               <span className="unit">m²</span>
             </div>
@@ -293,7 +297,7 @@ export default function ForRent() {
                   value="1"
                   name="nbRooms"
                 ></input>
-                <label htmlFor="studio" className="form-check-label">
+                <label htmlFor="studio" className="filter-label">
                   Studio
                 </label>
               </div>
@@ -330,7 +334,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="1"
                 ></input>
-                <label htmlFor="1">1</label>
+                <label htmlFor="1" className="filter-label">
+                  1
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -339,7 +345,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="2"
                 ></input>
-                <label htmlFor="2">2</label>
+                <label htmlFor="2" className="filter-label">
+                  2
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -348,7 +356,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="3"
                 ></input>
-                <label htmlFor="3">3</label>
+                <label htmlFor="3" className="filter-label">
+                  3
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -357,7 +367,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="4"
                 ></input>
-                <label htmlFor="4">4</label>
+                <label htmlFor="4" className="filter-label">
+                  4
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -366,7 +378,9 @@ export default function ForRent() {
                   name="nbBedrooms"
                   value="5"
                 ></input>
-                <label htmlFor="5andmore">5+</label>
+                <label htmlFor="5andmore" className="filter-label">
+                  5+
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -385,7 +399,7 @@ export default function ForRent() {
                   name="others"
                   value="Garden"
                 ></input>
-                <label htmlFor="garden">
+                <label htmlFor="garden" className="filter-label">
                   <i className="fi fi-garden"></i>Garden
                 </label>
               </div>
@@ -396,7 +410,7 @@ export default function ForRent() {
                   name="others"
                   value="Fireplace"
                 ></input>
-                <label htmlFor="fireplace">
+                <label htmlFor="fireplace" className="filter-label">
                   <i className="fi fi-crit-chimney"></i>Fireplace
                 </label>
               </div>
@@ -407,7 +421,7 @@ export default function ForRent() {
                   name="others"
                   value="Caretaker"
                 ></input>
-                <label htmlFor="guardian">
+                <label htmlFor="guardian" className="filter-label">
                   <i className="fi fi-crit-man-suit"></i>Caretaker
                 </label>
               </div>
@@ -418,7 +432,7 @@ export default function ForRent() {
                   name="others"
                   value="Balcony"
                 ></input>
-                <label htmlFor="balcony">
+                <label htmlFor="balcony" className="filter-label">
                   <i className="fi fi-crit-balcony"></i>Balcony
                 </label>
               </div>
@@ -429,7 +443,7 @@ export default function ForRent() {
                   name="others"
                   value="Swimming Pool"
                 ></input>
-                <label htmlFor="Swimming-Pool">
+                <label htmlFor="Swimming-Pool" className="filter-label">
                   <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
                 </label>
               </div>
@@ -441,7 +455,7 @@ export default function ForRent() {
                   name="others"
                   value="Terrace"
                 ></input>
-                <label htmlFor="terrace">
+                <label htmlFor="terrace" className="filter-label">
                   <i className="fi fi-crit-table"></i>Terrace
                 </label>
               </div>
@@ -453,7 +467,7 @@ export default function ForRent() {
                   id="parking"
                   value="Parking"
                 ></input>
-                <label htmlFor="parking">
+                <label htmlFor="parking" className="filter-label">
                   <i></i>Parking
                 </label>
               </div>

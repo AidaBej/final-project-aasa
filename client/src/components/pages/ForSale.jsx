@@ -538,16 +538,17 @@ export default function ForSale() {
       <br />
       <br />
       <br />
+
       {filteredProperties.map((property, i) => (
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
 
               {api.isLoggedIn() && (
-                <i
+                <span
                   className="fav fas fa-heart white"
-                  data-id="{{this._id}}"
-                ></i>
+                // data-id={{ this._id }}
+                ></span>
               )}
 
               <AwesomeSlider className="slideshow-container">

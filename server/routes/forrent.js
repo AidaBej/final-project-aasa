@@ -1,6 +1,6 @@
-const express = require('express')
-const Property = require('../models/Property')
-const router = express.Router()
+// const express = require('express')
+// const Property = require('../models/Property')
+// const router = express.Router()
 
 // GET Properties FOR RENT
 router.get('/', (req, res, next) => {
@@ -12,4 +12,4 @@ router.get('/', (req, res, next) => {
     .catch(err => next(err))
 })
 
-module.exports = router
+// module.exports = router
