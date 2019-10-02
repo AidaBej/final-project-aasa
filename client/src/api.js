@@ -131,13 +131,6 @@ export default {
 
   editProperty() {},
 
-  // addCountry(body) {
-  //   return service
-  //     .post('/countries', body)
-  //     .then(res => res.data)
-  //     .catch(errHandler)
-  // },
-
   getSecret() {
     return service
       .get('/secret')

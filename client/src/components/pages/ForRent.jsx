@@ -7,7 +7,6 @@ import 'react-awesome-slider/dist/styles.css'
 // import AwsSliderStyles from 'react-awesome-slider/src/styles';
 
 export default function ForRent() {
-
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -17,26 +16,9 @@ export default function ForRent() {
     size: '',
     surface_min: '',
     surface_max: '',
-    rooms: '',
-    isChecked1Room: false,
-    isChecked2Room: false,
-    isChecked3Room: false,
-    isChecked4Room: false,
-    isChecked5Room: false,
-    bedrooms: '',
-    isChecked1Bedromm: false,
-    isChecked2Bedromm: false,
-    isChecked3Bedromm: false,
-    isChecked4Bedromm: false,
-    isChecked5Bedromm: false,
-    others: '',
-    isCheckedGarden: false,
-    isCheckedFireplace: false,
-    isCheckedCaretaker: false,
-    isCheckedBalcony: false,
-    isCheckedPool: false,
-    isCheckedTerrace: false,
-    isCheckedParking: false,
+    nbRooms: [],
+    nbBedrooms: [],
+    others: [],
   })
 
   const [properties, setProperties] = useState([])
@@ -53,12 +35,27 @@ export default function ForRent() {
       .sort()
   }
 
+  function isEmptyFilter(f) {
+    var res = false
+    for (let prop in f) {
+      res = Array.isArray(f[prop]) ? Boolean(f[prop].length) : Boolean(f[prop])
+      if (res) break
+    }
+    return res === false
+  }
+
   useEffect(() => {
-    // if (filter.type) {
-    //   // utilise base data pour mettre à jour filtered data
-    //   // la liste des properties reste tjs complète
-    //   // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
-    setFilteredProperties(getFilteredSales())
+    // utilise base data pour mettre à jour filtered data
+    // la liste des properties reste tjs complète
+    // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
+
+    if (isEmptyFilter(filter)) {
+      console.log('***** EMPTY ******')
+      setFilteredProperties(properties)
+    } else {
+      console.log('***** NOT EMPTY ******')
+      setFilteredProperties(getFilteredSales())
+    }
   }, [filter])
 
   useEffect(() => {
@@ -70,18 +67,29 @@ export default function ForRent() {
       })
       .catch(err => console.log(err))
   }, [])
+
   function getGoogleMapsDirection(property) {
     let [lng, lat] = property.localisation.coordinates
     return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
   }
 
   function handleChange(e) {
-    let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    setFilter({ ...filter, [e.target.name]: value })
+    if (e.target.type === 'checkbox') {
+      const copy = filter[e.target.name]
+      if (e.target.checked) {
+        copy.push(
+          e.target.name !== 'others' ? Number(e.target.value) : e.target.value
+        )
+      } else {
+        copy.splice(copy.indexOf(e.target.value), 1)
+      }
+
+      setFilter({ ...filter, [e.target.name]: copy })
+    } else setFilter({ ...filter, [e.target.name]: e.target.value })
   }
 
   function filterByType(prop) {
-    console.log(prop.type === filter.type)
+    // console.log(prop.type === filter.type)
     if (filter.type === '') return properties
     return prop.type === filter.type
   }
@@ -113,64 +121,38 @@ export default function ForRent() {
   }
 
   function filterByRooms(prop) {
-    if (
-      filter.isChecked1Room === '' &&
-      filter.isChecked2Room === '' &&
-      filter.isChecked3Room === '' &&
-      filter.isChecked4Room === '' &&
-      filter.isChecked5Room === ''
-    )
-      return properties
-    return (
-      (!filter.isChecked1Room || prop.rooms === 1) &&
-      (!filter.isChecked2Room || prop.rooms === 2) &&
-      (!filter.isChecked3Room || prop.rooms === 3) &&
-      (!filter.isChecked4Room || prop.rooms === 4) &&
-      (!filter.isChecked5Room || prop.rooms >= 5)
-    )
+    if (!filter.nbRooms.length) return true
+    if (filter.nbRooms < 5) return filter.nbRooms.includes(prop.rooms)
+    else return filter.nbRooms.includes(prop.rooms) || prop.rooms > 5
   }
 
   function filterByBedrooms(prop) {
-    if (
-      filter.isChecked1Bedromm === '' &&
-      filter.isChecked2Bedromm === '' &&
-      filter.isChecked3Bedroom === '' &&
-      filter.isChecked4Bedroom === '' &&
-      filter.isChecked5Bedroom === ''
-    )
-      return properties
-    return (
-      (!filter.isChecked1Bedroom || prop.bedrooms === 1) &&
-      (!filter.isChecked2Bedroom || prop.bedrooms === 2) &&
-      (!filter.isChecked3Bedroom || prop.bedrooms === 3) &&
-      (!filter.isChecked4Bedroom || prop.bedrooms === 4) &&
-      (!filter.isChecked5Bedroom || prop.bedrooms >= 5)
-    )
+    if (!filter.nbBedrooms.length) return true
+    if (filter.nbBedrooms < 5) return filter.nbBedrooms.includes(prop.bedrooms)
+    else return filter.nbBedrooms.includes(prop.bedrooms) || prop.bedrooms > 5
   }
 
   function filterByOthers(prop) {
-    if (
-      filter.isCheckedGarden === '' &&
-      filter.isCheckedFireplace === '' &&
-      filter.isCheckedCaretaker === '' &&
-      filter.isCheckedBalcony === '' &&
-      filter.isCheckedPool === '' &&
-      filter.isCheckedTerrace === '' &&
-      filter.isCheckedParking === ''
-    )
-      return properties
+    if (!filter.others.length) return true
+    var tmp = []
+
+    filter.others.forEach(criteria => {
+      tmp.push(prop.others.includes(criteria))
+    })
+
     return (
-      (!filter.isCheckedGarden || prop.others === 'Garden') &&
-      (!filter.isCheckedFireplace || prop.others === 'Fireplace') &&
-      (!filter.isCheckedCaretaker || prop.others === 'Caretaker') &&
-      (!filter.isCheckedBalcony || prop.others === 'Balcony') &&
-      (!filter.isCheckedPool || prop.others === 'Swimming Pool') &&
-      (!filter.isCheckedTerrace || prop.others === 'Terrace') &&
-      (!filter.isCheckedParking || prop.others === 'Parking')
+      tmp.reduce((acc, val, i) => {
+        const inc = Number(val)
+        return (acc += inc)
+      }, 0) >= 1
     )
   }
 
   function getFilteredSales() {
+    // console.log('------- all properties ---------')
+    // console.log(properties)
+    console.log(properties.filter(filterByOthers))
+    // console.log('---------------------------------')
     return properties
       .filter(filterByType)
       .filter(filterByLocation)
@@ -184,16 +166,16 @@ export default function ForRent() {
   return (
     <div className="properties">
       <h2>Properties for rent</h2>
+      <h3>{JSON.stringify(filter)}</h3>
       <div className="filters">
-
-        <form className="form-filters">
+        <form className="form-filters" onChange={handleChange}>
           <div className="filter-block">
             <select
               name="type"
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -209,7 +191,7 @@ export default function ForRent() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -224,7 +206,7 @@ export default function ForRent() {
             <span className="title">
               <i className="fi fi-euro"></i>
               Budget
-          </span>
+            </span>
             <div className="container_min">
               {/* <input
             type="range"
@@ -269,7 +251,7 @@ export default function ForRent() {
             <span className="title">
               <i className="fi fi-crit-size"></i>
               Size
-          </span>
+            </span>
             <span className="description"></span>
             <div className="container_min">
               <input
@@ -301,11 +283,268 @@ export default function ForRent() {
           <div className="filter-block">
             <span className="title">
               <i className="fi fi-crit-room"></i>Number of rooms
-          </span>
+            </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
-                {/* <b-form-group label> */}
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value="1"
+                  name="nbRooms"
+                ></input>
+                <label htmlFor="studio" className="form-check-label">
+                  Studio
+                </label>
+              </div>
+              <div className="itemList active">
+                <input type="checkbox" name="nbRooms" value="2"></input>
+                <label htmlFor="2rooms">2</label>
+              </div>
+              <div className="itemList active">
+                <input type="checkbox" name="nbRooms" value="3"></input>
+                <label htmlFor="3rooms">3</label>
+              </div>
+              <div className="itemList active">
+                <input type="checkbox" name="nbRooms" value="4"></input>
+                <label htmlFor="4rooms">4</label>
+              </div>
+              <div className="itemList active">
+                <input type="checkbox" name="nbRooms" value="5"></input>
+                <label htmlFor="5andmore">5+</label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-crit-room"></i>Number of bedrooms
+            </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbBedrooms"
+                  value="1"
+                ></input>
+                <label htmlFor="1">1</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbBedrooms"
+                  value="2"
+                ></input>
+                <label htmlFor="2">2</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbBedrooms"
+                  value="3"
+                ></input>
+                <label htmlFor="3">3</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbBedrooms"
+                  value="4"
+                ></input>
+                <label htmlFor="4">4</label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbBedrooms"
+                  value="5"
+                ></input>
+                <label htmlFor="5andmore">5+</label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+
+          <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-heart"></i> Other criterias
+            </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Garden"
+                ></input>
+                <label htmlFor="garden">
+                  <i className="fi fi-garden"></i>Garden
+                </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Fireplace"
+                ></input>
+                <label htmlFor="fireplace">
+                  <i className="fi fi-crit-chimney"></i>Fireplace
+                </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Caretaker"
+                ></input>
+                <label htmlFor="guardian">
+                  <i className="fi fi-crit-man-suit"></i>Caretaker
+                </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Balcony"
+                ></input>
+                <label htmlFor="balcony">
+                  <i className="fi fi-crit-balcony"></i>Balcony
+                </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Swimming Pool"
+                ></input>
+                <label htmlFor="Swimming-Pool">
+                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
+                </label>
+              </div>
+
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  value="Terrace"
+                ></input>
+                <label htmlFor="terrace">
+                  <i className="fi fi-crit-table"></i>Terrace
+                </label>
+              </div>
+              <div className="itemList active">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="others"
+                  id="parking"
+                  value="Parking"
+                ></input>
+                <label htmlFor="parking">
+                  <i></i>Parking
+                </label>
+              </div>
+            </div>
+            <span className="error invisible"></span>
+          </div>
+        </form>
+      </div>
+      <br />
+
+      {filteredProperties.map((property, i) => (
+        <div key={i}>
+          <div className="property-card">
+            <div className="slider" key={property._id + Date.now()}>
+              {api.isLoggedIn() && (
+                <i
+                  className="fav fas fa-heart white"
+                  data-id="{{this._id}}"
+                ></i>
+              )}
+
+              <AwesomeSlider className="slideshow-container">
+                {property.pictures.map((pic, i) => (
+                  <div
+                    key={i}
+                    data-src={pic}
+                    alt={property.title + ' photo ' + (i + 1)}
+                    className="imgs"
+                  />
+                ))}
+              </AwesomeSlider>
+            </div>
+
+            <div key={property._id} className="property-details">
+              <h3 className="card-title">
+                {property.title} in {property.location}
+              </h3>
+
+              <p className="text-color">
+                <strong>{property.budget}€ per month</strong>
+                <br />
+                <strong>
+                  {property.size} m<sup>2</sup>
+                </strong>
+                <br />
+                {property.rooms} rooms
+                <br />
+                {property.bedrooms} bedrooms
+              </p>
+
+              <div className="link-to-detail">
+                <Link
+                  to={`/detail/${property._id}`}
+                  className="dropdowns link-to-detail"
+                >
+                  See more details
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+/* 
+ function filterByRooms(prop) {
+  if (
+    filter.isChecked1Room === '' &&
+    filter.isChecked2Room === '' &&
+    filter.isChecked3Room === '' &&
+    filter.isChecked4Room === '' &&
+    filter.isChecked5Room === ''
+  )
+    return properties
+
+  if (filter.isChecked1Room && prop.rooms === 1) return true
+  if (filter.isChecked2Room && prop.rooms === 2) return true
+  if (filter.isChecked3Room && prop.rooms === 3) return true
+  if (filter.isChecked4Room && prop.rooms === 4) return true
+  if (filter.isChecked5Room && prop.rooms >= 5) return true
+}
+
+/* <div className="filter-block">
+            <span className="title">
+              <i className="fi fi-crit-room"></i>Number of rooms
+            </span>
+            <span className="description"></span>
+            <div className="containerList">
+              <div className="itemList active">
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -317,7 +556,7 @@ export default function ForRent() {
                 ></input>
                 <label htmlFor="studio" className="form-check-label">
                   Studio
-              </label>
+                </label>
               </div>
               <div className="itemList active">
                 <input
@@ -361,239 +600,55 @@ export default function ForRent() {
               </div>
             </div>
             <span className="error invisible"></span>
-          </div>
+          </div> 
 
-          <div className="filter-block">
-            <span className="title">
-              <i className="fi fi-crit-room"></i>Number of bedrooms
-          </span>
-            <span className="description"></span>
-            <div className="containerList">
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isChecked1Bedroom"
-                  id="1"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isChecked1Bedroom}
-                ></input>
-                <label htmlFor="1">1</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isChecked2Bedroom"
-                  id="2"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isChecked2Bedroom}
-                ></input>
-                <label htmlFor="2">2</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isChecked3Bedroom"
-                  id="3"
-                  value=""
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="3">3</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isChecked4Bedroom"
-                  id="4"
-                  value=""
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="4">4</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isChecked5Bedroom"
-                  id="5andmore"
-                  value=""
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="5andmore">5+</label>
-              </div>
-            </div>
-            <span className="error invisible"></span>
-          </div>
+function filterByBedrooms(prop) {
+    if (
+      filter.isChecked1Bedromm === '' &&
+      filter.isChecked2Bedromm === '' &&
+      filter.isChecked3Bedroom === '' &&
+      filter.isChecked4Bedroom === '' &&
+      filter.isChecked5Bedroom === ''
+    )
+      return properties
 
-          <div className="filter-block">
-            <span className="title">
-              <i className="fi fi-heart"></i> Other criterias
-          </span>
-            <span className="description"></span>
-            <div className="containerList">
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedGarden"
-                  id="garden"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedGarden}
-                ></input>
-                <label htmlFor="garden">
-                  <i className="fi fi-garden"></i>Garden
-              </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedFireplace"
-                  id="fireplace"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedFireplace}
-                ></input>
-                <label htmlFor="fireplace">
-                  <i className="fi fi-crit-chimney"></i>Fireplace
-              </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedCaretaker"
-                  id="guardian"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedCaretaker}
-                ></input>
-                <label htmlFor="guardian">
-                  <i className="fi fi-crit-man-suit"></i>Caretaker
-              </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedBalcony"
-                  id="balcony"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedBalcony}
-                ></input>
-                <label htmlFor="balcony">
-                  <i className="fi fi-crit-balcony"></i>Balcony
-              </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedPool"
-                  id="pool"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedPool}
-                ></input>
-                <label htmlFor="Swimming-Pool">
-                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
-              </label>
-              </div>
+    if (filter.isChecked1Bedroom && prop.bedrooms === 1) return true
+    if (filter.isChecked2Bedroom && prop.bedrooms === 2) return true
+    if (filter.isChecked3Bedroom && prop.bedrooms === 3) return true
+    if (filter.isChecked4Bedroom && prop.bedrooms === 4) return true
+    if (filter.isChecked5Bedroom && prop.bedrooms >= 5) return true
+  }
 
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedTerrace"
-                  id="terrace"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedTerrace}
-                ></input>
-                <label htmlFor="terrace">
-                  <i className="fi fi-crit-table"></i>Terrace
-              </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="isCheckedParking"
-                  id="parking"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedParking}
-                ></input>
-                <label htmlFor="parking">
-                  <i></i>Parking
-              </label>
-              </div>
-            </div>
-            <span className="error invisible"></span>
-          </div>
-        </form>
-      </div>
-      <br />
 
-      {filteredProperties.map((property, i) => (
-        <div key={i}>
-          <div className="property-card">
-            <div className="slider" key={property._id + Date.now()}>
+  function filterByOthers(prop) {
+    if (
+      filter.isCheckedGarden === '' &&
+      filter.isCheckedFireplace === '' &&
+      filter.isCheckedCaretaker === '' &&
+      filter.isCheckedBalcony === '' &&
+      filter.isCheckedPool === '' &&
+      filter.isCheckedTerrace === '' &&
+      filter.isCheckedParking === ''
+    )
+      return properties
 
-              {api.isLoggedIn() && (
-                <i
-                  className="fav fas fa-heart white"
-                  data-id="{{this._id}}"
-                ></i>
-              )}
+    if (filter.isCheckedGarden && prop.others === 'Garden') return true
+    if (filter.isCheckedFireplace && prop.others === 'Fireplace') return true
+    if (filter.isCheckedCaretaker && prop.others === 'Caretaker') return true
+    if (filter.isCheckedBalcony && prop.others === 'Balcony') return true
+    if (filter.isCheckedPool && prop.others === 'Swimming Pool') return true
+    if (filter.isCheckedTerrace && prop.others === 'Terrace') return true
+    if (filter.isCheckedParking && prop.others === 'Parking') return true
+    // return (
+    //   (!filter.isCheckedGarden || prop.others === 'Garden') &&
+    //   (!filter.isCheckedFireplace || prop.others === 'Fireplace') &&
+    //   (!filter.isCheckedCaretaker || prop.others === 'Caretaker') &&
+    //   (!filter.isCheckedBalcony || prop.others === 'Balcony') &&
+    //   (!filter.isCheckedPool || prop.others === 'Swimming Pool') &&
+    //   (!filter.isCheckedTerrace || prop.others === 'Terrace') &&
+    //   (!filter.isCheckedParking || prop.others === 'Parking')
+    // )
+  }
 
-              <AwesomeSlider className="slideshow-container">
-                {property.pictures.map((pic, i) => (
-                  <div
-                    key={i}
-                    data-src={pic}
-                    alt={property.title + ' photo ' + (i + 1)}
-                    className="imgs"
-                  />
-                ))}
-              </AwesomeSlider>
-            </div>
 
-            <div key={property._id} className="property-details">
-
-              <h3 className="card-title">
-                {property.title} in {property.location}
-              </h3>
-
-              <p className="text-color">
-                <strong>{property.budget}€ per month</strong>
-                <br />
-                <strong>
-                  {property.size} m<sup>2</sup>
-                </strong>
-                <br />
-                {property.rooms} rooms
-                <br />
-                {property.bedrooms} bedrooms</p>
-
-              <div className="link-to-detail">
-                <Link to={`/detail/${property._id}`} className="dropdowns link-to-detail">
-                  See more details
-              </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      ))
-      }
-    </div >
-  )
-}
+*/

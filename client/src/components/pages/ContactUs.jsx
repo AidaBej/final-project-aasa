@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import api from '../../api'
 
 export default function ContactUs(props) {
+  console.log(props)
   const [state, setState] = useState({
     name: null,
     email: '',
     message: null,
     topic: null,
   })
-
+  useEffect(() => {
+    console.log('contact us props =>>', props)
+  }, [])
   function handleInputChange(event) {
     setState({
       ...state,
@@ -29,6 +32,8 @@ export default function ContactUs(props) {
       .contactUs(data)
       .then(result => {
         console.log('SUCCESS!')
+        console.log(props.history)
+
         props.history.push('/') // Redirect to the home page
       })
       .catch(err => setState({ message: err.toString() }))
@@ -40,7 +45,7 @@ export default function ContactUs(props) {
         <div className="opacity-low-contact"></div>
         <div className="bloc-contact">
           <div className="ContactUs">
-            <h2 className="contact-title">Contact us</h2>
+            <h2 className="contact-title">CONTACT US</h2>
             <form
               className="form-generic"
               onSubmit={handleClick}
