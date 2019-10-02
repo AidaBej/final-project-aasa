@@ -286,7 +286,7 @@ export default function ForRent() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-crit-room"></i>Rooms
+              <i className="fi fi-crit-room"></i>Number of rooms
             </span>
             <span className="description"></span>
             <div className="containerList">
@@ -302,52 +302,20 @@ export default function ForRent() {
                 </label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked2Room"
-                  id="2rooms"
-                  checked={filter.isChecked2Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="2rooms" className="filter-label">
-                  2
-                </label>
+                <input type="checkbox" name="nbRooms" value="2"></input>
+                <label htmlFor="2rooms">2</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked3Room"
-                  id="3rooms"
-                  checked={filter.isChecked3Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="3rooms" className="filter-label">
-                  3
-                </label>
+                <input type="checkbox" name="nbRooms" value="3"></input>
+                <label htmlFor="3rooms">3</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked4Room"
-                  id="4rooms"
-                  checked={filter.isChecked4Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="4rooms" className="filter-label">
-                  4
-                </label>
+                <input type="checkbox" name="nbRooms" value="4"></input>
+                <label htmlFor="4rooms">4</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked5Room"
-                  id="5andmore"
-                  checked={filter.isChecked5Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="5andmore" className="filter-label">
-                  5+
-                </label>
+                <input type="checkbox" name="nbRooms" value="5"></input>
+                <label htmlFor="5andmore">5+</label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -355,7 +323,7 @@ export default function ForRent() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-crit-room"></i>Bedrooms
+              <i className="fi fi-crit-room"></i>Number of bedrooms
             </span>
             <span className="description"></span>
             <div className="containerList">
