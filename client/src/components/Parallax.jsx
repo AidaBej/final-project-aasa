@@ -79,6 +79,9 @@ export default function Parallax() {
     <div className="wrapper-parallax">
       <div className="container-parallax">
         <section className="background">
+          <br />
+          <br />
+          <br />
           <div className="content-wrapper">
             <p className="content-title">
               Welcome to <br></br>Parisian Cocoon
@@ -91,8 +94,12 @@ export default function Parallax() {
         <section className="background">
           <div className="content-wrapper">
             <div className="home">
+              <br />
+              <br />
+              <br />
               <div className="square-hp">
                 <div className="opacity-low"></div>
+
                 <div className="bloc-hp">
                   What are you looking for?
                   <div className="buttons">
@@ -110,6 +117,12 @@ export default function Parallax() {
         </section>
         <section className="background">
           <div className="content-wrapper">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <p className="content-title">Our team</p>
             <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
             <div className="buttons">
