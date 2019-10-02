@@ -4,7 +4,9 @@ import api from '../../api'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
 
+
 export default function ForSale() {
+
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -37,7 +39,7 @@ export default function ForSale() {
   })
 
   const [properties, setProperties] = useState([])
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
   const [filteredProperties, setFilteredProperties] = useState([])
 
   //Pour récupérer toutes les location des propriétés et les mettre ensuite dans le select
@@ -59,6 +61,9 @@ export default function ForSale() {
   }, [filter])
 
   useEffect(() => {
+
+
+
     api
       .getProperties()
       .then(res => {
@@ -170,6 +175,45 @@ export default function ForSale() {
       .filter(filterByRooms)
       .filter(filterByBedrooms)
       .filter(filterByOthers)
+  }
+
+  // const [favorite, setFavorite] = useState()
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { favorite: false };
+  //   // this.handleClick = this.handleClick.bind(this);
+  // }
+
+  // handleClick(event) {
+  //   this.setFavorite({ favorite: !this.state.favorite });
+  // }
+  // render() {
+  //   let buttonText = this.state.favorite ? 'Unsave' : 'Save';
+  //   return (
+  //     <button onClick={this.handleClick} className="fav">
+  //       <i className="fa fa-heart"></i>&nbsp;
+  //       {buttonText}</button>
+  //   );
+  // }
+  const handleSave = (propertyId) => {
+
+
+    if (!hasLike(propertyId)) {
+      api.addFavorite(propertyId).then(res => {
+        localStorage.setItem("user", JSON.stringify(res))
+        setUser(res)
+      })
+    } else {
+      api.removeFavorite(propertyId).then(res => {
+        localStorage.setItem("user", JSON.stringify(res))
+        setUser(res)
+      })
+    }
+
+  }
+
+  function hasLike(propertyId) {
+    return user.favorite.includes(propertyId)
   }
 
   return (
@@ -543,14 +587,6 @@ export default function ForSale() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-
-              {api.isLoggedIn() && (
-                <span
-                  className="fav fas fa-heart white"
-                // data-id={{ this._id }}
-                ></span>
-              )}
-
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
                   <div
@@ -562,8 +598,8 @@ export default function ForSale() {
                 ))}
               </AwesomeSlider>
             </div>
-            <div key={property._id} className="property-details">
 
+            <div key={property._id} className="property-details">
               <h3 className="card-title">
                 {property.title} in {property.location}
               </h3>
@@ -579,8 +615,23 @@ export default function ForSale() {
                 <br />
                 {property.bedrooms} bedrooms</p>
 
-              <div className="link-to-detail">
-                <Link to={`/detail/${property._id}`} className="dropdowns link-to-detail">
+
+
+
+
+              <div className="ctas">
+                {api.isLoggedIn() && (
+                  <button
+                    onClick={() => handleSave(property._id)}
+                    className="fav"
+                    href=""
+                    data-id={property._id}>
+                    <img className={hasLike(property._id) ? "heart-o" : "heart"} src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    Save
+                  </button>
+                )}
+
+                <Link to={`/detail/${property._id}`} className="dropdowns ctas">
                   See more details
               </Link>
               </div>

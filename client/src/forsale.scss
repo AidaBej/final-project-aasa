@@ -85,18 +85,15 @@
 }
 
 .dropdowns {
-  // display: flex;
-  // margin-bottom: 25px;
-  margin-top: 25px;
-  // justify-content: center;
-  justify-content: flex-start;
-  height: 30px;
-  width: 160px;
-  // border-radius: 10px;
-  // font-size: 18px;
+  // margin-top: 10px;
+  justify-content: center;
+  height: 40px;
+  width: auto;
+  // min-width: 190px;
   background-color: #7bb4b5;
   border: solid 1px #7bb4b5;
   color: white;
+  font-size: 20px;
 }
 
 .dropdowns:hover {
@@ -106,8 +103,9 @@
   text-decoration: none !important;
 }
 
-.link-to-detail {
+.ctas {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -117,7 +115,7 @@
   width: 200px;
   // margin: 20px 0 0 20px;
   border-right: 1px solid #e3ceb0;
-  padding: 20px 0 0 20px;
+  // padding: 20px 0 0 20px;
 }
 
 .filter-block:last-child {
@@ -199,4 +197,45 @@ ul {
 .slider {
   width: 50%;
   margin-left: 0;
+}
+
+// .fas.fa-heart.white {
+//   font-size: 25px;
+//   color: white;
+// }
+
+// .fav.fas.fa-heart.white.is-active {
+//   color: red;
+// }
+
+.fav {
+  // background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-size: 50px;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 20px;
+  color: white;
+  background-color: #7bb4b5;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  border: solid 1px #7bb4b5;
+  height: 40px;
+  width: 100px;
+  margin: 10px 20px 0 0;
+}
+
+.fav:hover {
+  background-color: #e3ceb0;
+  border: solid 1px #e3ceb0;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.heart {
+  width: 20px;
 }

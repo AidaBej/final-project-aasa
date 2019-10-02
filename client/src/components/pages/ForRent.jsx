@@ -175,7 +175,7 @@ export default function ForRent() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -191,7 +191,7 @@ export default function ForRent() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -286,13 +286,8 @@ export default function ForRent() {
 
           <div className="filter-block">
             <span className="title">
-<<<<<<< HEAD
               <i className="fi fi-crit-room"></i>Rooms
           </span>
-=======
-              <i className="fi fi-crit-room"></i>Number of rooms
-            </span>
->>>>>>> e2efb2e9f29e221f8b7f0d87d24539a8a73f7050
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -307,61 +302,22 @@ export default function ForRent() {
                 </label>
               </div>
               <div className="itemList active">
-<<<<<<< HEAD
-                <input
-                  type="checkbox"
-                  name="isChecked2Room"
-                  id="2rooms"
-                  checked={filter.isChecked2Room}
-                  onChange={handleChange}
-                ></input>
+
+                <input type="checkbox" name="nbRooms" value="2"></input>
                 <label htmlFor="2rooms" className="filter-label">2</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked3Room"
-                  id="3rooms"
-                  checked={filter.isChecked3Room}
-                  onChange={handleChange}
-                ></input>
+                <input type="checkbox" name="nbRooms" value="3"></input>
                 <label htmlFor="3rooms" className="filter-label">3</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked4Room"
-                  id="4rooms"
-                  checked={filter.isChecked4Room}
-                  onChange={handleChange}
-                ></input>
+                <input type="checkbox" name="nbRooms" value="4"></input>
                 <label htmlFor="4rooms" className="filter-label">4</label>
               </div>
               <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked5Room"
-                  id="5andmore"
-                  checked={filter.isChecked5Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="5andmore" className="filter-label">5+</label>
-=======
-                <input type="checkbox" name="nbRooms" value="2"></input>
-                <label htmlFor="2rooms">2</label>
-              </div>
-              <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="3"></input>
-                <label htmlFor="3rooms">3</label>
-              </div>
-              <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="4"></input>
-                <label htmlFor="4rooms">4</label>
-              </div>
-              <div className="itemList active">
                 <input type="checkbox" name="nbRooms" value="5"></input>
-                <label htmlFor="5andmore">5+</label>
->>>>>>> e2efb2e9f29e221f8b7f0d87d24539a8a73f7050
+                <label htmlFor="5andmore" className="filter-label">5+</label>
+
               </div>
             </div>
             <span className="error invisible"></span>
@@ -369,13 +325,8 @@ export default function ForRent() {
 
           <div className="filter-block">
             <span className="title">
-<<<<<<< HEAD
               <i className="fi fi-crit-room"></i>Bedrooms
           </span>
-=======
-              <i className="fi fi-crit-room"></i>Number of bedrooms
-            </span>
->>>>>>> e2efb2e9f29e221f8b7f0d87d24539a8a73f7050
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -575,7 +526,7 @@ export default function ForRent() {
   )
 }
 
-/* 
+/*
  function filterByRooms(prop) {
   if (
     filter.isChecked1Room === '' &&
@@ -655,7 +606,7 @@ export default function ForRent() {
               </div>
             </div>
             <span className="error invisible"></span>
-          </div> 
+          </div>
 
 function filterByBedrooms(prop) {
     if (

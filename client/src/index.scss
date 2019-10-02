@@ -5,10 +5,9 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 @import url('./oneproperty.scss');
 @import url('https://kit.fontawesome.com/08c42eb1bf.js');
-// --------------------
+// @import url('./favorites.scss') // --------------------
 // Definition of variables
 $primary: #1c698a;
-
 // ----------------------------------------
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
@@ -21,11 +20,9 @@ $primary: #1c698a;
 // import { Button } from 'reactstrap';
 // <Button color="danger">Danger!</Button>
 // ----------------------------------------
-
 // --------------------
 // Style reusable for all components
 //
-
 // --------------------
 // Style for Home component
 .Home {
