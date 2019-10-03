@@ -168,8 +168,8 @@ export default function ForRent() {
       <h2>Properties for rent</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
-        <form className="form-filters" onChange={handleChange}>
-          <div className="filter-block">
+        <form className="form-properties" onChange={handleChange}>
+          <div className="filter-block-1">
             <select
               name="type"
               value={filter.type}
@@ -483,12 +483,12 @@ export default function ForRent() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-              {api.isLoggedIn() && (
+              {/* {api.isLoggedIn() && (
                 <i
                   className="fav fas fa-heart white"
                   data-id="{{this._id}}"
                 ></i>
-              )}
+              )} */}
 
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
@@ -519,19 +519,37 @@ export default function ForRent() {
                 {property.bedrooms} bedrooms
               </p>
 
-              <div className="link-to-detail">
-                <Link
-                  to={`/detail/${property._id}`}
-                  className="dropdowns link-to-detail"
-                >
-                  See more details
+              {/* <div className="ctas">
+                {api.isLoggedIn() && (
+                  <button
+                    onClick={() => handleSave(property._id)}
+                    className="cta"
+                    href=""
+                    data-id={property._id}>
+                    <img className={hasLike(property._id) ? "heart-o" : "heart"} width="20px" src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    Save
+                  </button>
+                )} */}
+
+              {/* <div className="link-to-detail">
+                  <Link
+                    to={`/detail/${property._id}`}
+                    className="dropdowns link-to-detail"
+                  >
+                    See more details
                 </Link>
-              </div>
+                </div> */}
+
+              <Link to={`/detail/${property._id}`} className="cta">
+                More details
+                </Link>
+              {/* </div> */}
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      ))
+      }
+    </div >
   )
 }
 
