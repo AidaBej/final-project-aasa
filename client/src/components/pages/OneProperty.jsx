@@ -68,7 +68,7 @@ export default function Properties(props) {
           <p>Location: {property.location}</p>
         </div>
       </div>
-      <Map property={property} />
+      <Map fullMarkers={false} property={property} />
     </div>
   )
 }

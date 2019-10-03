@@ -7,23 +7,25 @@ import api from '../../api'
 console.log(process.env.REACT_APP_GOOGLEMAP_API)
 
 const Map = React.memo(props => {
-  console.log(props.property, '-------------------')
+  console.log(props.properties, '-------------------')
   return (
-    <GoogleMap
-      onClick={props.handleMapClicked}
-      ref={props.onMapMounted}
-      onBoundsChanged={props.onBoundsChanged}
-      defaultZoom={12}
-      center={props.center}
-      defaultCenter={{ lat: 48.866667, lng: 2.333333 }}
-    >
-      {props.property.localisation && (
-        <CustomMarker property={props.property} />
-      )}
-      {props.properties.map((p, i) => (
-        <CustomMarker key={i} property={p} />
-      ))}
-    </GoogleMap>
+    props.property && (
+      <GoogleMap
+        onClick={props.handleMapClicked}
+        ref={props.onMapMounted}
+        onBoundsChanged={props.onBoundsChanged}
+        defaultZoom={12}
+        center={props.center}
+        defaultCenter={{ lat: 48.866667, lng: 2.333333 }}
+      >
+        {props.property.localisation && (
+          <CustomMarker property={props.property} />
+        )}
+        {props.properties.map((p, i) => (
+          <CustomMarker key={i} property={p} />
+        ))}
+      </GoogleMap>
+    )
   )
 })
 
@@ -43,7 +45,7 @@ const AppMap = props => {
   const refs = {}
 
   useEffect(() => {
-    if (!props.property) {
+    if (props.fullMarkers) {
       api.getProperties('/all').then(p => {
         console.log('ici>', p)
         setState({
@@ -76,7 +78,6 @@ const AppMap = props => {
     <div style={{ height: '100vh' }}>
       <WrapperMap
         property={props.property}
-        onToggleOpen={handleToggleOpen}
         properties={state.properties}
         handleMarkerClick={handleMarkerClick}
         onBoundsChanged={onBoundsChanged}
