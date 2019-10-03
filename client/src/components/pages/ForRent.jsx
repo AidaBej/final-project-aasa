@@ -229,7 +229,7 @@ export default function ForRent() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
             </div>
 
             <div className="container_max">
@@ -243,7 +243,7 @@ export default function ForRent() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
               <br></br>
               {/* <button onClick={handleChange}>OK</button> */}
             </div>
@@ -266,7 +266,7 @@ export default function ForRent() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <div className="container_max">
               <input
@@ -279,7 +279,7 @@ export default function ForRent() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <span className="error invisible"></span>
           </div>
@@ -396,7 +396,7 @@ export default function ForRent() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-heart"></i> Other criterias
+              <i className="fi fi-heart"></i> Other
             </span>
             <span className="description"></span>
             <div className="containerList">
@@ -408,7 +408,7 @@ export default function ForRent() {
                   value="Garden"
                 ></input>
                 <label htmlFor="garden" className="filter-label">
-                  <i className="fi fi-garden"></i>Garden
+                  <i className="fas fa-tree"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -419,7 +419,7 @@ export default function ForRent() {
                   value="Fireplace"
                 ></input>
                 <label htmlFor="fireplace" className="filter-label">
-                  <i className="fi fi-crit-chimney"></i>Fireplace
+                  <i className="fas fa-dumpster-fire"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -430,7 +430,7 @@ export default function ForRent() {
                   value="Caretaker"
                 ></input>
                 <label htmlFor="guardian" className="filter-label">
-                  <i className="fi fi-crit-man-suit"></i>Caretaker
+                  <i className="fas fa-broom"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -441,8 +441,14 @@ export default function ForRent() {
                   value="Balcony"
                 ></input>
                 <label htmlFor="balcony" className="filter-label">
-                  <i className="fi fi-crit-balcony"></i>Balcony
+                  <i className="fi fi-crit-balcony"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/antique-balcony.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
@@ -452,7 +458,7 @@ export default function ForRent() {
                   value="Swimming Pool"
                 ></input>
                 <label htmlFor="Swimming-Pool" className="filter-label">
-                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
+                  <i className="fas fa-swimmer"></i>
                 </label>
               </div>
 
@@ -464,8 +470,14 @@ export default function ForRent() {
                   value="Terrace"
                 ></input>
                 <label htmlFor="terrace" className="filter-label">
-                  <i className="fi fi-crit-table"></i>Terrace
+                  <i className="fi fi-crit-table"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/terrasse.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
@@ -476,7 +488,7 @@ export default function ForRent() {
                   value="Parking"
                 ></input>
                 <label htmlFor="parking" className="filter-label">
-                  <i></i>Parking
+                  <i className="fas fa-parking"></i>
                 </label>
               </div>
             </div>

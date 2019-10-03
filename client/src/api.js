@@ -149,12 +149,17 @@ export default {
 
   addProperty(body) {
     return service
-      .post('/forrent', '/forsale', body)
+      .post('/add-new-property', body)
       .then(res => res.data)
       .catch(errHandler)
   },
 
-  editProperty() {},
+  editProperty(body) {
+    return service
+      .post('/manage-property')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 
   getSecret() {
     return service
