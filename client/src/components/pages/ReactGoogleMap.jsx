@@ -7,6 +7,7 @@ import api from '../../api'
 console.log(process.env.REACT_APP_GOOGLEMAP_API)
 
 const Map = React.memo(props => {
+  console.log(props.property, '-------------------')
   return (
     <GoogleMap
       onClick={props.handleMapClicked}
@@ -16,7 +17,9 @@ const Map = React.memo(props => {
       center={props.center}
       defaultCenter={{ lat: 48.866667, lng: 2.333333 }}
     >
-      {props.property && <CustomMarker property={props.property} />}
+      {props.property.localisation && (
+        <CustomMarker property={props.property} />
+      )}
       {props.properties.map((p, i) => (
         <CustomMarker key={i} property={p} />
       ))}

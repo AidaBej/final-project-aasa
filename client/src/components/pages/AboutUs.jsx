@@ -34,8 +34,7 @@ export default function About() {
             properties in Paris. With 15 agencies in the 3rd, 6th, 7th , 9th,
             10th, 16th, 17th and 18th arrondissements of Paris with 50,000
             active clients from both France and abroad, Parisian Cocoon sells 1
-            property per day and property manages 300 million of real estate --
-            from studios to private villas.
+            property per day and property manages 300 million of real estate.
           </p>
         </div>
       </div>

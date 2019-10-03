@@ -12,7 +12,7 @@ export default function Properties(props) {
     api
       .getDetail(id)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         setProperty(res)
       })
       .catch(err => console.log(err))

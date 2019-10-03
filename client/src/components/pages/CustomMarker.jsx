@@ -10,31 +10,34 @@ const CustomMarker = ({ property }) => {
   const handleToggleClose = () => {
     setIsOpen(false)
   }
+  console.log('icii', property)
   return (
-    <Marker
-      onClick={handleToggleOpen}
-      icon={{
-        url:
-          'https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif',
-        scaledSize: new window.google.maps.Size(46, 46),
-      }}
-      position={{
-        lat: property.localisation.coordinates[0],
-        lng: property.localisation.coordinates[1],
-      }}
-    >
-      {isOpen && (
-        <InfoWindow onCloseClick={handleToggleClose}>
-          <>
-            <p>{property.title}</p>
-            <img src={property.pictures[0]} alt="image" width="300px" />
-            <br />
-            <br />
-            <Link to={`/detail/${property._id}`}>View detail</Link>
-          </>
-        </InfoWindow>
-      )}
-    </Marker>
+    property && (
+      <Marker
+        onClick={handleToggleOpen}
+        icon={{
+          url:
+            'https://res.cloudinary.com/drukuybdj/image/upload/v1569850095/ironhack-project-3/properties/logo_xgzym8.gif',
+          scaledSize: new window.google.maps.Size(46, 46),
+        }}
+        position={{
+          lat: property.localisation.coordinates[0],
+          lng: property.localisation.coordinates[1],
+        }}
+      >
+        {isOpen && (
+          <InfoWindow onCloseClick={handleToggleClose}>
+            <>
+              <p>{property.title}</p>
+              <img src={property.pictures[0]} alt="image" width="300px" />
+              <br />
+              <br />
+              <Link to={`/detail/${property._id}`}>View detail</Link>
+            </>
+          </InfoWindow>
+        )}
+      </Marker>
+    )
   )
 }
 
