@@ -11,5 +11,6 @@ router.get('/', (req, res, next) => {
     })
     .catch(err => next(err))
 })
+console.log('hey hey hey!')
 
 module.exports = router
