@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../api'
 
 export default function AddProperty(props) {
@@ -12,7 +13,7 @@ export default function AddProperty(props) {
     size: '',
     rooms: '',
     bedrooms: '',
-    others: '',
+    others: [],
     description: '',
     pictures: '',
   })
@@ -71,7 +72,7 @@ export default function AddProperty(props) {
           setMessage(null)
         }, 2000)
       })
-      .catch(err => console.log(err))
+      .catch(err => setState({ message: err.toString() }))
   }
   return (
     <div className="addProperty">
@@ -199,6 +200,7 @@ export default function AddProperty(props) {
                       className="form-check-input"
                       type="checkbox"
                       name="others"
+                      onChange={handleChange}
                       value="Garden"
                     ></input>
                     <label htmlFor="garden">Garden</label>
@@ -209,6 +211,7 @@ export default function AddProperty(props) {
                       type="checkbox"
                       name="others"
                       value="Fireplace"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="fireplace">Fireplace</label>
                   </div>
@@ -218,6 +221,7 @@ export default function AddProperty(props) {
                       type="checkbox"
                       name="others"
                       value="Caretaker"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="guardian">Caretaker</label>
                   </div>
@@ -227,6 +231,7 @@ export default function AddProperty(props) {
                       type="checkbox"
                       name="others"
                       value="Balcony"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="balcony">Balcony</label>
                   </div>
@@ -236,6 +241,7 @@ export default function AddProperty(props) {
                       type="checkbox"
                       name="others"
                       value="Swimming Pool"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="Swimming-Pool">Swimming Pool</label>
                   </div>
@@ -246,6 +252,7 @@ export default function AddProperty(props) {
                       type="checkbox"
                       name="others"
                       value="Terrace"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="terrace">Terrace</label>
                   </div>
@@ -256,6 +263,7 @@ export default function AddProperty(props) {
                       name="others"
                       id="parking"
                       value="Parking"
+                      onChange={handleChange}
                     ></input>
                     <label htmlFor="parking">Parking</label>
                   </div>
@@ -278,61 +286,21 @@ export default function AddProperty(props) {
                 <input id="property-imgs" type="file" name="image" />
               </div>
               <div>
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  onClick={e => handleClick(e)}
-                >
-                  Add
-                </button>
+                <Link to="/manage-property">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={e => handleClick(e)}
+                  >
+                    Add
+                  </button>
+                </Link>
               </div>
             </form>
             <br />
-
-            {/* <div className="background-image-signup"></div> */}
           </div>
         </div>
       </div>
     </div>
-    // <div className="AddProperty">
-    //   <h2>Add new Property</h2>
-    //   <form>
-    //   Title:
-    //     <input
-    //       type="text"
-    //       value={state.name}
-    //       name="name"
-    //       onChange={handleInputChange}
-    //     />{' '}
-    //     <br />
-    //     Capitals:{' '}
-    //     <input
-    //       type="text"
-    //       value={state.capitals}
-    //       name="capitals"
-    //       onChange={handleInputChange}
-    //     />{' '}
-    //     <br />
-    //     Area:{' '}
-    //     <input
-    //       type="number"
-    //       value={state.area}
-    //       name="area"
-    //       onChange={handleInputChange}
-    //     />{' '}
-    //     <br />
-    //     Description:{' '}
-    //     <textarea
-    //       value={state.description}
-    //       name="description"
-    //       cols="30"
-    //       rows="10"
-    //       onChange={handleInputChange}
-    //     />{' '}
-    //     <br />
-    //     <button onClick={e => handleClick(e)}>Create country</button>
-    //   </form>
-    //   {message && <div className="info">{message}</div>}
-    // </div>
   )
 }

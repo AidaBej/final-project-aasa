@@ -143,7 +143,12 @@ export default {
       .catch(errHandler)
   },
 
-  editProperty() {},
+  editProperty(body) {
+    return service
+      .post('/manage-property')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 
   getSecret() {
     return service
