@@ -1,4 +1,7 @@
 // @import 'font-awesome'
+$primary: #1c698a;
+
+@import url('../node_modules/bootstrap/scss/bootstrap.scss');
 @import url('./forrent.scss');
 @import url('./forsale.scss');
 @import url('./aboutus.scss');
@@ -8,17 +11,14 @@
 @import url('./oneproperty.scss');
 @import url('./edit.scss');
 @import url('./addNew.scss');
-@import url('https://kit.fontawesome.com/08c42eb1bf.js');
-// @import url('./favorites.scss') // --------------------
-// @import url('https://unpkg.com/axios/dist/axios.min.js');
-// --------------------
+// @import url('https://kit.fontawesome.com/08c42eb1bf.js');
+@import url('./favorites.scss'); // --------------------
 // Definition of variables
-$primary: #1c698a;
+
 // ----------------------------------------
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
 //
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap

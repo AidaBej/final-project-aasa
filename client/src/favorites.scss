@@ -1,14 +1,23 @@
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
-.favorites {
-  margin-top: 100px;
-  color: #5588a3;
+.Favorites {
+  position: relative;
+  top: 75px;
   font-size: 50px;
-  background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570086152/ironhack-project-3/properties/favorites_xbhs7y.jpg');
+  background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570086152/ironhack-project-3/properties/favorites_xbhs7y.jpg')
+    no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
-.favorites-title {
-  font-size: 30px;
-  color: white;
+.fav-title {
+  display: flex;
+  justify-content: flex-start;
+  color: #5588a3;
+  text-shadow: 2px 2px 2px white;
+  font-size: 50px;
 }

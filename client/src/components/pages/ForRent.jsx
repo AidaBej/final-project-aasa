@@ -165,7 +165,7 @@ export default function ForRent() {
 
   return (
     <div className="properties">
-      <h2>Properties for rent</h2>
+      <h2 className="titre">Properties for rent</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
         <form className="form-properties" onChange={handleChange}>
