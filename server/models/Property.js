@@ -76,8 +76,8 @@ const propertySchema = new mongoose.Schema({
     },
   ],
   localisation: {
-    type: { type: String, enum: ['Point'], default: 'Point' },
-    coordinates: [Number],
+    type: { type: String, enum: ['Point'], required: true },
+    coordinates: { type: [Number], required: true },
   },
   description: {
     type: String,

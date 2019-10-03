@@ -33,7 +33,9 @@ export default function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/add-new-property" component={AddNewProperty} />
         <Route path="/manage-property" component={EditProperty} />
+
         <Route path="/edit/:id" component={EditOne} />
+        <Route path="/delete/:id" component={EditProperty} />
         <Route path="/login" component={Login} />
         <Route path="/secret" component={Secret} />
         <Route path="/map" component={Map} />
