@@ -22,7 +22,7 @@ export default function ForRent() {
   })
 
   const [properties, setProperties] = useState([])
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
   const [filteredProperties, setFilteredProperties] = useState([])
 
   //Pour récupérer toutes les location des propriétés et les mettre ensuite dans le select
@@ -89,7 +89,6 @@ export default function ForRent() {
   }
 
   function filterByType(prop) {
-    // console.log(prop.type === filter.type)
     if (filter.type === '') return properties
     return prop.type === filter.type
   }
@@ -149,10 +148,6 @@ export default function ForRent() {
   }
 
   function getFilteredSales() {
-    // console.log('------- all properties ---------')
-    // console.log(properties)
-    // console.log(properties.filter(filterByOthers))
-    // console.log('---------------------------------')
     return properties
       .filter(filterByType)
       .filter(filterByLocation)
@@ -161,6 +156,24 @@ export default function ForRent() {
       .filter(filterByRooms)
       .filter(filterByBedrooms)
       .filter(filterByOthers)
+  }
+
+  const handleSave = propertyId => {
+    if (!hasLiked(propertyId)) {
+      api.addFavorite(propertyId).then(res => {
+        localStorage.setItem('user', JSON.stringify(res))
+        setUser(res)
+      })
+    } else {
+      api.removeFavorite(propertyId).then(res => {
+        localStorage.setItem('user', JSON.stringify(res))
+        setUser(res)
+      })
+    }
+  }
+
+  function hasLiked(propertyId) {
+    return user.favorite.includes(propertyId)
   }
 
   return (
@@ -297,30 +310,53 @@ export default function ForRent() {
                   value="1"
                   name="nbRooms"
                 ></input>
-                <label htmlFor="studio" className="filter-label">
+                <label
+                  htmlFor="studio"
+                  className="form-check-label filter-label"
+                >
                   Studio
                 </label>
               </div>
               <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="2"></input>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbRooms"
+                  value="2"
+                ></input>
                 <label htmlFor="2rooms" className="filter-label">
                   2
                 </label>
               </div>
               <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="3"></input>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbRooms"
+                  value="3"
+                ></input>
                 <label htmlFor="3rooms" className="filter-label">
                   3
                 </label>
               </div>
               <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="4"></input>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbRooms"
+                  value="4"
+                ></input>
                 <label htmlFor="4rooms" className="filter-label">
                   4
                 </label>
               </div>
               <div className="itemList active">
-                <input type="checkbox" name="nbRooms" value="5"></input>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="nbRooms"
+                  value="5"
+                ></input>
                 <label htmlFor="5andmore" className="filter-label">
                   5+
                 </label>
@@ -538,31 +574,30 @@ export default function ForRent() {
                 {property.bedrooms} bedrooms
               </p>
 
-              {/* <div className="ctas">
+              <div className="ctas">
                 {api.isLoggedIn() && (
                   <button
                     onClick={() => handleSave(property._id)}
                     className="cta"
                     href=""
-                    data-id={property._id}>
-                    <img className={hasLike(property._id) ? "heart-o" : "heart"} width="20px" src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    data-id={property._id}
+                  >
+                    <i
+                      className={
+                        hasLiked(property._id) ? 'fas fa-heart' : 'far fa-heart'
+                      }
+                      width="20px"
+                      alt="heart"
+                    />
+                    {/* src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" */}
                     Save
                   </button>
-                )} */}
+                )}
 
-              {/* <div className="link-to-detail">
-                  <Link
-                    to={`/detail/${property._id}`}
-                    className="dropdowns link-to-detail"
-                  >
-                    See more details
+                <Link to={`/detail/${property._id}`} className="cta">
+                  More details
                 </Link>
-                </div> */}
-
-              <Link to={`/detail/${property._id}`} className="cta">
-                More details
-              </Link>
-              {/* </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -570,136 +605,3 @@ export default function ForRent() {
     </div>
   )
 }
-
-/*
- function filterByRooms(prop) {
-  if (
-    filter.isChecked1Room === '' &&
-    filter.isChecked2Room === '' &&
-    filter.isChecked3Room === '' &&
-    filter.isChecked4Room === '' &&
-    filter.isChecked5Room === ''
-  )
-    return properties
-
-  if (filter.isChecked1Room && prop.rooms === 1) return true
-  if (filter.isChecked2Room && prop.rooms === 2) return true
-  if (filter.isChecked3Room && prop.rooms === 3) return true
-  if (filter.isChecked4Room && prop.rooms === 4) return true
-  if (filter.isChecked5Room && prop.rooms >= 5) return true
-}
-
-/* <div className="filter-block">
-            <span className="title">
-              <i className="fi fi-crit-room"></i>Number of rooms
-            </span>
-            <span className="description"></span>
-            <div className="containerList">
-              <div className="itemList active">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  name="isChecked1Room"
-                  id="studio"
-                  checked={filter.isChecked1Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="studio" className="form-check-label">
-                  Studio
-                </label>
-              </div>
-              <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked2Room"
-                  id="2rooms"
-                  checked={filter.isChecked2Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="2rooms">2</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked3Room"
-                  id="3rooms"
-                  checked={filter.isChecked3Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="3rooms">3</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked4Room"
-                  id="4rooms"
-                  checked={filter.isChecked4Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="4rooms">4</label>
-              </div>
-              <div className="itemList active">
-                <input
-                  type="checkbox"
-                  name="isChecked5Room"
-                  id="5andmore"
-                  checked={filter.isChecked5Room}
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="5andmore">5+</label>
-              </div>
-            </div>
-            <span className="error invisible"></span>
-          </div>
-
-function filterByBedrooms(prop) {
-    if (
-      filter.isChecked1Bedromm === '' &&
-      filter.isChecked2Bedromm === '' &&
-      filter.isChecked3Bedroom === '' &&
-      filter.isChecked4Bedroom === '' &&
-      filter.isChecked5Bedroom === ''
-    )
-      return properties
-
-    if (filter.isChecked1Bedroom && prop.bedrooms === 1) return true
-    if (filter.isChecked2Bedroom && prop.bedrooms === 2) return true
-    if (filter.isChecked3Bedroom && prop.bedrooms === 3) return true
-    if (filter.isChecked4Bedroom && prop.bedrooms === 4) return true
-    if (filter.isChecked5Bedroom && prop.bedrooms >= 5) return true
-  }
-
-
-  function filterByOthers(prop) {
-    if (
-      filter.isCheckedGarden === '' &&
-      filter.isCheckedFireplace === '' &&
-      filter.isCheckedCaretaker === '' &&
-      filter.isCheckedBalcony === '' &&
-      filter.isCheckedPool === '' &&
-      filter.isCheckedTerrace === '' &&
-      filter.isCheckedParking === ''
-    )
-      return properties
-
-    if (filter.isCheckedGarden && prop.others === 'Garden') return true
-    if (filter.isCheckedFireplace && prop.others === 'Fireplace') return true
-    if (filter.isCheckedCaretaker && prop.others === 'Caretaker') return true
-    if (filter.isCheckedBalcony && prop.others === 'Balcony') return true
-    if (filter.isCheckedPool && prop.others === 'Swimming Pool') return true
-    if (filter.isCheckedTerrace && prop.others === 'Terrace') return true
-    if (filter.isCheckedParking && prop.others === 'Parking') return true
-    // return (
-    //   (!filter.isCheckedGarden || prop.others === 'Garden') &&
-    //   (!filter.isCheckedFireplace || prop.others === 'Fireplace') &&
-    //   (!filter.isCheckedCaretaker || prop.others === 'Caretaker') &&
-    //   (!filter.isCheckedBalcony || prop.others === 'Balcony') &&
-    //   (!filter.isCheckedPool || prop.others === 'Swimming Pool') &&
-    //   (!filter.isCheckedTerrace || prop.others === 'Terrace') &&
-    //   (!filter.isCheckedParking || prop.others === 'Parking')
-    // )
-  }
-
-
-*/

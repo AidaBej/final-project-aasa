@@ -14,26 +14,9 @@ export default function ForSale() {
     size: '',
     surface_min: '',
     surface_max: '',
-    rooms: '',
-    isChecked1Room: false,
-    isChecked2Room: false,
-    isChecked3Room: false,
-    isChecked4Room: false,
-    isChecked5Room: false,
-    bedrooms: '',
-    isChecked1Bedromm: false,
-    isChecked2Bedromm: false,
-    isChecked3Bedromm: false,
-    isChecked4Bedromm: false,
-    isChecked5Bedromm: false,
-    others: '',
-    isCheckedGarden: false,
-    isCheckedFireplace: false,
-    isCheckedCaretaker: false,
-    isCheckedBalcony: false,
-    isCheckedPool: false,
-    isCheckedTerrace: false,
-    isCheckedParking: false,
+    nbRooms: [],
+    nbBedrooms: [],
+    others: [],
   })
 
   const [properties, setProperties] = useState([])
@@ -49,13 +32,27 @@ export default function ForSale() {
       })
       .sort()
   }
+  function isEmptyFilter(f) {
+    var res = false
+    for (let prop in f) {
+      res = Array.isArray(f[prop]) ? Boolean(f[prop].length) : Boolean(f[prop])
+      if (res) break
+    }
+    return res === false
+  }
 
   useEffect(() => {
-    // if (filter.type) {
     // utilise base data pour mettre à jour filtered data
     // la liste des properties reste tjs complète
     // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
-    setFilteredProperties(getFilteredSales())
+
+    if (isEmptyFilter(filter)) {
+      console.log('***** EMPTY ******')
+      setFilteredProperties(properties)
+    } else {
+      console.log('***** NOT EMPTY ******')
+      setFilteredProperties(getFilteredSales())
+    }
   }, [filter])
 
   useEffect(() => {
@@ -68,9 +65,24 @@ export default function ForSale() {
       .catch(err => console.log(err))
   }, [])
 
+  function getGoogleMapsDirection(property) {
+    let [lng, lat] = property.localisation.coordinates
+    return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
+  }
+
   function handleChange(e) {
-    let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    setFilter({ ...filter, [e.target.name]: value })
+    if (e.target.type === 'checkbox') {
+      const copy = filter[e.target.name]
+      if (e.target.checked) {
+        copy.push(
+          e.target.name !== 'others' ? Number(e.target.value) : e.target.value
+        )
+      } else {
+        copy.splice(copy.indexOf(e.target.value), 1)
+      }
+
+      setFilter({ ...filter, [e.target.name]: copy })
+    } else setFilter({ ...filter, [e.target.name]: e.target.value })
   }
 
   function filterByType(prop) {
@@ -104,60 +116,30 @@ export default function ForSale() {
   }
 
   function filterByRooms(prop) {
-    if (
-      filter.isChecked1Room === '' &&
-      filter.isChecked2Room === '' &&
-      filter.isChecked3Room === '' &&
-      filter.isChecked4Room === '' &&
-      filter.isChecked5Room === ''
-    )
-      return properties
-    return (
-      (!filter.isChecked1Room || prop.rooms === 1) &&
-      (!filter.isChecked2Room || prop.rooms === 2) &&
-      (!filter.isChecked3Room || prop.rooms === 3) &&
-      (!filter.isChecked4Room || prop.rooms === 4) &&
-      (!filter.isChecked5Room || prop.rooms >= 5)
-    )
+    if (!filter.nbRooms.length) return true
+    if (filter.nbRooms < 5) return filter.nbRooms.includes(prop.rooms)
+    else return filter.nbRooms.includes(prop.rooms) || prop.rooms > 5
   }
 
   function filterByBedrooms(prop) {
-    if (
-      filter.isChecked1Bedromm === '' &&
-      filter.isChecked2Bedromm === '' &&
-      filter.isChecked3Bedroom === '' &&
-      filter.isChecked4Bedroom === '' &&
-      filter.isChecked5Bedroom === ''
-    )
-      return properties
-    return (
-      (!filter.isChecked1Bedroom || prop.bedrooms === 1) &&
-      (!filter.isChecked2Bedroom || prop.bedrooms === 2) &&
-      (!filter.isChecked3Bedroom || prop.bedrooms === 3) &&
-      (!filter.isChecked4Bedroom || prop.bedrooms === 4) &&
-      (!filter.isChecked5Bedroom || prop.bedrooms >= 5)
-    )
+    if (!filter.nbBedrooms.length) return true
+    if (filter.nbBedrooms < 5) return filter.nbBedrooms.includes(prop.bedrooms)
+    else return filter.nbBedrooms.includes(prop.bedrooms) || prop.bedrooms > 5
   }
 
   function filterByOthers(prop) {
-    if (
-      filter.isCheckedGarden === '' &&
-      filter.isCheckedFireplace === '' &&
-      filter.isCheckedCaretaker === '' &&
-      filter.isCheckedBalcony === '' &&
-      filter.isCheckedPool === '' &&
-      filter.isCheckedTerrace === '' &&
-      filter.isCheckedParking === ''
-    )
-      return properties
+    if (!filter.others.length) return true
+    var tmp = []
+
+    filter.others.forEach(criteria => {
+      tmp.push(prop.others.includes(criteria))
+    })
+
     return (
-      (!filter.isCheckedGarden || prop.others === 'Garden') &&
-      (!filter.isCheckedFireplace || prop.others === 'Fireplace') &&
-      (!filter.isCheckedCaretaker || prop.others === 'Caretaker') &&
-      (!filter.isCheckedBalcony || prop.others === 'Balcony') &&
-      (!filter.isCheckedPool || prop.others === 'Swimming Pool') &&
-      (!filter.isCheckedTerrace || prop.others === 'Terrace') &&
-      (!filter.isCheckedParking || prop.others === 'Parking')
+      tmp.reduce((acc, val, i) => {
+        const inc = Number(val)
+        return (acc += inc)
+      }, 0) >= 1
     )
   }
 
@@ -221,9 +203,9 @@ export default function ForSale() {
               // style={{ width: '30%' }}
             >
               <option value="">Location</option>
-              {getLocation().map((property, i) => (
-                <option key={i} value={property}>
-                  {property}
+              {getLocation().map((sale, i) => (
+                <option key={i} value={sale}>
+                  {sale}
                 </option>
               ))}
             </select>
@@ -322,11 +304,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  value=""
-                  name="isChecked1Room"
-                  id="studio"
-                  checked={filter.isChecked1Room}
-                  onChange={handleChange}
+                  value="1"
+                  name="nbRooms"
                 ></input>
                 <label
                   htmlFor="studio"
@@ -339,10 +318,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked2Room"
-                  id="2rooms"
-                  checked={filter.isChecked2Room}
-                  onChange={handleChange}
+                  name="nbRooms"
+                  value="2"
                 ></input>
                 <label htmlFor="2rooms" className="filter-label">
                   {' '}
@@ -353,10 +330,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked3Room"
-                  id="3rooms"
-                  checked={filter.isChecked3Room}
-                  onChange={handleChange}
+                  name="nbRooms"
+                  value="3"
                 ></input>
                 <label htmlFor="3rooms" className="filter-label">
                   {' '}
@@ -367,10 +342,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked4Room"
-                  id="4rooms"
-                  checked={filter.isChecked4Room}
-                  onChange={handleChange}
+                  name="nbRooms"
+                  value="4"
                 ></input>
                 <label htmlFor="4rooms" className="filter-label">
                   {' '}
@@ -381,10 +354,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked5Room"
-                  id="5andmore"
-                  checked={filter.isChecked5Room}
-                  onChange={handleChange}
+                  name="nbRooms"
+                  value="5"
                 ></input>
                 <label htmlFor="5andmore" className="filter-label">
                   {' '}
@@ -405,11 +376,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked1Bedroom"
-                  id="1"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isChecked1Bedroom}
+                  name="nbBedrooms"
+                  value="1"
                 ></input>
                 <label htmlFor="1" className="filter-label">
                   1
@@ -419,11 +387,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked2Bedroom"
-                  id="2"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isChecked2Bedroom}
+                  name="nbBedrooms"
+                  value="2"
                 ></input>
                 <label htmlFor="2" className="filter-label">
                   2
@@ -433,10 +398,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked3Bedroom"
-                  id="3"
-                  value=""
-                  onChange={handleChange}
+                  name="nbBedrooms"
+                  value="3"
                 ></input>
                 <label htmlFor="3" className="filter-label">
                   3
@@ -446,10 +409,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked4Bedroom"
-                  id="4"
-                  value=""
-                  onChange={handleChange}
+                  name="nbBedrooms"
+                  value="4"
                 ></input>
                 <label htmlFor="4" className="filter-label">
                   4
@@ -459,10 +420,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isChecked5Bedroom"
-                  id="5andmore"
-                  value=""
-                  onChange={handleChange}
+                  name="nbBedrooms"
+                  value="5"
                 ></input>
                 <label htmlFor="5andmore" className="filter-label">
                   5+
@@ -482,11 +441,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedGarden"
-                  id="garden"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedGarden}
+                  name="others"
+                  value="Garden"
                 ></input>
                 <label htmlFor="garden" className="filter-label">
                   <i className="fas fa-tree"></i>
@@ -496,11 +452,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedFireplace"
-                  id="fireplace"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedFireplace}
+                  name="others"
+                  value="Fireplace"
                 ></input>
                 <label htmlFor="fireplace" className="filter-label">
                   <i className="fas fa-dumpster-fire"></i>
@@ -510,11 +463,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedCaretaker"
-                  id="guardian"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedCaretaker}
+                  name="others"
+                  value="Caretaker"
                 ></input>
                 <label htmlFor="guardian" className="filter-label">
                   <i className="fas fa-broom"></i>
@@ -524,11 +474,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedBalcony"
-                  id="balcony"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedBalcony}
+                  name="others"
+                  value="Balcony"
                 ></input>
                 <label htmlFor="balcony" className="filter-label">
                   <i className="fi fi-crit-balcony"></i>
@@ -544,11 +491,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedPool"
-                  id="pool"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedPool}
+                  name="others"
+                  value="Swimming Pool"
                 ></input>
                 <label htmlFor="Swimming-Pool" className="filter-label">
                   <i className="fas fa-swimmer"></i>
@@ -559,11 +503,8 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedTerrace"
-                  id="terrace"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedTerrace}
+                  name="others"
+                  value="Terrace"
                 ></input>
                 <label htmlFor="terrace" className="filter-label">
                   <i className="fi fi-crit-table"></i>
@@ -579,15 +520,13 @@ export default function ForSale() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  name="isCheckedParking"
+                  name="others"
                   id="parking"
-                  value=""
-                  onChange={handleChange}
-                  checked={filter.isCheckedParking}
+                  value="Parking"
                 ></input>
                 <label htmlFor="parking" className="filter-label">
                   <i className="fas fa-parking"></i>
-                  <i></i>
+                  {/* <i></i> */}
                 </label>
               </div>
             </div>
@@ -595,8 +534,6 @@ export default function ForSale() {
           </div>
         </form>{' '}
       </div>
-      <br />
-      <br />
       <br />
 
       {filteredProperties.map((property, i) => (
