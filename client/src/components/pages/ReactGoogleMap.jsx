@@ -7,7 +7,7 @@ import api from '../../api'
 console.log(process.env.REACT_APP_GOOGLEMAP_API)
 
 const Map = React.memo(props => {
-  console.log(props.properties, '-------------------')
+  // console.log(props.properties, '-------------------')
   return (
     props.property && (
       <GoogleMap
@@ -47,7 +47,6 @@ const AppMap = props => {
   useEffect(() => {
     if (props.fullMarkers) {
       api.getProperties('/all').then(p => {
-        console.log('ici>', p)
         setState({
           ...state,
           properties: [...p],

@@ -175,7 +175,7 @@ export default function ForRent() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -191,7 +191,7 @@ export default function ForRent() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -490,12 +490,6 @@ export default function ForRent() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-              {/* {api.isLoggedIn() && (
-                <i
-                  className="fav fas fa-heart white"
-                  data-id="{{this._id}}"
-                ></i>
-              )} */}
 
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (

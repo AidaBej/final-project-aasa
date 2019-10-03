@@ -8,7 +8,6 @@ export default function EditProperty(props) {
   useEffect(() => {
     // if (!props.property) {
     api.getProperties('/all').then(p => {
-      console.log('ici>', p)
       setProperties(p)
     })
     // }
