@@ -177,24 +177,6 @@ export default function ForSale() {
       .filter(filterByOthers)
   }
 
-  // const [favorite, setFavorite] = useState()
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { favorite: false };
-  //   // this.handleClick = this.handleClick.bind(this);
-  // }
-
-  // handleClick(event) {
-  //   this.setFavorite({ favorite: !this.state.favorite });
-  // }
-  // render() {
-  //   let buttonText = this.state.favorite ? 'Unsave' : 'Save';
-  //   return (
-  //     <button onClick={this.handleClick} className="fav">
-  //       <i className="fa fa-heart"></i>&nbsp;
-  //       {buttonText}</button>
-  //   );
-  // }
   const handleSave = (propertyId) => {
 
 
@@ -218,11 +200,11 @@ export default function ForSale() {
 
   return (
     <div className="properties">
-      <h2>Properties for sale</h2>
+      <h2 className="titre">Properties for sale</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
-        <form className="form-filters">
-          <div className="filter-block">
+        <form className="form-properties">
+          <div className="filter-block-1 ">
             <select
               name="type"
               value={filter.type}
@@ -363,6 +345,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked2Room"
                   id="2rooms"
@@ -376,6 +359,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked3Room"
                   id="3rooms"
@@ -389,6 +373,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked4Room"
                   id="4rooms"
@@ -402,6 +387,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked5Room"
                   id="5andmore"
@@ -651,16 +637,16 @@ export default function ForSale() {
                 {api.isLoggedIn() && (
                   <button
                     onClick={() => handleSave(property._id)}
-                    className="fav"
+                    className="cta"
                     href=""
                     data-id={property._id}>
-                    <img className={hasLike(property._id) ? "heart-o" : "heart"} src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    <img className={hasLike(property._id) ? "heart-o" : "heart"} width="20px" src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
                     Save
                   </button>
                 )}
 
-                <Link to={`/detail/${property._id}`} className="dropdowns ctas">
-                  See more details
+                <Link to={`/detail/${property._id}`} className="cta">
+                  More details
                 </Link>
               </div>
             </div>
