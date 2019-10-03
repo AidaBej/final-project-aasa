@@ -256,7 +256,7 @@ export default function ForSale() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
             </div>
 
             <div className="container_max">
@@ -270,7 +270,7 @@ export default function ForSale() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
               <br></br>
               {/* <button onClick={handleChange}>OK</button> */}
             </div>
@@ -293,7 +293,7 @@ export default function ForSale() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <div className="container_max">
               <input
@@ -306,7 +306,7 @@ export default function ForSale() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <span className="error invisible"></span>
           </div>
@@ -474,7 +474,7 @@ export default function ForSale() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-heart"></i> Others
+              <i className="fi fi-heart"></i> Other
             </span>
             <span className="description"></span>
             <div className="containerList">
@@ -489,7 +489,7 @@ export default function ForSale() {
                   checked={filter.isCheckedGarden}
                 ></input>
                 <label htmlFor="garden" className="filter-label">
-                  <i className="fi fi-garden"></i>Garden
+                  <i className="fas fa-tree"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -503,7 +503,7 @@ export default function ForSale() {
                   checked={filter.isCheckedFireplace}
                 ></input>
                 <label htmlFor="fireplace" className="filter-label">
-                  <i className="fi fi-crit-chimney"></i>Fireplace
+                  <i className="fas fa-dumpster-fire"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -517,7 +517,7 @@ export default function ForSale() {
                   checked={filter.isCheckedCaretaker}
                 ></input>
                 <label htmlFor="guardian" className="filter-label">
-                  <i className="fi fi-crit-man-suit"></i>Caretaker
+                  <i className="fas fa-broom"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -545,7 +545,7 @@ export default function ForSale() {
                   checked={filter.isCheckedPool}
                 ></input>
                 <label htmlFor="Swimming-Pool" className="filter-label">
-                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
+                  <i className="fas fa-swimmer"></i>
                 </label>
               </div>
 
@@ -574,7 +574,8 @@ export default function ForSale() {
                   checked={filter.isCheckedParking}
                 ></input>
                 <label htmlFor="parking" className="filter-label">
-                  <i></i>Parking
+                  <i className="fas fa-parking"></i>
+                  <i></i>
                 </label>
               </div>
             </div>
