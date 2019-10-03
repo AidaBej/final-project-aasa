@@ -531,8 +531,14 @@ export default function ForSale() {
                   checked={filter.isCheckedBalcony}
                 ></input>
                 <label htmlFor="balcony" className="filter-label">
-                  <i className="fi fi-crit-balcony"></i>Balcony
+                  <i className="fi fi-crit-balcony"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/antique-balcony.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
@@ -560,8 +566,14 @@ export default function ForSale() {
                   checked={filter.isCheckedTerrace}
                 ></input>
                 <label htmlFor="terrace" className="filter-label">
-                  <i className="fi fi-crit-table"></i>Terrace
+                  <i className="fi fi-crit-table"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/terrasse.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
