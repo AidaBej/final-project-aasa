@@ -63,6 +63,7 @@ export default function EditOne(props) {
       })
       .catch(err => console.log(err))
   }
+
   return (
     <div className="edit">
       <div className="">
@@ -123,14 +124,16 @@ export default function EditOne(props) {
               <div className="form-group col-md-10">
                 <label for="InputLocalisation">Localisation</label>
                 <br />
-                <input
-                  type="text"
-                  name="localisation"
-                  value={property.localisation}
-                  className="form-control"
-                  // placeholder="Coordinates: [48.8558962, 2.3577906]"
-                  onChange={handleInputChange}
-                />
+                {property.localisation && (
+                  <input
+                    type="text"
+                    name="localisation"
+                    value={property.localisation.coordinates}
+                    className="form-control"
+                    // placeholder="Coordinates: [48.8558962, 2.3577906]"
+                    onChange={handleInputChange}
+                  />
+                )}
               </div>
 
               <div className="form-group col-md-10">

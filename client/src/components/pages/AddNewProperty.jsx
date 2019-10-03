@@ -19,38 +19,60 @@ export default function AddProperty(props) {
   })
   const [message, setMessage] = useState(null)
 
-  console.log(state)
-
-  function handleInputChange(event) {
-    setState({
-      ...state,
-      [event.target.name]: event.target.value,
-    })
+  function handleInputChange(e) {
+    if (e.target.name === 'localisation') {
+      const splited = e.target.value.split(',')
+      const numbered = splited.map(v => Number(v))
+      const copy = { ...state }
+      copy.localisation = numbered
+      // console.log(numbered)
+      return setState(copy)
+    } else return setState({ ...state, [e.target.name]: e.target.value })
   }
   function handleChange(e) {
-    let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    setState({ ...state, [e.target.name]: value })
+    if (e.target.name === 'others') {
+      const copy = { ...state }
+      copy.others.push(e.target.value)
+      return setState(copy)
+    } else return setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  function handleFileChange(e) {
+    console.log('The file added by the use is: ', e.target.files[0])
+    setState({
+      ...state,
+      pictures: e.target.files[0],
+    })
   }
 
   function handleClick(e) {
     e.preventDefault()
     console.log(state.name, state.description)
-    let data = {
-      title: state.title,
-      type: state.type,
-      kind: state.kind,
-      location: state.location,
-      localisation: state.localisation,
-      budget: state.budget,
-      size: state.size,
-      rooms: state.rooms,
-      bedrooms: state.bedrooms,
-      others: state.others,
-      description: state.description,
-      pictures: state.pictures,
+
+    // upload image => form data => + api call avec header en multipart/form-data
+    const fd = new FormData()
+
+    for (let prop in state) {
+      fd.append(prop, state[prop])
     }
+    // fd.append('pictures', '???')
+
+    // let data = {
+    //   title: state.title,
+    //   type: state.type,
+    //   kind: state.kind,
+    //   location: state.location,
+    //   localisation: state.localisation,
+    //   budget: state.budget,
+    //   size: state.size,
+    //   rooms: state.rooms,
+    //   bedrooms: state.bedrooms,
+    //   others: state.others,
+    //   description: state.description,
+    //   pictures: state.pictures,
+    // }
     api
-      .addProperty(data)
+      .addProperty(fd)
       .then(result => {
         console.log('SUCCESS!')
         setState({
@@ -70,10 +92,14 @@ export default function AddProperty(props) {
         setMessage(`The new property '${state.title}' has been created`)
         setTimeout(() => {
           setMessage(null)
+          props.history.push('/manage-property')
         }, 2000)
       })
       .catch(err => setState({ message: err.toString() }))
   }
+
+  console.log(state)
+
   return (
     <div className="addProperty">
       <div className="">
@@ -83,7 +109,7 @@ export default function AddProperty(props) {
             <form
               className="form-generic"
               onSubmit={handleClick}
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               encType="multipart/form-data"
             >
               <div className="form-group col-md-10">
@@ -277,24 +303,28 @@ export default function AddProperty(props) {
                   id="textarea"
                   rows="5"
                   columns="7"
+                  onChange={handleInputChange}
                   defaultValue={state.description}
                   placeholder="Add a little description of the property"
                 ></textarea>
               </div>
               <div className="form-group col-md-10">
                 <label htmlFor="pictures">Pictures</label>
-                <input id="property-imgs" type="file" name="image" />
+                <input
+                  id="property-imgs"
+                  type="file"
+                  name="pictures"
+                  onChange={handleFileChange}
+                />
               </div>
               <div>
-                <Link to="/manage-property">
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    onClick={e => handleClick(e)}
-                  >
-                    Add
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={e => handleClick(e)}
+                >
+                  Add
+                </button>
               </div>
             </form>
             <br />

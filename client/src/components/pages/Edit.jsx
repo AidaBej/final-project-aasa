@@ -57,7 +57,7 @@ export default function EditProperty(props) {
                 </td>
                 <td>
                   <Link
-                    to={`/delete/${property._id}`}
+                    to="/manage-property"
                     className="fa fa-trash table-icon"
                     aria-hidden="true"
                   ></Link>

@@ -147,9 +147,13 @@ export default {
       .catch(errHandler)
   },
 
-  addProperty(body) {
+  addProperty(fd) {
     return service
-      .post('/add-new-property', body)
+      .post('/add-new-property', fd, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then(res => res.data)
       .catch(errHandler)
   },
@@ -157,6 +161,13 @@ export default {
   editProperty(body) {
     return service
       .post('/manage-property')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  deleteProperty(propertyId) {
+    return service
+      .post('/delete/propertyId')
       .then(res => res.data)
       .catch(errHandler)
   },

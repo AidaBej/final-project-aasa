@@ -75,7 +75,6 @@ router.post(
       type,
       kind,
       location,
-      localisation,
       budget,
       size,
       rooms,
@@ -95,7 +94,10 @@ router.post(
       type,
       kind,
       location,
-      localisation,
+      localisation: {
+        type: 'Point',
+        coordinates: req.body.localisation,
+      },
       rooms,
       bedrooms,
       budget,
@@ -103,7 +105,7 @@ router.post(
       others,
       description,
     }
-    if (req.file) newItem.image = req.file.secure_url
+    if (req.file) newProperty.image = req.file.secure_url
 
     Property.create(newProperty)
       .then(proprety => {
@@ -150,7 +152,8 @@ router.get('/edit/:id', (req, res, next) => {
 router.get('/delete/:id', (req, res, next) => {
   Property.findByIdAndRemove(req.params.id)
     .then(dbRes => {
-      res.redirect('/manage-property')
+      res.send('coucou')
+      // res.redirect('/manage-property')
     })
     .catch(error => {
       console.log('error', error)
