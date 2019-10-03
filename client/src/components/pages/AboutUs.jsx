@@ -38,37 +38,74 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="values">
-        <div className="component-wrapper">
-          <div class="component-item">
-            <img src="love.png" height="70px" />
-            <h2>Ethics and Transparency</h2>
-            <p>
-              We consider our business in the long term, and in a relationship
-              of absolute trust with our customers.
-            </p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div className="values">
+              <div className="values-title">Our values</div>
+
+              <div className="component-wrapper">
+                <div className="component-item">
+                  <img src="love.png" height="70px" />
+                  <h2>Ethics and Transparency</h2>
+                  <p>
+                    We consider our business in the long term, and in a
+                    relationship of absolute trust with our customers.
+                  </p>
+                </div>
+                <div className="component-item">
+                  <img src="cup.png" height="70px" />
+
+                  <h2>Serious</h2>
+                  <p>
+                    We are very sophisticated and demanding as we are involved
+                    in fundamental operations in our clients'lives.
+                  </p>
+                </div>
+                <div className="component-item">
+                  <img src="star.png" height="70px" />
+
+                  <h2>Expertise</h2>
+
+                  <p>
+                    Our perennial, trained teams provide advice and know-how to
+                    enhance the real estate we are responsible for.
+                  </p>
+                </div>
+              </div>
+              <div></div>
+            </div>
           </div>
-          <div class="component-item">
-            <img src="cup.png" height="70px" />
 
-            <h2>Serious</h2>
-            <p>
-              We are very sophisticated and demanding because we are involved in
-              fundamental operations in the lives of our clients.
-            </p>
-          </div>
-          <div class="component-item">
-            <img src="star.png" height="70px" />
+          <div class="col-sm-6 other">
+            <div className="values">
+              <div className="values-title">Our team</div>
 
-            <h2>Expertise</h2>
+              <div className="component-wrapper">
+                <div className="component-item">
+                  <img src="/profilepic-linkedin.png" height="90px" />
+                  <h2>Aida</h2>
+                  <p>Lead developer</p>
+                </div>
+                <div className="component-item">
+                  <img src="aimee.jpg" height="90px" />
 
-            <p>
-              Our perennial, trained and supervised teams provide advice and
-              know-how to enhance the real estate we are responsible for.
-            </p>
+                  <h2>Aimée</h2>
+                  <p>Front-end developer</p>
+                </div>
+                <div className="component-item">
+                  <img src="SA.JPG" height="90px" />
+
+                  <h2>Sophie-Anne</h2>
+
+                  <p>Front-end developer</p>
+                </div>
+              </div>
+              <div></div>
+            </div>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   )
