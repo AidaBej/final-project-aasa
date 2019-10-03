@@ -66,57 +66,76 @@ router.get('/detail/:id', (req, res, next) => {
 
 //ADD A NEW PROPERTY
 
-router.post('/add-new-property', cloudinary.single('image'), (req, res) => {
-  const {
-    title,
-    type,
-    kind,
-    location,
-    localisation,
-    budget,
-    size,
-    rooms,
-    bedrooms,
-    others,
-    description,
-  } = req.body
-  if (!req.body) {
-    res.render('add-new-property', {
-      errorMessage: 'Please fill all the form',
-    })
-    return
-  }
-
-  const newProperty = {
-    title,
-    type,
-    kind,
-    location,
-    localisation,
-    rooms,
-    bedrooms,
-    budget,
-    size,
-    others,
-    description,
-  }
-  if (req.file) newItem.image = req.file.secure_url
-
-  Property.create(newProperty)
-    .then(() => {
-      return res.redirect('/manage-property')
-    })
-    .catch(error => {
-      console.log(error)
+router.post(
+  '/add-new-property',
+  cloudinary.single('pictures'),
+  (req, res, next) => {
+    const {
+      title,
+      type,
+      kind,
+      location,
+      localisation,
+      budget,
+      size,
+      rooms,
+      bedrooms,
+      others,
+      description,
+    } = req.body
+    if (!req.body) {
       res.render('add-new-property', {
-        errorMessage: 'Duplicate property, please update form',
+        errorMessage: 'Please fill all the form',
       })
-    })
-})
+      return
+    }
+
+    const newProperty = {
+      title,
+      type,
+      kind,
+      location,
+      localisation,
+      rooms,
+      bedrooms,
+      budget,
+      size,
+      others,
+      description,
+    }
+    if (req.file) newItem.image = req.file.secure_url
+
+    Property.create(newProperty)
+      .then(proprety => {
+        res.json({
+          succes: true,
+          proprety,
+        })
+      })
+      .catch(err => next(err))
+  }
+)
+// res.send('manage-property')
+// .catch(error => {
+//   console.log(error)
+//   res.send('add-new-property', {
+//     errorMessage: 'Duplicate property, please update form',
+//   })
+// })
+// }
+// )
+// .then(country => {
+//   res.json({
+//     success: true,
+//     country,
+//   })
+// })
+// .catch(err => next(err))
+// })
 
 /* GET the page showing ONE property to Edit*/
 
-router.get('/:id', (req, res, next) => {
+router.get('/edit/:id', (req, res, next) => {
   Property.findById(req.params.id)
     .then(dbRes => {
       res.send(dbRes)
@@ -128,7 +147,7 @@ router.get('/:id', (req, res, next) => {
 
 /* GET the edit page to DELETE */
 
-router.get('/:id', (req, res, next) => {
+router.get('/delete/:id', (req, res, next) => {
   Property.findByIdAndRemove(req.params.id)
     .then(dbRes => {
       res.redirect('/manage-property')

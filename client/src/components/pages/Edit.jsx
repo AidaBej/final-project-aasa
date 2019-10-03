@@ -54,18 +54,14 @@ export default function EditProperty(props) {
                   <Link
                     to={`/edit/${property._id}`}
                     className="fa fa-edit table-icon"
-                  >
-                    EDIT
-                  </Link>
+                  ></Link>
                 </td>
                 <td>
                   <Link
                     to={`/delete/${property._id}`}
                     className="fa fa-trash table-icon"
                     aria-hidden="true"
-                  >
-                    DELETE
-                  </Link>
+                  ></Link>
                 </td>
               </tr>
             </tbody>
