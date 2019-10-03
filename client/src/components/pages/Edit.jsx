@@ -26,7 +26,7 @@ export default function EditProperty(props) {
       <div>
         <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="table-secondary">
               <th scope="col">Property Title</th>
               <th scope="col">Type</th>
               <th scope="col">Location</th>
