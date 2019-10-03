@@ -6,6 +6,7 @@
   justify-content: flex-start;
   color: #5588a3;
   text-shadow: 2px 2px 2px white;
+  font-size: 50px;
 }
 
 .title {
@@ -226,11 +227,13 @@ h3 {
 }
 
 .heart {
+  // background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png');
   width: 20px;
 }
 
-.heart-o {
-  color: red;
+.heart-full {
+  // background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-checked_ojl94b.png');
+  width: 20px;
 }
 
 .form-properties {

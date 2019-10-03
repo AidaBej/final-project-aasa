@@ -149,11 +149,6 @@ router.get('/favorites', (req, res, next) => {
 })
 
 router.post('/favorites', (req, res) => {
-  // console.log('req.body', req.body.hearts)
-  // if (req.body.hearts.length) {
-  //   console.log('query', query)
-  //   query = req.body.hearts
-  // }
   User.findByIdAndUpdate(
     req.user._id,
     {

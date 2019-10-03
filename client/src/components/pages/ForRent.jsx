@@ -151,7 +151,7 @@ export default function ForRent() {
   function getFilteredSales() {
     // console.log('------- all properties ---------')
     // console.log(properties)
-    console.log(properties.filter(filterByOthers))
+    // console.log(properties.filter(filterByOthers))
     // console.log('---------------------------------')
     return properties
       .filter(filterByType)
@@ -165,7 +165,7 @@ export default function ForRent() {
 
   return (
     <div className="properties">
-      <h2>Properties for rent</h2>
+      <h2 className="titre">Properties for rent</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
         <form className="form-properties" onChange={handleChange}>
@@ -175,7 +175,7 @@ export default function ForRent() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -191,7 +191,7 @@ export default function ForRent() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -287,7 +287,7 @@ export default function ForRent() {
           <div className="filter-block">
             <span className="title">
               <i className="fi fi-crit-room"></i>Rooms
-          </span>
+            </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -303,20 +303,27 @@ export default function ForRent() {
               </div>
               <div className="itemList active">
                 <input type="checkbox" name="nbRooms" value="2"></input>
-                <label htmlFor="2rooms" className="filter-label">2</label>
+                <label htmlFor="2rooms" className="filter-label">
+                  2
+                </label>
               </div>
               <div className="itemList active">
                 <input type="checkbox" name="nbRooms" value="3"></input>
-                <label htmlFor="3rooms" className="filter-label">3</label>
+                <label htmlFor="3rooms" className="filter-label">
+                  3
+                </label>
               </div>
               <div className="itemList active">
                 <input type="checkbox" name="nbRooms" value="4"></input>
-                <label htmlFor="4rooms" className="filter-label">4</label>
+                <label htmlFor="4rooms" className="filter-label">
+                  4
+                </label>
               </div>
               <div className="itemList active">
                 <input type="checkbox" name="nbRooms" value="5"></input>
-                <label htmlFor="5andmore" className="filter-label">5+</label>
-
+                <label htmlFor="5andmore" className="filter-label">
+                  5+
+                </label>
               </div>
             </div>
             <span className="error invisible"></span>
@@ -325,7 +332,7 @@ export default function ForRent() {
           <div className="filter-block">
             <span className="title">
               <i className="fi fi-crit-room"></i>Bedrooms
-          </span>
+            </span>
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
@@ -542,14 +549,13 @@ export default function ForRent() {
 
               <Link to={`/detail/${property._id}`} className="cta">
                 More details
-                </Link>
+              </Link>
               {/* </div> */}
             </div>
           </div>
         </div>
-      ))
-      }
-    </div >
+      ))}
+    </div>
   )
 }
 

@@ -54,14 +54,13 @@ export default function ForSale() {
 
   useEffect(() => {
     // if (filter.type) {
-    //   // utilise base data pour mettre à jour filtered data
-    //   // la liste des properties reste tjs complète
-    //   // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
+    // utilise base data pour mettre à jour filtered data
+    // la liste des properties reste tjs complète
+    // on applique un filtre et utilise le tableau retourné pour mettre à jour filteredProperties
     setFilteredProperties(getFilteredSales())
   }, [filter])
 
   useEffect(() => {
-
 
 
     api
@@ -179,8 +178,7 @@ export default function ForSale() {
 
   const handleSave = (propertyId) => {
 
-
-    if (!hasLike(propertyId)) {
+    if (!hasLiked(propertyId)) {
       api.addFavorite(propertyId).then(res => {
         localStorage.setItem("user", JSON.stringify(res))
         setUser(res)
@@ -194,7 +192,7 @@ export default function ForSale() {
 
   }
 
-  function hasLike(propertyId) {
+  function hasLiked(propertyId) {
     return user.favorite.includes(propertyId)
   }
 
@@ -635,12 +633,15 @@ export default function ForSale() {
 
               <div className="ctas">
                 {api.isLoggedIn() && (
+
                   <button
                     onClick={() => handleSave(property._id)}
                     className="cta"
                     href=""
-                    data-id={property._id}>
-                    <img className={hasLike(property._id) ? "heart-o" : "heart"} width="20px" src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    data-id={property._id}
+                  >
+                    <i className={hasLiked(property._id) ? "fas fa-heart" : "far fa-heart"} width="20px" alt="heart" />
+                    {/* src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" */}
                     Save
                   </button>
                 )}
