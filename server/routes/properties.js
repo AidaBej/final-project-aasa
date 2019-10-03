@@ -2,6 +2,8 @@ const express = require('express')
 const Property = require('../models/Property')
 const router = express.Router()
 const User = require('../models/User')
+const cloudinary = require('../configs/cloudinary')
+
 require('dotenv').config()
 require('../configs/database')
 
@@ -56,6 +58,80 @@ router.get('/detail/:id', (req, res, next) => {
     .then(dbRes => {
       console.log(dbRes)
       res.send(dbRes)
+    })
+    .catch(error => {
+      console.log('error', error)
+    })
+})
+
+//ADD A NEW PROPERTY
+
+router.post('/add-new-property', cloudinary.single('image'), (req, res) => {
+  const {
+    title,
+    type,
+    kind,
+    location,
+    localisation,
+    budget,
+    size,
+    rooms,
+    bedrooms,
+    others,
+    description,
+  } = req.body
+  if (!req.body) {
+    res.render('add-new-property', {
+      errorMessage: 'Please fill all the form',
+    })
+    return
+  }
+
+  const newProperty = {
+    title,
+    type,
+    kind,
+    location,
+    localisation,
+    rooms,
+    bedrooms,
+    budget,
+    size,
+    others,
+    description,
+  }
+  if (req.file) newItem.image = req.file.secure_url
+
+  Property.create(newProperty)
+    .then(() => {
+      return res.redirect('/manage-property')
+    })
+    .catch(error => {
+      console.log(error)
+      res.render('add-new-property', {
+        errorMessage: 'Duplicate property, please update form',
+      })
+    })
+})
+
+/* GET the page showing ONE property to Edit*/
+
+router.get('/:id', (req, res, next) => {
+  Property.findById(req.params.id)
+    .then(dbRes => {
+      res.send(dbRes)
+    })
+    .catch(error => {
+      console.log('error', error)
+    })
+})
+
+/* GET the edit page to DELETE */
+
+router.get('/:id', (req, res, next) => {
+  Property.findByIdAndRemove(req.params.id)
+    .then(dbRes => {
+      res.redirect('/manage-property')
     })
     .catch(error => {
       console.log('error', error)

@@ -34,45 +34,7 @@ router.post('/send-email', (req, res, next) => {
     .catch(error => console.log(error))
 })
 
-//--------- AS AN ADMIN ONLY --- ADD NEW PROPERTY
-
-// router.post("/AddNewProperty", (req, res) => {
-//   const name = req.body.name;
-//   const ref = req.body.ref;
-//   const description = req.body.description;
-//   const price = req.body.price;
-//   const category = req.body.category;
-
-//   if (!name || !ref || !price) {
-//     res.render("products_add", {
-//       errorMessage: "Name, Ref. and Price are required !"
-//     });
-//     return;
-//   }
-
-//   const newItem = {
-//     name,
-//     ref,
-//     description,
-//     price,
-//     category
-//   };
-//   if (req.file) newItem.image = req.file.secure_url;
-
-//   foodModel
-//     .create(newItem)
-//     .then(() => {
-//       return res.redirect("/products/all");
-//     })
-//     .catch(error => {
-//       console.log(error);
-//       res.render("products_add", {
-//         errorMessage: "Duplicate ref, please update form !"
-//       });
-//     });
-// });
-
-// //-------------- EDITER PRODUITS
+//-------------- EDITER PRODUITS
 
 // router.get("/prod-manage", (req, res) => {
 //   foodModel

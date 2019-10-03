@@ -138,7 +138,7 @@ export default {
 
   addProperty(body) {
     return service
-      .post('/forrent', '/forsale', body)
+      .post('/add-new-property', body)
       .then(res => res.data)
       .catch(errHandler)
   },
