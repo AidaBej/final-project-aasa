@@ -92,7 +92,7 @@ export default function AddProperty(props) {
               onChange={handleInputChange}
               enctype="multipart/form-data"
             >
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 {/* <label for="InputTitle">Title</label> */}
 
                 <input
@@ -104,7 +104,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 {/* <label for="InputType">Type</label> */}
                 <input
                   type="text"
@@ -115,7 +115,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 {/* <label for="InputKind">For rent/for sale</label> */}
                 <input
                   type="text"
@@ -126,7 +126,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 {/* <label for="InputLocation">Location</label> */}
                 <input
                   type="text"
@@ -137,7 +137,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 {/* <label for="InputLocalisation">Localisation</label> */}
                 <br />
                 <input
@@ -149,10 +149,8 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <br />
-              <br />
 
-              <div className="form-group col-md-3">
+              <div className="form-group col-md-10">
                 {/* <label for="InputBudget">Price</label> */}
                 <input
                   type="number"
@@ -163,7 +161,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group col-md-3">
+              <div className="form-group col-md-10">
                 {/* <label for="InputSize">
                   Size in m<sup>2</sup>
                 </label> */}
@@ -176,7 +174,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-10">
                 {/* <label for="InputRooms">Number of rooms</label> */}
                 <input
                   id="InputRooms"
@@ -188,7 +186,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-10">
                 {/* <label for="InputBedRooms">Number of Bedrooms</label> */}
                 <input
                   id="InputBedRooms"
@@ -200,7 +198,7 @@ export default function AddProperty(props) {
                   onChange={handleInputChange}
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group col-md-10">
                 <label for="InputOthers">Other criterias ? </label>
                 <div className="containerList">
                   <div className="itemList active">
@@ -291,7 +289,7 @@ export default function AddProperty(props) {
                 </div>
               </div>
               <br />
-              <div className="form-group col-md-12">
+              <div className="form-group col-md-10">
                 {/* <label for="description">Description</label> */}
                 <textarea
                   class="form-control"
@@ -301,11 +299,11 @@ export default function AddProperty(props) {
                   placeholder="Add a little description of the property"
                 ></textarea>
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-10">
                 <label for="pictures">Pictures</label>
                 <input id="property-imgs" type="file" name="image" />
               </div>
-              <div class="button-submit-contact">
+              <div>
                 <button
                   type="submit"
                   class="btn btn-primary"
@@ -317,7 +315,7 @@ export default function AddProperty(props) {
             </form>
             <br />
 
-            <div className="background-image-signup"></div>
+            {/* <div className="background-image-signup"></div> */}
           </div>
         </div>
       </div>

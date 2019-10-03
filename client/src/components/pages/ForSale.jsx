@@ -4,7 +4,9 @@ import api from '../../api'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
 
+
 export default function ForSale() {
+
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -37,7 +39,7 @@ export default function ForSale() {
   })
 
   const [properties, setProperties] = useState([])
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
   const [filteredProperties, setFilteredProperties] = useState([])
 
   //Pour récupérer toutes les location des propriétés et les mettre ensuite dans le select
@@ -59,6 +61,9 @@ export default function ForSale() {
   }, [filter])
 
   useEffect(() => {
+
+
+
     api
       .getProperties('/forsale')
       .then(res => {
@@ -172,19 +177,40 @@ export default function ForSale() {
       .filter(filterByOthers)
   }
 
+  const handleSave = (propertyId) => {
+
+
+    if (!hasLike(propertyId)) {
+      api.addFavorite(propertyId).then(res => {
+        localStorage.setItem("user", JSON.stringify(res))
+        setUser(res)
+      })
+    } else {
+      api.removeFavorite(propertyId).then(res => {
+        localStorage.setItem("user", JSON.stringify(res))
+        setUser(res)
+      })
+    }
+
+  }
+
+  function hasLike(propertyId) {
+    return user.favorite.includes(propertyId)
+  }
+
   return (
     <div className="properties">
-      <h2>Properties for sale</h2>
+      <h2 className="titre">Properties for sale</h2>
       {/* <h3>{JSON.stringify(filter)}</h3> */}
       <div className="filters">
-        <form className="form-filters">
-          <div className="filter-block">
+        <form className="form-properties">
+          <div className="filter-block-1 ">
             <select
               name="type"
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -200,7 +226,7 @@ export default function ForSale() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((property, i) => (
@@ -319,6 +345,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked2Room"
                   id="2rooms"
@@ -332,6 +359,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked3Room"
                   id="3rooms"
@@ -345,6 +373,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked4Room"
                   id="4rooms"
@@ -358,6 +387,7 @@ export default function ForSale() {
               </div>
               <div className="itemList active">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   name="isChecked5Room"
                   id="5andmore"
@@ -568,12 +598,12 @@ export default function ForSale() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-              {api.isLoggedIn() && (
+              {/* {api.isLoggedIn() && (
                 <span
                   className="fav fas fa-heart white"
                   // data-id={{ this._id }}
                 ></span>
-              )}
+              )} */}
 
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
@@ -603,12 +633,20 @@ export default function ForSale() {
                 {property.bedrooms} bedrooms
               </p>
 
-              <div className="link-to-detail">
-                <Link
-                  to={`/detail/${property._id}`}
-                  className="dropdowns link-to-detail"
-                >
-                  See more details
+              <div className="ctas">
+                {api.isLoggedIn() && (
+                  <button
+                    onClick={() => handleSave(property._id)}
+                    className="cta"
+                    href=""
+                    data-id={property._id}>
+                    <img className={hasLike(property._id) ? "heart-o" : "heart"} width="20px" src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" alt="heart" />
+                    Save
+                  </button>
+                )}
+
+                <Link to={`/detail/${property._id}`} className="cta">
+                  More details
                 </Link>
               </div>
             </div>

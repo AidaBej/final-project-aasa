@@ -115,9 +115,16 @@ export default {
       .catch(errHandler)
   },
 
-  addFavorite(body) {
+  addFavorite(propertyId) {
     return service
-      .post('/favorites', body)
+      .post('/favorites', { propertyId })
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  removeFavorite(propertyId) {
+    return service
+      .delete('/favorites/' + propertyId)
       .then(res => res.data)
       .catch(errHandler)
   },

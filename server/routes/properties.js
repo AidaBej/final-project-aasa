@@ -73,16 +73,17 @@ router.get('/favorites', (req, res, next) => {
 })
 
 router.post('/favorites', (req, res) => {
-  let query = {}
-
-  console.log('req.body', req.body.hearts)
-  if (req.body.hearts.length) {
-    console.log('query', query)
-    query = req.body.hearts
-  }
-  User.findOneAndUpdate(
-    { email: req.session.currentUser.email },
-    { favorite: query }
+  // console.log('req.body', req.body.hearts)
+  // if (req.body.hearts.length) {
+  //   console.log('query', query)
+  //   query = req.body.hearts
+  // }
+  User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $addToSet: { favorite: req.body.propertyId },
+    },
+    { new: true }
   )
     .then(properties => res.send(properties))
     .catch(err => console.log(err))
@@ -94,6 +95,18 @@ router.post('/favorites/savefav', (req, res) => {
       res.send(response)
     })
     .catch(error => console.log(err))
+})
+
+router.delete('/favorites/:propertyId', (req, res) => {
+  User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $pull: { favorite: req.params.propertyId },
+    },
+    { new: true }
+  )
+    .then(properties => res.send(properties))
+    .catch(err => console.log(err))
 })
 
 router.post('/favorites/fav/delete', (req, res) => {

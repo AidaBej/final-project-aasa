@@ -115,13 +115,13 @@ function MainNavbar(props) {
               </Link>
             </li>
           )}
-          {api.isLoggedIn() && (
+          {/* {api.isLoggedIn() && (
             <li className="nav-item">
               <Link className="nav-link" to="/favorites">
                 <i className="fav fas fa-heart red"></i>
               </Link>
             </li>
-          )}
+          )} */}
         </ul>
       </div>
     </nav>
