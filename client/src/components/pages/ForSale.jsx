@@ -4,9 +4,7 @@ import api from '../../api'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
 
-
 export default function ForSale() {
-
   const [filter, setFilter] = useState({
     type: '',
     location: '',
@@ -39,7 +37,7 @@ export default function ForSale() {
   })
 
   const [properties, setProperties] = useState([])
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
   const [filteredProperties, setFilteredProperties] = useState([])
 
   //Pour récupérer toutes les location des propriétés et les mettre ensuite dans le select
@@ -61,8 +59,6 @@ export default function ForSale() {
   }, [filter])
 
   useEffect(() => {
-
-
     api
       .getProperties('/forsale')
       .then(res => {
@@ -176,20 +172,18 @@ export default function ForSale() {
       .filter(filterByOthers)
   }
 
-  const handleSave = (propertyId) => {
-
+  const handleSave = propertyId => {
     if (!hasLiked(propertyId)) {
       api.addFavorite(propertyId).then(res => {
-        localStorage.setItem("user", JSON.stringify(res))
+        localStorage.setItem('user', JSON.stringify(res))
         setUser(res)
       })
     } else {
       api.removeFavorite(propertyId).then(res => {
-        localStorage.setItem("user", JSON.stringify(res))
+        localStorage.setItem('user', JSON.stringify(res))
         setUser(res)
       })
     }
-
   }
 
   function hasLiked(propertyId) {
@@ -208,7 +202,7 @@ export default function ForSale() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -224,7 +218,7 @@ export default function ForSale() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((property, i) => (
@@ -262,7 +256,7 @@ export default function ForSale() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
             </div>
 
             <div className="container_max">
@@ -276,7 +270,7 @@ export default function ForSale() {
                 maxLength="13"
                 className="input-min-max"
               ></input>
-              <span className="unit">€</span>
+              <span className="unit"> €</span>
               <br></br>
               {/* <button onClick={handleChange}>OK</button> */}
             </div>
@@ -299,7 +293,7 @@ export default function ForSale() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <div className="container_max">
               <input
@@ -312,7 +306,7 @@ export default function ForSale() {
                 maxLength="27"
                 className="input-min-max"
               ></input>
-              <span className="unit">m²</span>
+              <span className="unit"> m²</span>
             </div>
             <span className="error invisible"></span>
           </div>
@@ -480,7 +474,7 @@ export default function ForSale() {
 
           <div className="filter-block">
             <span className="title">
-              <i className="fi fi-heart"></i> Other criterias
+              <i className="fi fi-heart"></i> Other
             </span>
             <span className="description"></span>
             <div className="containerList">
@@ -495,7 +489,7 @@ export default function ForSale() {
                   checked={filter.isCheckedGarden}
                 ></input>
                 <label htmlFor="garden" className="filter-label">
-                  <i className="fi fi-garden"></i>Garden
+                  <i className="fas fa-tree"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -509,7 +503,7 @@ export default function ForSale() {
                   checked={filter.isCheckedFireplace}
                 ></input>
                 <label htmlFor="fireplace" className="filter-label">
-                  <i className="fi fi-crit-chimney"></i>Fireplace
+                  <i className="fas fa-dumpster-fire"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -523,7 +517,7 @@ export default function ForSale() {
                   checked={filter.isCheckedCaretaker}
                 ></input>
                 <label htmlFor="guardian" className="filter-label">
-                  <i className="fi fi-crit-man-suit"></i>Caretaker
+                  <i className="fas fa-broom"></i>
                 </label>
               </div>
               <div className="itemList active">
@@ -537,8 +531,14 @@ export default function ForSale() {
                   checked={filter.isCheckedBalcony}
                 ></input>
                 <label htmlFor="balcony" className="filter-label">
-                  <i className="fi fi-crit-balcony"></i>Balcony
+                  <i className="fi fi-crit-balcony"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/antique-balcony.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
@@ -551,7 +551,7 @@ export default function ForSale() {
                   checked={filter.isCheckedPool}
                 ></input>
                 <label htmlFor="Swimming-Pool" className="filter-label">
-                  <i className="fi fi-crit-swimming-pool"></i>Swimming Pool
+                  <i className="fas fa-swimmer"></i>
                 </label>
               </div>
 
@@ -566,8 +566,14 @@ export default function ForSale() {
                   checked={filter.isCheckedTerrace}
                 ></input>
                 <label htmlFor="terrace" className="filter-label">
-                  <i className="fi fi-crit-table"></i>Terrace
+                  <i className="fi fi-crit-table"></i>
                 </label>
+                <img
+                  class="balcony"
+                  src="/terrasse.png"
+                  width="20px"
+                  height="20px;"
+                />
               </div>
               <div className="itemList active">
                 <input
@@ -580,7 +586,8 @@ export default function ForSale() {
                   checked={filter.isCheckedParking}
                 ></input>
                 <label htmlFor="parking" className="filter-label">
-                  <i></i>Parking
+                  <i className="fas fa-parking"></i>
+                  <i></i>
                 </label>
               </div>
             </div>
@@ -633,14 +640,19 @@ export default function ForSale() {
 
               <div className="ctas">
                 {api.isLoggedIn() && (
-
                   <button
                     onClick={() => handleSave(property._id)}
                     className="cta"
                     href=""
                     data-id={property._id}
                   >
-                    <i className={hasLiked(property._id) ? "fas fa-heart" : "far fa-heart"} width="20px" alt="heart" />
+                    <i
+                      className={
+                        hasLiked(property._id) ? 'fas fa-heart' : 'far fa-heart'
+                      }
+                      width="20px"
+                      alt="heart"
+                    />
                     {/* src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" */}
                     Save
                   </button>
