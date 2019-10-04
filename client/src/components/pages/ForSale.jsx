@@ -541,7 +541,6 @@ export default function ForSale() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
                   <div
@@ -555,7 +554,7 @@ export default function ForSale() {
             </div>
             <div key={property._id} className="property-details">
               <h3 className="card-title">
-                {property.title} in {property.location}
+                {property.title} <br /> in {property.location}
               </h3>
 
               <p className="text-color">
@@ -572,13 +571,14 @@ export default function ForSale() {
 
               <div className="ctas">
                 {api.isLoggedIn() && (
-
                   <i
                     onClick={() => handleSave(property._id)}
                     href=""
                     data-id={property._id}
                     className={
-                      hasLiked(property._id) ? 'coeur fas fa-heart' : 'coeur far fa-heart'
+                      hasLiked(property._id)
+                        ? 'coeur fas fa-heart'
+                        : 'coeur far fa-heart'
                     }
                     alt="heart"
                   />

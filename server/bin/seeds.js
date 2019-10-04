@@ -181,7 +181,7 @@ const properties = [
       'At the foot of the metro Saint Paul and many shops, duplex under the roofs of an area of ​​136m2 (98,56 m2 carrez), with small terrace, within an exceptional mansion. Passing the carved solid wooden door, classified to the historical monuments, one reaches the property, located on the third and last floor, by an elegant stone staircase. The entrance with its cabinet of curiosities leads to a beautiful living room benefiting from a double height with 5 meters in the ridge covered with its apparent framework. In a house spirit, the apartment has a quadruple exposure, the living room is decorated with a functional chimney, it is extended by an open kitchen, storage, a laundry and separate toilet. With views of the main wooded courtyard, two bedrooms. A bedroom connected to a large mezzanine (office or bedroom), and another bedroom with its bathroom, dressing room and small mezzanine. Upstairs, overlooking the living room, a third bedroom, with its dressing room and a bathroom of charm, opens onto the small terrace full sky. This duplex nestled in the quiet of this condominium charged with history is a unique place of life. Property subject to condominium status.',
   },
   {
-    title: 'Duplex with terrace in renowned architects building',
+    title: 'Duplex with terrace in architects building',
     type: 'Duplex',
     kind: 'For Rent',
     location: 'Paris 16',

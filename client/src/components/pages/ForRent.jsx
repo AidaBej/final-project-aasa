@@ -554,7 +554,7 @@ export default function ForRent() {
 
             <div key={property._id} className="property-details">
               <h3 className="card-title">
-                {property.title} in {property.location}
+                {property.title} <br /> in {property.location}
               </h3>
 
               <p className="text-color">
