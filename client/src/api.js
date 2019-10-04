@@ -96,7 +96,7 @@ export default {
   },
   getAbout() {
     return service
-      .get('/about')
+      .get('/aboutus')
       .then(res => res.data)
       .catch(errHandler)
   },
