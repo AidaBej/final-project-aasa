@@ -13,6 +13,14 @@ export default function EditProperty(props) {
     // }
   }, [])
 
+  function handleClick(e, id, index) {
+    console.log(id)
+    api.deleteProperty(id).then(prop => {
+      const arr = properties.filter((property, i) => i != index)
+      setProperties(arr)
+    })
+  }
+
   //   const [properties, setProperties] = useState([])
 
   // function getAllProperties(property) {
@@ -56,11 +64,9 @@ export default function EditProperty(props) {
                   ></Link>
                 </td>
                 <td>
-                  <Link
-                    to="/manage-property"
-                    className="fa fa-trash table-icon"
-                    aria-hidden="true"
-                  ></Link>
+                  <button onClick={e => handleClick(e, property._id, i)}>
+                    <i className="fa fa-trash table-icon"></i>
+                  </button>
                 </td>
               </tr>
             </tbody>

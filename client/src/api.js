@@ -163,7 +163,7 @@ export default {
 
   deleteProperty(propertyId) {
     return service
-      .post('/delete/propertyId')
+      .delete('property/delete/' + propertyId)
       .then(res => res.data)
       .catch(errHandler)
   },

@@ -36,20 +36,6 @@ router.get('/forsale', (req, res, next) => {
     .catch(err => next(err))
 })
 
-// Checkbox à choix multiples
-
-// Property.find({ rooms: [] })
-//   .then(res => console.log(res.length))
-//   .catch(err => console.log(err))
-
-// Property.find({ bedrooms: [] })
-//   .then(res => console.log(res.length))
-//   .catch(err => console.log(err))
-
-// Property.find({ others: [] })
-//   .then(res => console.log(res.length))
-//   .catch(err => console.log(err))
-
 /* GET the page showing ONE property */
 
 router.get('/detail/:id', (req, res, next) => {
@@ -117,23 +103,6 @@ router.post(
       .catch(err => next(err))
   }
 )
-// res.send('manage-property')
-// .catch(error => {
-//   console.log(error)
-//   res.send('add-new-property', {
-//     errorMessage: 'Duplicate property, please update form',
-//   })
-// })
-// }
-// )
-// .then(country => {
-//   res.json({
-//     success: true,
-//     country,
-//   })
-// })
-// .catch(err => next(err))
-// })
 
 /* GET the page showing ONE property to Edit*/
 
@@ -149,9 +118,10 @@ router.get('/edit/:id', (req, res, next) => {
 
 /* GET the edit page to DELETE */
 
-router.get('/delete/:id', (req, res, next) => {
+router.delete('/property/delete/:id', (req, res, next) => {
   Property.findByIdAndRemove(req.params.id)
     .then(dbRes => {
+      console.log(dbRes)
       res.send('coucou')
       // res.redirect('/manage-property')
     })
