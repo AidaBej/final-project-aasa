@@ -184,7 +184,7 @@ export default function ForSale() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -200,7 +200,7 @@ export default function ForSale() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-              // style={{ width: '30%' }}
+            // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -300,7 +300,6 @@ export default function ForSale() {
             <span className="description"></span>
             <div className="containerList">
               <div className="itemList active">
-                {/* <b-form-group label> */}
                 <input
                   className="form-check-input"
                   type="checkbox"

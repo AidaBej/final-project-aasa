@@ -10,7 +10,6 @@ const CustomMarker = ({ property }) => {
   const handleToggleClose = () => {
     setIsOpen(false)
   }
-  console.log('icii', property)
   return (
     property && (
       <Marker

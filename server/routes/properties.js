@@ -224,4 +224,18 @@ router.post('/favorites/fav/delete', (req, res) => {
     })
     .catch(err => console.log(err))
 })
+
+// getFavsOfLoggedInUser(id)
+
+router.get(`/favorites/:id`, (req, res) => {
+  console.log('here my favorites')
+  User.findOne({ _id: req.params.id })
+    .populate('favorite')
+    .then(response => {
+      console.log(response)
+      res.send(response)
+    })
+    .catch(error => console.log(err))
+})
+
 module.exports = router

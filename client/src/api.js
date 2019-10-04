@@ -108,6 +108,17 @@ export default {
       .catch(errHandler)
   },
 
+  getFavsOfLoggedInUser(id) {
+    return (
+      service
+        //route à créer
+        .get(`/favorites/${id}`)
+        .then(res => res.data.favorite)
+        .catch(errHandler)
+    )
+  },
+
+  // obtient les clients qui ont mis la propriété dans leurs favoris
   getFavorites() {
     return service
       .get('/favorites')

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import api from '../api'
 // import logo from '../logo.svg'
 import { Link, NavLink } from 'react-router-dom'
@@ -6,12 +6,22 @@ import { withRouter } from 'react-router'
 
 
 function MainNavbar(props) {
+
+  const [user, setUser] = useState({})
+  const [shown, setShown] = useState(false)
+
   api.isAdmin()
 
   function handleLogoutClick(e) {
     api.logout()
   }
-  const [shown, setShown] = useState(false)
+
+  useEffect(() => {
+    const user = api.getLocalStorageUser();
+    setUser(user)
+
+  }, [])
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark position-fixed mb-4">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -74,7 +84,7 @@ function MainNavbar(props) {
 
           {api.isLoggedIn() && (
             <li className="nav-item">
-              <NavLink className="nav-link" to="/favorites">
+              <NavLink className="nav-link" to={`/favorites/${user._id}`}>
                 Favorites{' '}
               </NavLink>
             </li>
@@ -124,7 +134,7 @@ function MainNavbar(props) {
           )} */}
         </ul>
       </div>
-    </nav>
+    </nav >
   )
 }
 
