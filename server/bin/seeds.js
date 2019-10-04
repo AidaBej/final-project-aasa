@@ -1,5 +1,6 @@
 const path = require('path')
-require('dotenv').config({ path: path.join(__dirname, '../.env') })
+require('dotenv').config()
+require('../configs/database')
 const mongoose = require('mongoose')
 const propertyModel = require('../models/Property')
 
@@ -7,7 +8,6 @@ const propertyModel = require('../models/Property')
 // const User = require('../models/User')
 // const bcryptSalt = 10
 
-require('../configs/database')
 // ['Apartment', 'Triplex', 'Loft', 'Penthouse'],
 // ['Balcony', 'Caretaker'],
 
