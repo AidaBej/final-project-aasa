@@ -39,7 +39,7 @@ export default function AddProperty(props) {
     console.log('The file added by the use is: ', e.target.files[0])
     setState({
       ...state,
-      pictures: e.target.files[0],
+      ['pictures']: e.target.files[0],
     })
   }
 
@@ -48,29 +48,30 @@ export default function AddProperty(props) {
     console.log(state.name, state.description)
 
     // upload image => form data => + api call avec header en multipart/form-data
-    const fd = new FormData()
+    // const fd = new FormData()
 
-    for (let prop in state) {
-      fd.append(prop, state[prop])
-    }
+    // for (let prop in state) {
+    //   if (prop !== 'pictures') fd.append(prop, state[prop])
+    //   else fd.set(prop, state[prop])
+    // }
     // fd.append('pictures', '???')
 
-    // let data = {
-    //   title: state.title,
-    //   type: state.type,
-    //   kind: state.kind,
-    //   location: state.location,
-    //   localisation: state.localisation,
-    //   budget: state.budget,
-    //   size: state.size,
-    //   rooms: state.rooms,
-    //   bedrooms: state.bedrooms,
-    //   others: state.others,
-    //   description: state.description,
-    //   pictures: state.pictures,
-    // }
+    let data = {
+      title: state.title,
+      type: state.type,
+      kind: state.kind,
+      location: state.location,
+      localisation: state.localisation,
+      budget: state.budget,
+      size: state.size,
+      rooms: state.rooms,
+      bedrooms: state.bedrooms,
+      others: state.others,
+      description: state.description,
+      pictures: state.pictures,
+    }
     api
-      .addProperty(fd)
+      .addProperty(data)
       .then(result => {
         console.log('SUCCESS!')
         setState({

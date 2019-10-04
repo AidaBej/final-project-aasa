@@ -149,11 +149,7 @@ export default {
 
   addProperty(fd) {
     return service
-      .post('/add-new-property', fd, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
+      .post('/add-new-property', fd)
       .then(res => res.data)
       .catch(errHandler)
   },

@@ -1,21 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import api from '../../api'
-// import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
-// import Map from './ReactGoogleMap'
-// import Map from './Map'
-// mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
+import React from 'react'
 
 export default function About() {
-  const [about, setAbout] = useState([])
-  useEffect(() => {
-    api
-      .getAbout()
-      .then(about => {
-        setAbout(about)
-      })
-      .catch(err => console.log(err))
-  }, [])
-
   return (
     <div className="About">
       <br />

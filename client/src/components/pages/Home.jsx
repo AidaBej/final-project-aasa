@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import properties from 'seeds.js'
 import Parallax from './../Parallax'
 // import ContactUs from './ContactUs'
@@ -9,13 +9,13 @@ import Map from './ReactGoogleMap'
 
 export default function Home(props) {
   // const [properties, setProperties] = useState([])
-  const [viewport, setViewport] = useState({
-    latitude: 48,
-    longitude: 22,
-    zoom: 10,
-    width: '100vw',
-    height: '100vh',
-  })
+  // const [viewport, setViewport] = useState({
+  //   latitude: 48,
+  //   longitude: 22,
+  //   zoom: 10,
+  //   width: '100vw',
+  //   height: '100vh',
+  // })
 
   return (
     <>

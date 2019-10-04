@@ -12,7 +12,7 @@ export default function EditOne(props) {
         setProperty(res)
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [id])
 
   function handleInputChange(event) {
     setProperty({

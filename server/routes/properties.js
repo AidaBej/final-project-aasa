@@ -68,7 +68,7 @@ router.get('/detail/:id', (req, res, next) => {
 
 router.post(
   '/add-new-property',
-  cloudinary.single('pictures'),
+  cloudinary.array('pictures'),
   (req, res, next) => {
     const {
       title,
