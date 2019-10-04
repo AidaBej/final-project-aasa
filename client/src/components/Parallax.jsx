@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery'
 import _ from 'lodash'
+import { Link } from 'react-router-dom'
 
 export default function Parallax() {
   // ------------- VARIABLES ------------- //
@@ -126,9 +127,9 @@ export default function Parallax() {
           <p className="content-title">Our team</p>
           <p className="content-subtitle">Aimée, Aida & Sophie-Anne</p>
           <div className="buttons">
-            <a href="/aboutus">
+            <Link to="/aboutus">
               <button className="btn btn-primary">Meet our team</button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
