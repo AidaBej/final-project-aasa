@@ -16,6 +16,7 @@ export default function Home(props) {
     width: '100vw',
     height: '100vh',
   })
+  console.log('hello')
   useEffect(() => {
     let id = props.match.params.id
 
