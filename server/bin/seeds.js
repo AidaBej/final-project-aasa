@@ -1,6 +1,6 @@
 const path = require('path')
-require('dotenv').config()
-require('../configs/database')
+// require('dotenv').config()
+// require('../configs/database')
 const mongoose = require('mongoose')
 const propertyModel = require('../models/Property')
 
