@@ -539,12 +539,6 @@ export default function ForSale() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-              {/* {api.isLoggedIn() && (
-                <span
-                  className="fav fas fa-heart white"
-                  // data-id={{ this._id }}
-                ></span>
-              )} */}
 
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
@@ -576,22 +570,16 @@ export default function ForSale() {
 
               <div className="ctas">
                 {api.isLoggedIn() && (
-                  <button
+
+                  <i
                     onClick={() => handleSave(property._id)}
-                    className="cta"
                     href=""
                     data-id={property._id}
-                  >
-                    <i
-                      className={
-                        hasLiked(property._id) ? 'fas fa-heart' : 'far fa-heart'
-                      }
-                      width="20px"
-                      alt="heart"
-                    />
-                    {/* src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" */}
-                    Save
-                  </button>
+                    className={
+                      hasLiked(property._id) ? 'coeur fas fa-heart' : 'coeur far fa-heart'
+                    }
+                    alt="heart"
+                  />
                 )}
 
                 <Link to={`/detail/${property._id}`} className="cta">

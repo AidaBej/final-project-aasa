@@ -7,7 +7,8 @@
 
 .background-detail {
   font-family: 'Source Sans Pro', sans-serif;
-  background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569851004/ironhack-project-3/properties/colin-maynard-hSXt6ZYYPsk-unsplash_jrilbn.jpg');
+  // background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1569851004/ironhack-project-3/properties/colin-maynard-hSXt6ZYYPsk-unsplash_jrilbn.jpg');
+  background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570122396/ironhack-project-3/properties/shttefan-viNPa2F7fnw-unsplash_ssqgnj.jpg');
   background-size: cover;
   min-height: 100vh;
   background-attachment: fixed;
@@ -21,11 +22,11 @@
 
 .one-property-title {
   display: flex;
-  justify-content: flex-end;
-  font-size: 35px;
-  color: white;
-  text-shadow: 2px 2px 4px #8b8b8b;
-  margin-top: 20px;
+  justify-content: flex-start;
+  color: #5588a3;
+  text-shadow: 2px 2px 2px white;
+  font-size: 50px;
+  margin-top: 0;
 }
 
 .slideshow-container {
@@ -37,11 +38,6 @@
   padding: 0;
 }
 
-.title-block {
-  display: flex;
-  justify-content: flex-end;
-  // margin-right: 100px;
-}
 .column-content {
   display: flex;
   flex-direction: column;
@@ -56,7 +52,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  width: 50%;
+  width: 66%;
   background: white;
   padding: 20px;
   margin-right: 10px;
@@ -66,15 +62,58 @@
   display: flex;
   flex-direction: column;
   background: white;
-  width: 50%;
+  width: 33%;
   padding: 20px;
-  color: #5588a3;
+  color: black;
   margin-left: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.strong-title {
+  color: #5588a3;
+  font-size: 30px;
+}
+
+.smaller-title {
+  color: #92b5c7;
+  font-size: 23px;
 }
 
 .details-slider {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
   margin-top: 30px;
+}
+
+.fa-heart {
+  width: 50px;
+  font-size: 36px;
+}
+
+.coeur {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: auto;
+  color: red;
+}
+
+.coeur:hover {
+  color: pink;
+}
+
+.div-heart {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-left-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

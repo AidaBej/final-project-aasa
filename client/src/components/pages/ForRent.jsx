@@ -484,6 +484,7 @@ export default function ForRent() {
                   src="/antique-balcony.png"
                   width="20px"
                   height="20px;"
+                  alt="balcony-img"
                 />
               </div>
               <div className="itemList active">
@@ -513,6 +514,7 @@ export default function ForRent() {
                   src="/terrasse.png"
                   width="20px"
                   height="20px;"
+                  alt="balcony-img"
                 />
               </div>
               <div className="itemList active">
@@ -570,22 +572,15 @@ export default function ForRent() {
 
               <div className="ctas">
                 {api.isLoggedIn() && (
-                  <button
+                  <i
                     onClick={() => handleSave(property._id)}
-                    className="cta"
                     href=""
                     data-id={property._id}
-                  >
-                    <i
-                      className={
-                        hasLiked(property._id) ? 'fas fa-heart' : 'far fa-heart'
-                      }
-                      width="20px"
-                      alt="heart"
-                    />
-                    {/* src="https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-null_ws7xx5.png" */}
-                    Save
-                  </button>
+                    className={
+                      hasLiked(property._id) ? 'coeur fas fa-heart' : 'coeur far fa-heart'
+                    }
+                    alt="heart"
+                  />
                 )}
 
                 <Link to={`/detail/${property._id}`} className="cta">

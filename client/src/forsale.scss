@@ -40,6 +40,7 @@
   height: auto;
   width: 80%;
   overflow: hidden;
+  position: relative;
 }
 
 .hyperlink {
@@ -169,7 +170,7 @@
   font-size: 20px;
   justify-content: flex-start;
   margin: 10px 0 10px 0;
-  width: 100%;
+  width: 80%;
   height: 30%;
   align-items: center;
 }
@@ -235,14 +236,35 @@ h3 {
   width: 20px;
 }
 
-.heart-full {
-  // background: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570019992/ironhack-project-3/properties/like-checked_ojl94b.png');
-  width: 20px;
-}
-
 .form-properties {
   display: flex;
   flex-direction: row;
   width: 100%;
   // flex-wrap: wrap;
+}
+
+.property-liked {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 40px;
+}
+
+.coeur {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: auto;
+  color: red;
+}
+
+.fa-heart {
+  width: 50px;
+  font-size: 36px;
+}
+
+.coeur:hover {
+  color: pink;
 }
