@@ -225,8 +225,15 @@ h3 {
   text-decoration: none !important;
 }
 
-.heart {
-  width: 20px;
+.coeur {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+}
+
+.coeur:hover {
+  color: red;
 }
 
 .heart-o {

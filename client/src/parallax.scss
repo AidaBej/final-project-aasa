@@ -41,7 +41,7 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
   }
   &:first-child {
-    background-image: url(/background-image.png);
+    background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570179454/ironhack-project-3/properties/background-image_o6bso4.png');
 
     transform: translateY(-$parallax-offset / 2);
     .content-wrapper {
@@ -49,10 +49,10 @@ body {
     }
   }
   &:nth-child(2) {
-    background-image: url(/paris-rooftop.jpg);
+    background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570179455/ironhack-project-3/properties/paris-rooftop_m8bnp8.jpg');
   }
   &:nth-child(3) {
-    background-image: url(/team.jpg);
+    background-image: url('https://res.cloudinary.com/drukuybdj/image/upload/v1570179455/ironhack-project-3/properties/team_byrlts.jpg');
   }
 }
 
