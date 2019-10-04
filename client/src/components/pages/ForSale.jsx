@@ -65,10 +65,10 @@ export default function ForSale() {
       .catch(err => console.log(err))
   }, [])
 
-  function getGoogleMapsDirection(property) {
-    let [lng, lat] = property.localisation.coordinates
-    return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
-  }
+  // function getGoogleMapsDirection(property) {
+  //   let [lng, lat] = property.localisation.coordinates
+  //   return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
+  // }
 
   function handleChange(e) {
     if (e.target.type === 'checkbox') {
@@ -184,7 +184,7 @@ export default function ForSale() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -200,7 +200,7 @@ export default function ForSale() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -480,10 +480,11 @@ export default function ForSale() {
                   <i className="fi fi-crit-balcony"></i>
                 </label>
                 <img
-                  class="balcony"
+                  className="balcony"
                   src="/antique-balcony.png"
                   width="20px"
                   height="20px;"
+                  alt="balcony"
                 />
               </div>
               <div className="itemList active">
@@ -509,10 +510,11 @@ export default function ForSale() {
                   <i className="fi fi-crit-table"></i>
                 </label>
                 <img
-                  class="balcony"
+                  className="balcony"
                   src="/terrasse.png"
                   width="20px"
                   height="20px;"
+                  alt="terrace"
                 />
               </div>
               <div className="itemList active">

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
-import Map from './ReactGoogleMap'
+// import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
+// import Map from './ReactGoogleMap'
 // import Map from './Map'
 // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
 export default function About() {
   const [about, setAbout] = useState([])
   useEffect(() => {
-    // api
-    //   .getAbout()
-    //   .then(about => {
-    //     setAbout(about)
-    //   })
-    //   .catch(err => console.log(err))
+    api
+      .getAbout()
+      .then(about => {
+        setAbout(about)
+      })
+      .catch(err => console.log(err))
   }, [])
 
   return (
@@ -39,15 +39,15 @@ export default function About() {
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6">
             <div className="values">
               <div className="values-title">Our values</div>
 
               <div className="component-wrapper">
                 <div className="component-item">
-                  <img src="love.png" height="70px" />
+                  <img src="love.png" height="70px" alt="Values" />
                   <h2>Ethics and Transparency</h2>
                   <p>
                     We consider our business in the long term, and in a
@@ -55,7 +55,7 @@ export default function About() {
                   </p>
                 </div>
                 <div className="component-item">
-                  <img src="cup.png" height="70px" />
+                  <img src="cup.png" height="70px" alt="Values" />
 
                   <h2>Serious</h2>
                   <p>
@@ -64,7 +64,7 @@ export default function About() {
                   </p>
                 </div>
                 <div className="component-item">
-                  <img src="star.png" height="70px" />
+                  <img src="star.png" height="70px" alt="Values" />
 
                   <h2>Expertise</h2>
 
@@ -78,24 +78,28 @@ export default function About() {
             </div>
           </div>
 
-          <div class="col-sm-6 other">
+          <div className="col-sm-6 other">
             <div className="values">
               <div className="values-title">Our team</div>
 
               <div className="component-wrapper">
                 <div className="component-item">
-                  <img src="/profilepic-linkedin.png" height="90px" />
+                  <img
+                    src="/profilepic-linkedin.png"
+                    height="90px"
+                    alt="profile"
+                  />
                   <h2>Aida</h2>
                   <p>Lead developer</p>
                 </div>
                 <div className="component-item">
-                  <img src="aimee.jpg" height="90px" />
+                  <img src="aimee.jpg" height="90px" alt="profile" />
 
                   <h2>Aimée</h2>
                   <p>Front-end developer</p>
                 </div>
                 <div className="component-item">
-                  <img src="SA.JPG" height="90px" />
+                  <img src="SA.JPG" height="90px" alt="profile" />
 
                   <h2>Sophie-Anne</h2>
 

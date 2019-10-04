@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import api from '../../api'
 
 export default function ContactUs(props) {
@@ -9,9 +9,7 @@ export default function ContactUs(props) {
     message: null,
     topic: null,
   })
-  useEffect(() => {
-    console.log('contact us props =>>', props)
-  }, [])
+
   function handleInputChange(event) {
     setState({
       ...state,
@@ -117,7 +115,7 @@ export default function ContactUs(props) {
               >
                 Submit
               </button>
-              <div class="msg-submit">{msg}</div>
+              <div className="msg-submit">{msg}</div>
               {/* </div> */}
             </form>
             <br></br>

@@ -28,7 +28,8 @@ export default function Signup(props) {
     api
       .signup(data)
       .then(result => {
-        console.log('SUCCESS!')
+        // console.log('SUCCESS!')
+        console.log(result)
         props.history.push('/') // Redirect to the home page
       })
       .catch(err => setState({ message: err.toString() }))
@@ -55,7 +56,7 @@ export default function Signup(props) {
                   placeholder="Enter your name"
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="InputEmail">Email </label>
                 <input
                   id="InputEmail"
@@ -66,7 +67,7 @@ export default function Signup(props) {
                   placeholder="email@example.com"
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="InputPassword">Password</label>
                 <input
                   name="password"
@@ -76,10 +77,10 @@ export default function Signup(props) {
                   placeholder="*****"
                 />
               </div>
-              <div class="button-submit-contact">
+              <div className="button-submit-contact">
                 <button
                   type="submit"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={e => handleClick(e)}
                 >
                   Signup

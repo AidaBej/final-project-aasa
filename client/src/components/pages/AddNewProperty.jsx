@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import api from '../../api'
 
 export default function AddProperty(props) {
@@ -17,7 +16,6 @@ export default function AddProperty(props) {
     description: '',
     pictures: '',
   })
-  const [message, setMessage] = useState(null)
 
   function handleInputChange(e) {
     if (e.target.name === 'localisation') {
@@ -89,9 +87,8 @@ export default function AddProperty(props) {
           description: '',
           pictures: '',
         })
-        setMessage(`The new property '${state.title}' has been created`)
+
         setTimeout(() => {
-          setMessage(null)
           props.history.push('/manage-property')
         }, 2000)
       })

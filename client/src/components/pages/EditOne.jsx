@@ -3,13 +3,12 @@ import api from '../../api'
 
 export default function EditOne(props) {
   const [property, setProperty] = useState({})
+  const id = props.match.params.id
 
   useEffect(() => {
-    let id = props.match.params.id
     api
       .getDetail(id)
       .then(res => {
-        console.log(res)
         setProperty(res)
       })
       .catch(err => console.log(err))
@@ -20,10 +19,6 @@ export default function EditOne(props) {
       ...property,
       [event.target.name]: event.target.value,
     })
-  }
-  function handleChange(e) {
-    let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    setProperty({ ...property, [e.target.name]: value })
   }
 
   function handleClick(e) {
@@ -221,7 +216,7 @@ export default function EditOne(props) {
               <div>
                 <button
                   type="submit"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={e => handleClick(e)}
                 >
                   Save Changes

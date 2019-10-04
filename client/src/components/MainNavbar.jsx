@@ -4,22 +4,19 @@ import api from '../api'
 import { Link, NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
-
 function MainNavbar(props) {
-
   const [user, setUser] = useState({})
   const [shown, setShown] = useState(false)
 
-  api.isAdmin()
+  // api.isAdmin()
 
   function handleLogoutClick(e) {
     api.logout()
   }
 
   useEffect(() => {
-    const user = api.getLocalStorageUser();
+    const user = api.getLocalStorageUser()
     setUser(user)
-
   }, [])
 
   return (
@@ -82,11 +79,13 @@ function MainNavbar(props) {
             </NavLink>
           </li>
 
-          {api.isLoggedIn() && (
+          {api.isLoggedIn() && !api.isAdmin() && (
             <li className="nav-item">
-              <NavLink className="nav-link" to={`/favorites/${user._id}`}>
-                Favorites{' '}
-              </NavLink>
+              {user._id && (
+                <NavLink className="nav-link" to={`/favorites/${user._id}`}>
+                  Favorites{' '}
+                </NavLink>
+              )}
             </li>
           )}
           {api.isAdmin() && (
@@ -134,7 +133,7 @@ function MainNavbar(props) {
           )} */}
         </ul>
       </div>
-    </nav >
+    </nav>
   )
 }
 

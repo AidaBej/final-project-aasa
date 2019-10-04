@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps'
 import CustomMarker from './CustomMarker'
-import _ from 'lodash'
+// import _ from 'lodash'
 import api from '../../api'
 
 console.log(process.env.REACT_APP_GOOGLEMAP_API)
@@ -70,9 +70,9 @@ const AppMap = props => {
     console.log(props.latLng.lng())
   }
 
-  const handleToggleOpen = e => {
-    console.log(e)
-  }
+  // const handleToggleOpen = e => {
+  //   console.log(e)
+  // }
   return (
     <div style={{ height: '100vh' }}>
       <WrapperMap

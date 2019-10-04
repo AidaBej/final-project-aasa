@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import api from '../../api'
 import { useForm } from '../../hooks'
 import { Link } from 'react-router-dom'
@@ -14,10 +14,8 @@ export default function Login(props) {
         console.log('SUCCESS!')
         props.history.push('/') // Redirect to the home page
       })
-      .catch(err => setMessage(err.toString()))
+      .catch(err => console.log(err))
   }
-
-  const [message, setMessage] = useState(null)
 
   return (
     <div className="login">
@@ -49,10 +47,10 @@ export default function Login(props) {
                   placeholder="*********"
                 />
               </div>
-              <div class="button-submit-contact">
+              <div className="button-submit-contact">
                 <button
                   type="submit"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   // onClick={e => handleClick(e)}
                 >
                   Login

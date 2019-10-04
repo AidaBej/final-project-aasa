@@ -68,10 +68,10 @@ export default function ForRent() {
       .catch(err => console.log(err))
   }, [])
 
-  function getGoogleMapsDirection(property) {
-    let [lng, lat] = property.localisation.coordinates
-    return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
-  }
+  // function getGoogleMapsDirection(property) {
+  //   let [lng, lat] = property.localisation.coordinates
+  //   return `https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`
+  // }
 
   function handleChange(e) {
     if (e.target.type === 'checkbox') {
@@ -188,7 +188,7 @@ export default function ForRent() {
               value={filter.type}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Types of properties</option>
               <option value="Apartment">Apartment</option>
@@ -204,7 +204,7 @@ export default function ForRent() {
               value={filter.location}
               onChange={handleChange}
               className="dropdowns"
-            // style={{ width: '30%' }}
+              // style={{ width: '30%' }}
             >
               <option value="">Location</option>
               {getLocation().map((sale, i) => (
@@ -480,10 +480,11 @@ export default function ForRent() {
                   <i className="fi fi-crit-balcony"></i>
                 </label>
                 <img
-                  class="balcony"
+                  className="balcony"
                   src="/antique-balcony.png"
                   width="20px"
                   height="20px;"
+                  alt="balcony"
                 />
               </div>
               <div className="itemList active">
@@ -509,10 +510,11 @@ export default function ForRent() {
                   <i className="fi fi-crit-table"></i>
                 </label>
                 <img
-                  class="balcony"
+                  className="balcony"
                   src="/terrasse.png"
                   width="20px"
                   height="20px;"
+                  alt="terrace"
                 />
               </div>
               <div className="itemList active">
@@ -538,7 +540,6 @@ export default function ForRent() {
         <div key={i}>
           <div className="property-card">
             <div className="slider" key={property._id + Date.now()}>
-
               <AwesomeSlider className="slideshow-container">
                 {property.pictures.map((pic, i) => (
                   <div

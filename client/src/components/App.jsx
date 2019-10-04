@@ -16,7 +16,7 @@ import EditOne from './pages/EditOne'
 import Map from './pages/Map'
 import AddNewProperty from './pages/AddNewProperty'
 import EditProperty from './pages/Edit'
-import Test from './pages/Test'
+
 export default function App() {
   return (
     <div className="App">
