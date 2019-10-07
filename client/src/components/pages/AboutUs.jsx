@@ -70,7 +70,7 @@ export default function About() {
               <div className="component-wrapper">
                 <div className="component-item">
                   <img
-                    src="/profilepic-linkedin.png"
+                    src="https://res.cloudinary.com/drukuybdj/image/upload/v1570450225/ironhack-project-3/properties/aida_g3ionh.png"
                     height="90px"
                     alt="profile"
                   />
@@ -78,13 +78,21 @@ export default function About() {
                   <p>Lead developer</p>
                 </div>
                 <div className="component-item">
-                  <img src="aimee.jpg" height="90px" alt="profile" />
+                  <img
+                    src="https://res.cloudinary.com/drukuybdj/image/upload/v1570450227/ironhack-project-3/properties/aime%CC%81e_c7bril.jpg"
+                    height="90px"
+                    alt="profile"
+                  />
 
                   <h2>Aimée</h2>
                   <p>Front-end developer</p>
                 </div>
                 <div className="component-item">
-                  <img src="SA.JPG" height="90px" alt="profile" />
+                  <img
+                    src="https://res.cloudinary.com/drukuybdj/image/upload/v1570450224/ironhack-project-3/properties/SA_zeit4t.jpg"
+                    height="90px"
+                    alt="profile"
+                  />
 
                   <h2>Sophie-Anne</h2>
 
